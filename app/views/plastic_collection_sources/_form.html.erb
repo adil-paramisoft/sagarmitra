@@ -1,0 +1,45 @@
+<%= form_for(@plastic_collection_source) do |f| %>
+  <% if @plastic_collection_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plastic_collection_source.errors.count, "error") %> prohibited this plastic_collection_source from being saved:</h2>
+
+      <ul>
+      <% @plastic_collection_source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_person %><br>
+    <%= f.text_field :contact_person %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_no_1 %><br>
+    <%= f.number_field :phone_no_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_no_2 %><br>
+    <%= f.number_field :phone_no_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :eamil %><br>
+    <%= f.text_field :eamil %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

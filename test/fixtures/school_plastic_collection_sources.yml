@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  schoold_id: 1
+  plastic_collection_source: 1
+
+two:
+  schoold_id: 1
+  plastic_collection_source: 1

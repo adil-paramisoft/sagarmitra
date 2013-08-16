@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  plastic_weight: 1.5
+  money_given: 1.5
+  volunteers_present: MyText
+  plastic_collection_agency_id: 1
+  date: 2013-08-15 01:15:43
+  quality_remark: MyString
+  feedback: MyText
+  school_id: 1
+
+two:
+  plastic_weight: 1.5
+  money_given: 1.5
+  volunteers_present: MyText
+  plastic_collection_agency_id: 1
+  date: 2013-08-15 01:15:43
+  quality_remark: MyString
+  feedback: MyText
+  school_id: 1

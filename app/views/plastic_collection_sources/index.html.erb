@@ -1,0 +1,39 @@
+<h1>Listing plastic_collection_sources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact person</th>
+      <th>Phone no 1</th>
+      <th>Phone no 2</th>
+      <th>Website</th>
+      <th>Eamil</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plastic_collection_sources.each do |plastic_collection_source| %>
+      <tr>
+        <td><%= plastic_collection_source.name %></td>
+        <td><%= plastic_collection_source.address %></td>
+        <td><%= plastic_collection_source.contact_person %></td>
+        <td><%= plastic_collection_source.phone_no_1 %></td>
+        <td><%= plastic_collection_source.phone_no_2 %></td>
+        <td><%= plastic_collection_source.website %></td>
+        <td><%= plastic_collection_source.eamil %></td>
+        <td><%= link_to 'Show', plastic_collection_source %></td>
+        <td><%= link_to 'Edit', edit_plastic_collection_source_path(plastic_collection_source) %></td>
+        <td><%= link_to 'Destroy', plastic_collection_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plastic collection source', new_plastic_collection_source_path %>

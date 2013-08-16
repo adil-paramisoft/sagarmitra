@@ -1,0 +1,29 @@
+<h1>Listing school_roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @school_roles.each do |school_role| %>
+      <tr>
+        <td><%= school_role.role %></td>
+        <td><%= school_role.description %></td>
+        <td><%= link_to 'Show', school_role %></td>
+        <td><%= link_to 'Edit', edit_school_role_path(school_role) %></td>
+        <td><%= link_to 'Destroy', school_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School role', new_school_role_path %>

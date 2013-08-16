@@ -1,0 +1,2 @@
+module SchoolPlasticCollectionSourcesHelper
+end

@@ -1,0 +1,53 @@
+<%= form_for(@presentation) do |f| %>
+  <% if @presentation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@presentation.errors.count, "error") %> prohibited this presentation from being saved:</h2>
+
+      <ul>
+      <% @presentation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :presented_by %><br>
+    <%= f.text_field :presented_by %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :audience_count %><br>
+    <%= f.number_field :audience_count %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br>
+    <%= f.text_area :summary %>
+  </div>
+  <div class="field">
+    <%= f.label :authorities_present %><br>
+    <%= f.text_area :authorities_present %>
+  </div>
+  <div class="field">
+    <%= f.label :presentation_type_id %><br>
+    <%= f.number_field :presentation_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :school_id %><br>
+    <%= f.number_field :school_id %>
+  </div>
+  <div class="field">
+    <%= f.label :followup_volunteer %><br>
+    <%= f.text_field :followup_volunteer %>
+  </div>
+  <div class="field">
+    <%= f.label :followup_volunteer_mno %><br>
+    <%= f.number_field :followup_volunteer_mno %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

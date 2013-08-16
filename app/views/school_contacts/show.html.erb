@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>School:</strong>
+  <%= @school_contact.school_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @school_contact.user_id %>
+</p>
+
+<p>
+  <strong>Schoold role:</strong>
+  <%= @school_contact.schoold_role_id %>
+</p>
+
+<%= link_to 'Edit', edit_school_contact_path(@school_contact) %> |
+<%= link_to 'Back', school_contacts_path %>

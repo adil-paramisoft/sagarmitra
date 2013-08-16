@@ -1,0 +1,25 @@
+<%= form_for(@school_plastic_collection_source) do |f| %>
+  <% if @school_plastic_collection_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school_plastic_collection_source.errors.count, "error") %> prohibited this school_plastic_collection_source from being saved:</h2>
+
+      <ul>
+      <% @school_plastic_collection_source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :schoold_id %><br>
+    <%= f.number_field :schoold_id %>
+  </div>
+  <div class="field">
+    <%= f.label :plastic_collection_source %><br>
+    <%= f.number_field :plastic_collection_source %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

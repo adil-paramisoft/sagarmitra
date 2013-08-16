@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyText
+  school_type_id: 1
+  program_state_id: 1
+  total_students: 1
+  medium_id: 1
+
+two:
+  address: MyText
+  school_type_id: 1
+  program_state_id: 1
+  total_students: 1
+  medium_id: 1

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plastic weight:</strong>
+  <%= @plastic_collection_event.plastic_weight %>
+</p>
+
+<p>
+  <strong>Money given:</strong>
+  <%= @plastic_collection_event.money_given %>
+</p>
+
+<p>
+  <strong>Volunteers present:</strong>
+  <%= @plastic_collection_event.volunteers_present %>
+</p>
+
+<p>
+  <strong>Plastic collection agency:</strong>
+  <%= @plastic_collection_event.plastic_collection_agency_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @plastic_collection_event.date %>
+</p>
+
+<p>
+  <strong>Quality remark:</strong>
+  <%= @plastic_collection_event.quality_remark %>
+</p>
+
+<p>
+  <strong>Feedback:</strong>
+  <%= @plastic_collection_event.feedback %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @plastic_collection_event.school_id %>
+</p>
+
+<%= link_to 'Edit', edit_plastic_collection_event_path(@plastic_collection_event) %> |
+<%= link_to 'Back', plastic_collection_events_path %>

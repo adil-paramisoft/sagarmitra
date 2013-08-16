@@ -1,0 +1,29 @@
+<h1>Listing presentation_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presentation_types.each do |presentation_type| %>
+      <tr>
+        <td><%= presentation_type.name %></td>
+        <td><%= presentation_type.description %></td>
+        <td><%= link_to 'Show', presentation_type %></td>
+        <td><%= link_to 'Edit', edit_presentation_type_path(presentation_type) %></td>
+        <td><%= link_to 'Destroy', presentation_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Presentation type', new_presentation_type_path %>

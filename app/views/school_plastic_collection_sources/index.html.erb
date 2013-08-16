@@ -1,0 +1,29 @@
+<h1>Listing school_plastic_collection_sources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schoold</th>
+      <th>Plastic collection source</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @school_plastic_collection_sources.each do |school_plastic_collection_source| %>
+      <tr>
+        <td><%= school_plastic_collection_source.schoold_id %></td>
+        <td><%= school_plastic_collection_source.plastic_collection_source %></td>
+        <td><%= link_to 'Show', school_plastic_collection_source %></td>
+        <td><%= link_to 'Edit', edit_school_plastic_collection_source_path(school_plastic_collection_source) %></td>
+        <td><%= link_to 'Destroy', school_plastic_collection_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School plastic collection source', new_school_plastic_collection_source_path %>

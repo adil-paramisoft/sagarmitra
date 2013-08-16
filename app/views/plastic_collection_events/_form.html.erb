@@ -1,0 +1,49 @@
+<%= form_for(@plastic_collection_event) do |f| %>
+  <% if @plastic_collection_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plastic_collection_event.errors.count, "error") %> prohibited this plastic_collection_event from being saved:</h2>
+
+      <ul>
+      <% @plastic_collection_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :plastic_weight %><br>
+    <%= f.text_field :plastic_weight %>
+  </div>
+  <div class="field">
+    <%= f.label :money_given %><br>
+    <%= f.text_field :money_given %>
+  </div>
+  <div class="field">
+    <%= f.label :volunteers_present %><br>
+    <%= f.text_area :volunteers_present %>
+  </div>
+  <div class="field">
+    <%= f.label :plastic_collection_agency_id %><br>
+    <%= f.number_field :plastic_collection_agency_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :quality_remark %><br>
+    <%= f.text_field :quality_remark %>
+  </div>
+  <div class="field">
+    <%= f.label :feedback %><br>
+    <%= f.text_area :feedback %>
+  </div>
+  <div class="field">
+    <%= f.label :school_id %><br>
+    <%= f.number_field :school_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  presented_by: MyString
+  date: 2013-08-15 00:56:55
+  audience_count: 1
+  summary: MyText
+  authorities_present: MyText
+  presentation_type_id: 1
+  school_id: 1
+  followup_volunteer: MyString
+  followup_volunteer_mno: 1
+
+two:
+  presented_by: MyString
+  date: 2013-08-15 00:56:55
+  audience_count: 1
+  summary: MyText
+  authorities_present: MyText
+  presentation_type_id: 1
+  school_id: 1
+  followup_volunteer: MyString
+  followup_volunteer_mno: 1

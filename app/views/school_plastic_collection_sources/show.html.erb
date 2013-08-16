@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Schoold:</strong>
+  <%= @school_plastic_collection_source.schoold_id %>
+</p>
+
+<p>
+  <strong>Plastic collection source:</strong>
+  <%= @school_plastic_collection_source.plastic_collection_source %>
+</p>
+
+<%= link_to 'Edit', edit_school_plastic_collection_source_path(@school_plastic_collection_source) %> |
+<%= link_to 'Back', school_plastic_collection_sources_path %>

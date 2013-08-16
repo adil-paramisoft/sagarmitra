@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plastic_collection_source.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @plastic_collection_source.address %>
+</p>
+
+<p>
+  <strong>Contact person:</strong>
+  <%= @plastic_collection_source.contact_person %>
+</p>
+
+<p>
+  <strong>Phone no 1:</strong>
+  <%= @plastic_collection_source.phone_no_1 %>
+</p>
+
+<p>
+  <strong>Phone no 2:</strong>
+  <%= @plastic_collection_source.phone_no_2 %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @plastic_collection_source.website %>
+</p>
+
+<p>
+  <strong>Eamil:</strong>
+  <%= @plastic_collection_source.eamil %>
+</p>
+
+<%= link_to 'Edit', edit_plastic_collection_source_path(@plastic_collection_source) %> |
+<%= link_to 'Back', plastic_collection_sources_path %>

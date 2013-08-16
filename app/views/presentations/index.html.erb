@@ -1,0 +1,43 @@
+<h1>Listing presentations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Presented by</th>
+      <th>Date</th>
+      <th>Audience count</th>
+      <th>Summary</th>
+      <th>Authorities present</th>
+      <th>Presentation type</th>
+      <th>School</th>
+      <th>Followup volunteer</th>
+      <th>Followup volunteer mno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presentations.each do |presentation| %>
+      <tr>
+        <td><%= presentation.presented_by %></td>
+        <td><%= presentation.date %></td>
+        <td><%= presentation.audience_count %></td>
+        <td><%= presentation.summary %></td>
+        <td><%= presentation.authorities_present %></td>
+        <td><%= presentation.presentation_type_id %></td>
+        <td><%= presentation.school_id %></td>
+        <td><%= presentation.followup_volunteer %></td>
+        <td><%= presentation.followup_volunteer_mno %></td>
+        <td><%= link_to 'Show', presentation %></td>
+        <td><%= link_to 'Edit', edit_presentation_path(presentation) %></td>
+        <td><%= link_to 'Destroy', presentation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Presentation', new_presentation_path %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Presented by:</strong>
+  <%= @presentation.presented_by %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @presentation.date %>
+</p>
+
+<p>
+  <strong>Audience count:</strong>
+  <%= @presentation.audience_count %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @presentation.summary %>
+</p>
+
+<p>
+  <strong>Authorities present:</strong>
+  <%= @presentation.authorities_present %>
+</p>
+
+<p>
+  <strong>Presentation type:</strong>
+  <%= @presentation.presentation_type_id %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @presentation.school_id %>
+</p>
+
+<p>
+  <strong>Followup volunteer:</strong>
+  <%= @presentation.followup_volunteer %>
+</p>
+
+<p>
+  <strong>Followup volunteer mno:</strong>
+  <%= @presentation.followup_volunteer_mno %>
+</p>
+
+<%= link_to 'Edit', edit_presentation_path(@presentation) %> |
+<%= link_to 'Back', presentations_path %>
