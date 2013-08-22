@@ -14,7 +14,17 @@
  <div class="field">
     <%= f.association :school %><br>
   </div>
+
+ <div class="field">
+    <%= f.association :plastic_collection_source %><br>
+  </div>
   <div class="field">
+	<%= f.input :date, as: :datetime, start_year: Date.today.year,
+	                              end_year: Date.today.year - 12, discard_day: false,
+	                              order: [:day,:month, :year] %>
+  </div>
+ 
+ <div class="field">
     <%= f.input :plastic_weight %><br>
 
   </div>
@@ -24,15 +34,7 @@
   <div class="field">
     <%= f.input :volunteers_present %><br>
   </div>
-  <div class="field">
-    <%= f.association :plastic_collection_source %><br>
-  </div>
-  <div class="field">
-	<%= f.input :date, as: :datetime, start_year: Date.today.year,
-	                              end_year: Date.today.year - 12, discard_day: false,
-	                              order: [:day,:month, :year] %>
-  </div>
-  <div class="field">
+   <div class="field">
     <%= f.input :quality_remark %><br>
   </div>
   <div class="field">
