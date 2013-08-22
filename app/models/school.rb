@@ -3,4 +3,5 @@ class School < ActiveRecord::Base
   has_many :presentations
   belongs_to :program_state
   belongs_to :school_type
+  belongs_to :school_medium
 end

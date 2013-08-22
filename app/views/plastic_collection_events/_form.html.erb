@@ -1,4 +1,4 @@
-<%= form_for(@plastic_collection_event) do |f| %>
+<%= simple_form_for(@plastic_collection_event , :html => {:class => "form-horizontal"}) do |f| %>
   <% if @plastic_collection_event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plastic_collection_event.errors.count, "error") %> prohibited this plastic_collection_event from being saved:</h2>
@@ -11,39 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :plastic_weight %><br>
-    <%= f.text_field :plastic_weight %>
+ <div class="field">
+    <%= f.association :school %><br>
   </div>
   <div class="field">
-    <%= f.label :money_given %><br>
-    <%= f.text_field :money_given %>
+    <%= f.input :plastic_weight %><br>
+
   </div>
   <div class="field">
-    <%= f.label :volunteers_present %><br>
-    <%= f.text_area :volunteers_present %>
+    <%= f.input :money_given %><br>
   </div>
   <div class="field">
-    <%= f.label :plastic_collection_agency_id %><br>
-    <%= f.number_field :plastic_collection_agency_id %>
+    <%= f.input :volunteers_present %><br>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.association :plastic_collection_source %><br>
   </div>
   <div class="field">
-    <%= f.label :quality_remark %><br>
-    <%= f.text_field :quality_remark %>
+	<%= f.input :date, as: :datetime, start_year: Date.today.year,
+	                              end_year: Date.today.year - 12, discard_day: false,
+	                              order: [:day,:month, :year] %>
   </div>
   <div class="field">
-    <%= f.label :feedback %><br>
-    <%= f.text_area :feedback %>
+    <%= f.input :quality_remark %><br>
   </div>
   <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.number_field :school_id %>
+    <%= f.input :feedback %><br>
   </div>
+ 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save' %>
   </div>
 <% end %>

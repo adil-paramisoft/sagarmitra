@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130816101848) do
+ActiveRecord::Schema.define(version: 20130822131645) do
 
   create_table "collection_dates", force: true do |t|
     t.float    "plastic_weight"
@@ -26,18 +26,11 @@ ActiveRecord::Schema.define(version: 20130816101848) do
     t.datetime "updated_at"
   end
 
-  create_table "media", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
     t.float    "money_given"
     t.text     "volunteers_present"
-    t.integer  "plastic_collection_agency_id"
+    t.integer  "plastic_collection_source_id"
     t.datetime "date"
     t.string   "quality_remark"
     t.text     "feedback"
@@ -53,7 +46,7 @@ ActiveRecord::Schema.define(version: 20130816101848) do
     t.integer  "phone_no_1"
     t.integer  "phone_no_2"
     t.string   "website"
-    t.string   "eamil"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,6 +94,13 @@ ActiveRecord::Schema.define(version: 20130816101848) do
     t.datetime "updated_at"
   end
 
+  create_table "school_media", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "school_plastic_collection_sources", force: true do |t|
     t.integer  "schoold_id"
     t.integer  "plastic_collection_source"
@@ -127,9 +127,10 @@ ActiveRecord::Schema.define(version: 20130816101848) do
     t.integer  "school_type_id"
     t.integer  "program_state_id"
     t.integer  "total_students"
-    t.integer  "medium_id"
+    t.integer  "school_medium_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "user_roles", force: true do |t|

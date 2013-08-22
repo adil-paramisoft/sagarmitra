@@ -4,9 +4,18 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
+
 gem 'mysql2' 
+
+gem 'pg'
+
 gem "cancan"
 
+gem 'simple_form'
+
+# Acts os State machine for managing work flow of School through SagarMitra Program
+gem 'aasm'
+ 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -37,7 +46,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

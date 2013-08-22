@@ -1,4 +1,4 @@
-<%= form_for(@plastic_collection_source) do |f| %>
+<%= simple_form_for(@plastic_collection_source) do |f| %>
   <% if @plastic_collection_source.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plastic_collection_source.errors.count, "error") %> prohibited this plastic_collection_source from being saved:</h2>
@@ -12,32 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.input :name %><br>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
+    <%= f.input :address %><br>
   </div>
   <div class="field">
-    <%= f.label :contact_person %><br>
-    <%= f.text_field :contact_person %>
+    <%= f.input :contact_person %><br>
   </div>
   <div class="field">
-    <%= f.label :phone_no_1 %><br>
-    <%= f.number_field :phone_no_1 %>
+    <%= f.input :phone_no_1 %><br>
   </div>
   <div class="field">
-    <%= f.label :phone_no_2 %><br>
-    <%= f.number_field :phone_no_2 %>
+    <%= f.input :phone_no_2 %><br>
   </div>
   <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
+    <%= f.input :website %>
   </div>
   <div class="field">
-    <%= f.label :eamil %><br>
-    <%= f.text_field :eamil %>
+    <%= f.input :eamil %>
   </div>
   <div class="actions">
     <%= f.submit %>

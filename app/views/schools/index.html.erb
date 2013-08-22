@@ -1,8 +1,9 @@
-<h1>Listing schools</h1>
+<h3>Schools</h3>
 
-<table>
+<table  class="table">
   <thead>
     <tr>
+      <th>Name</th>
       <th>Address</th>
       <th>School type</th>
       <th>Program state</th>
@@ -17,11 +18,12 @@
   <tbody>
     <% @schools.each do |school| %>
       <tr>
+	    <td><%= school.name %></td>
         <td><%= school.address %></td>
-        <td><%= school.school_type_id %></td>
-        <td><%= school.program_state_id %></td>
+        <td><%= school.school_type.name %></td>
+        <td><%= school.program_state.name %></td>
         <td><%= school.total_students %></td>
-        <td><%= school.medium_id %></td>
+        <td><%= school.school_medium.name %></td>
         <td><%= link_to 'Show', school %></td>
         <td><%= link_to 'Edit', edit_school_path(school) %></td>
         <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>

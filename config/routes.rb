@@ -1,4 +1,6 @@
 Sagarmitra::Application.routes.draw do
+  resources :school_media
+
   resources :roles
 
   resources :user_roles

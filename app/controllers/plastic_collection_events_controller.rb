@@ -69,6 +69,6 @@ class PlasticCollectionEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plastic_collection_event_params
-      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present, :plastic_collection_agency_id, :date, :quality_remark, :feedback, :school_id)
+      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present, :plastic_collection_source_id, :date, :quality_remark, :feedback, :school_id)
     end
 end

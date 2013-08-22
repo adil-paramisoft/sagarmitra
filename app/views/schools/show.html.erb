@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @school.address %>
 </p>
 
 <p>
   <strong>School type:</strong>
-  <%= @school.school_type_id %>
+  <%= @school.school_type.name %>
 </p>
 
 <p>
   <strong>Program state:</strong>
-  <%= @school.program_state_id %>
+  <%= @school.program_state.name %>
 </p>
 
 <p>
@@ -22,7 +27,7 @@
 
 <p>
   <strong>Medium:</strong>
-  <%= @school.medium_id %>
+  <%= @school.school_medium.name %>
 </p>
 
 <%= link_to 'Edit', edit_school_path(@school) %> |

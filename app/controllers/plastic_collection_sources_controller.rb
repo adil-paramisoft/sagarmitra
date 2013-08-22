@@ -69,6 +69,6 @@ class PlasticCollectionSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plastic_collection_source_params
-      params.require(:plastic_collection_source).permit(:name, :address, :contact_person, :phone_no_1, :phone_no_2, :website, :eamil)
+      params.require(:plastic_collection_source).permit(:name, :address, :contact_person, :phone_no_1, :phone_no_2, :website, :email)
     end
 end

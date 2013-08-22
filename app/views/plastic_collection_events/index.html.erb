@@ -1,16 +1,16 @@
-<h1>Listing plastic_collection_events</h1>
+<h3>Plastic Collection Events</h3>
 
-<table>
+<table  class="table">
   <thead>
     <tr>
+	  <th>School</th>
       <th>Plastic weight</th>
       <th>Money given</th>
       <th>Volunteers present</th>
-      <th>Plastic collection agency</th>
+      <th>Plastic collection Source</th>
       <th>Date</th>
       <th>Quality remark</th>
-      <th>Feedback</th>
-      <th>School</th>
+      <th>Feedback</th>     
       <th></th>
       <th></th>
       <th></th>
@@ -20,14 +20,14 @@
   <tbody>
     <% @plastic_collection_events.each do |plastic_collection_event| %>
       <tr>
+        <td><%= plastic_collection_event.school.name %></td>
         <td><%= plastic_collection_event.plastic_weight %></td>
         <td><%= plastic_collection_event.money_given %></td>
         <td><%= plastic_collection_event.volunteers_present %></td>
-        <td><%= plastic_collection_event.plastic_collection_agency_id %></td>
+        <td><%= plastic_collection_event.plastic_collection_source.name %></td>
         <td><%= plastic_collection_event.date %></td>
         <td><%= plastic_collection_event.quality_remark %></td>
         <td><%= plastic_collection_event.feedback %></td>
-        <td><%= plastic_collection_event.school_id %></td>
         <td><%= link_to 'Show', plastic_collection_event %></td>
         <td><%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %></td>
         <td><%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
