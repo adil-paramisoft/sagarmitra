@@ -3,11 +3,17 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+# Initiativers core engine
+#gem 'initiativers_core_engine', path: "../initiativers_core_engine"
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 # Use postgresql as the database for Active Record
 
 gem 'mysql2' 
 
-gem 'pg'
+#gem 'pg'
 
 gem "cancan"
 
