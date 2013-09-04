@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822131645) do
-
-  create_table "collection_dates", force: true do |t|
-    t.float    "plastic_weight"
-    t.float    "money_given"
-    t.text     "volunteers_present"
-    t.integer  "plastic_collection_agency_id"
-    t.datetime "date"
-    t.string   "quality_remark"
-    t.text     "feedback"
-    t.integer  "school_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20130904125031) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -79,12 +66,30 @@ ActiveRecord::Schema.define(version: 20130822131645) do
     t.datetime "updated_at"
   end
 
+  create_table "program_volunteers", force: true do |t|
+    t.string   "name"
+    t.text     "interest"
+    t.text     "responsibility"
+    t.string   "email"
+    t.integer  "mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "roles_users", id: false, force: true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
+  add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
+  add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
 
   create_table "school_contacts", force: true do |t|
     t.integer  "school_id"
@@ -122,6 +127,19 @@ ActiveRecord::Schema.define(version: 20130822131645) do
     t.datetime "updated_at"
   end
 
+  create_table "school_volunteers", force: true do |t|
+    t.string   "school_name"
+    t.string   "school_address"
+    t.integer  "user_id"
+    t.integer  "school_medium_id"
+    t.string   "no_of_students"
+    t.boolean  "volunteer"
+    t.integer  "school_type_id"
+    t.integer  "mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "schools", force: true do |t|
     t.text     "address"
     t.integer  "school_type_id"
@@ -133,10 +151,29 @@ ActiveRecord::Schema.define(version: 20130822131645) do
     t.string   "name"
   end
 
-  create_table "user_roles", force: true do |t|
-    t.string   "role"
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "mobile_number"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "image_url"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

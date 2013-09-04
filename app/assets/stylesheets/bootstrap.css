@@ -5979,6 +5979,7 @@ a.badge:focus {
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: #171717;
 }
 
 .carousel-inner > .item {
@@ -6037,7 +6038,7 @@ a.badge:focus {
 .carousel-control {
   position: absolute;
   top: 40%;
-  left: 15px;
+  left: -50px;
   width: 40px;
   height: 40px;
   margin-top: -20px;
@@ -6056,7 +6057,7 @@ a.badge:focus {
 }
 
 .carousel-control.right {
-  right: 15px;
+  right: -50px;
   left: auto;
 }
 
