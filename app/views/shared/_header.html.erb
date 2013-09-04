@@ -1,6 +1,7 @@
 
 
     <div class="navbar navbar-inverse">
+	
       <div class="navbar-inner">
         <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
         <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -8,15 +9,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-		<%= link_to @program_name, '/' , :class => 'brand'%>
+	    	<%= link_to @program_name, '/' , :class => 'brand'%>
         
 		<!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-		<div class="nav-collapse collapse">
+		<div class="nav-collapse collapse"> <%#= image_tag 'SM_logo.png'%>
 		  <ul class="nav">
 		    <li class="active"><a href="/">Home</a></li>
 		    <li><%= link_to 'Schools', schools_path %></li>
 		    <li><%= link_to 'Plastic Collection', plastic_collection_events_path %></li>
 		    <li><%= link_to 'Plastic Collection Sources', plastic_collection_sources_path %></li>
+		    <li><%#= link_to 'Initiative', initiative_path %></li>
 		
 		    <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
 		
@@ -33,8 +35,25 @@
 		      </ul>
 		    </li> -->
 		  </ul>
+			<div style="right: 0; top: 5; right: 0px\0/IE8+9; top: -3px\0/IE8+9; min-width: 330px; position: absolute; display: block;">
+			    <div style="color: #999;  padding-left: 250px; float: left; padding-top:15px; ">
+			      Welcome <%= user_signed_in? ? user_profile_link : "Guest" %> |
+					 <span>
+					      <% unless user_signed_in? %>
+					          <%= link_to "Register", new_registration_path(:user), :style=> 'color: #999' %> / 
+					          <%= link_to("Login", sign_in_path, :style=> 'color: #999') %>
+					      <% else %>
+					          <%= link_to("Logout", destroy_user_session_path, :method => :delete , :style=> 'color: #999') %>
+					      <% end %>
+					 </span>
+			    </div>
+			   
+			  </div>
+			
+			
 		</div><!--/.nav-collapse -->
 		</div><!-- /.navbar-inner -->
+	
 		</div><!-- /.navbar -->
 
 

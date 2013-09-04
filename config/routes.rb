@@ -1,9 +1,19 @@
 Sagarmitra::Application.routes.draw do
+  resources :program_volunteers
+
+  resources :school_volunteers
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
+  
+  devise_scope :user do
+     get "sign_in", :to => "users/sessions#new"
+   end
+#  TODO Integrate initiativers core engine for user
+#   mount InitiativersCoreEngine::Engine, at: "/initiativers"
+  
   resources :school_media
 
   resources :roles
-
-  resources :user_roles
 
   resources :school_plastic_collection_sources
 
@@ -30,6 +40,7 @@ Sagarmitra::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'program#index'
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -79,4 +90,6 @@ Sagarmitra::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  match   'program/slider', to:  'program#slider' , via: [:get]
 end
