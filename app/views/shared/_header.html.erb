@@ -17,7 +17,7 @@
 		    <li class="active"><a href="/">Home</a></li>
 		    <li><%= link_to 'Schools', schools_path %></li>
 		    <li><%= link_to 'Plastic Collection', plastic_collection_events_path %></li>
-		    <li><%= link_to 'Plastic Collection Sources', plastic_collection_sources_path %></li>
+		    <li><%= link_to 'Initiative', '/initiative' %></li>
 		    <li><%#= link_to 'Initiative', initiative_path %></li>
 		
 		    <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
@@ -36,7 +36,7 @@
 		    </li> -->
 		  </ul>
 			<div style="right: 0; top: 5; right: 0px\0/IE8+9; top: -3px\0/IE8+9; min-width: 330px; position: absolute; display: block;">
-			    <div style="color: #999;  padding-left: 250px; float: left; padding-top:15px; ">
+			    <div style="color: #999;  float: left; padding-top:15px; ">
 			      Welcome <%= user_signed_in? ? user_profile_link : "Guest" %> |
 					 <span>
 					      <% unless user_signed_in? %>
