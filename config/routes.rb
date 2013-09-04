@@ -91,5 +91,7 @@ Sagarmitra::Application.routes.draw do
   #     resources :products
   #   end
   
-  match   'program/slider', to:  'program#slider' , via: [:get]
+  match   'initiative', to:  'initiative#index' , via: [:get]
+  match   'initiative/concept', to:  'initiative#concept' , via: [:get]
+
 end
