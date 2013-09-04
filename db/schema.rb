@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130904125031) do
+ActiveRecord::Schema.define(version: 20130904145737) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -128,16 +128,13 @@ ActiveRecord::Schema.define(version: 20130904125031) do
   end
 
   create_table "school_volunteers", force: true do |t|
-    t.string   "school_name"
-    t.string   "school_address"
-    t.integer  "user_id"
-    t.integer  "school_medium_id"
-    t.string   "no_of_students"
     t.boolean  "volunteer"
-    t.integer  "school_type_id"
     t.integer  "mobile"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
+    t.string   "name"
+    t.string   "email"
   end
 
   create_table "schools", force: true do |t|

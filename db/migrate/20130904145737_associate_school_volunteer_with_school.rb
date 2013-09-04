@@ -10,8 +10,5 @@ class AssociateSchoolVolunteerWithSchool < ActiveRecord::Migration
     add_column :school_volunteers , :school_id , :integer
     add_column :school_volunteers , :name , :string
     add_column :school_volunteers , :email , :string
-    add_column :school_volunteers , :mobile , :string
-    
-
   end
 end
