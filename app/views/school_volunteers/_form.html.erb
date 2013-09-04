@@ -1,0 +1,23 @@
+<%= simple_form_for(@school_volunteer) do |f| %>
+  <%= f.error_notification %>
+  <div class="inputs">
+    <%= f.simple_fields_for  :school do |s|%>
+    <%= s.input :name , label: "School Name"  %>
+    <%= s.input :address , label: "School address"  %>
+    <%= s.input :total_students %>
+    <%= s.association :school_type  %>
+    <%= s.association :school_medium %>
+	<%= s.input :program_state_id , :as => :hidden,  :input_html => { :value => "1" } %>
+    
+	<%end%>
+    <%= f.input :name , label: "Name" %>
+    <%= f.input :email , label: "Email" %>
+    <%= f.input :mobile , label: "Mobile number" %>
+    <%= f.input :volunteer  , label: "Yes, I will take responsibility for this school. "  %>
+
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit , value: "Submit" %>
+  </div>
+<% end %>

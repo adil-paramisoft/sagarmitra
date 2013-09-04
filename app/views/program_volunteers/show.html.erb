@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @program_volunteer.name %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @program_volunteer.interest %>
+</p>
+
+<p>
+  <strong>Responsibility:</strong>
+  <%= @program_volunteer.responsibility %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @program_volunteer.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @program_volunteer.mobile %>
+</p>
+
+<%= link_to 'Edit', edit_program_volunteer_path(@program_volunteer) %> |
+<%= link_to 'Back', program_volunteers_path %>

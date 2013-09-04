@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>School name:</strong>
+  <%= @school_volunteer.school.name %>
+</p>
+
+<p>
+  <strong>School address:</strong>
+  <%= @school_volunteer.school.address %>
+</p>
+
+
+<p>
+  <strong>School medium:</strong>
+  <%= @school_volunteer.school.school_medium.name %>
+</p>
+
+<p>
+  <strong>No of students:</strong>
+  <%= @school_volunteer.school.total_students %>
+</p>
+
+
+<p>
+  <strong>School type:</strong>
+  <%= @school_volunteer.school.school_type.name %>
+</p>
+
+<p>
+  <strong>Sagar-Mitra Program School:</strong>
+  <%= @school_volunteer.school.program_state.name %>
+</p>
+
+<p>
+  <strong>Volunteer Name:</strong>
+  <%= @school_volunteer.name %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @school_volunteer.mobile %>
+</p>
+
+
+<p>
+  <strong>Email</strong>
+  <%= @school_volunteer.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_school_volunteer_path(@school_volunteer) %> |
+<%= link_to 'Back', school_volunteers_path %>

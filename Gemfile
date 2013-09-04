@@ -12,6 +12,8 @@ gem 'omniauth-facebook'
 # Use postgresql as the database for Active Record
 
 gem 'mysql2' 
+gem 'phony_rails'
+gem 'email_validator', :require => 'email_validator/strict'
 
 #gem 'pg'
 

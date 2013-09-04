@@ -1,0 +1,15 @@
+<%= simple_form_for(@program_volunteer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :interest %>
+    <%= f.input :responsibility %>
+    <%= f.input :email %>
+    <%= f.input :mobile %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
