@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-ActiveRecord::Base.connection.execute("TRUNCATE TABLE ROLES;")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE ROLES RESTART IDENTITY;")
 
 puts " -- Creating roles"
 
@@ -17,7 +17,7 @@ Role.create([{name: 'admin', description: 'Super admin of the app'},
 puts " -- Done!"
 puts " -- Creating Program States"
              
-ActiveRecord::Base.connection.execute("TRUNCATE TABLE PROGRAM_STATES;")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE PROGRAM_STATES RESTART IDENTITY;")
 
 ProgramState.create([     {name: 'Identified', description: ''},
                           {name: 'Shot Listed', description: ''},
@@ -40,7 +40,7 @@ ProgramState.create([     {name: 'Identified', description: ''},
 puts " -- Done!"
 
 puts " -- Creating School Types"
-ActiveRecord::Base.connection.execute("TRUNCATE TABLE SCHOOL_TYPES;")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE SCHOOL_TYPES RESTART IDENTITY;")
 
 
 SchoolType.create([{name: 'Primary', description: 'Std. 0 to 4'},
@@ -52,7 +52,7 @@ puts " -- Done!"
 
 
 puts " -- Creating Presentation Types"
-ActiveRecord::Base.connection.execute("TRUNCATE TABLE PRESENTATION_TYPES;")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE PRESENTATION_TYPES RESTART IDENTITY;")
 
 PresentationType.create([{name: 'School Decision makers', description: ''},
                          {name: 'Teachers', description: ''},
@@ -62,7 +62,7 @@ PresentationType.create([{name: 'School Decision makers', description: ''},
 puts " -- Done!"
 
 puts " -- Creating School Mediums "
-ActiveRecord::Base.connection.execute("TRUNCATE TABLE SCHOOL_MEDIA;")
+ActiveRecord::Base.connection.execute("TRUNCATE TABLE SCHOOL_MEDIA RESTART IDENTITY;")
 
 SchoolMedium.create([{name: 'English', description: ''},
                          {name: 'Marathi', description: ''},
