@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 
 class School < ActiveRecord::Base
-  include GeoKit::Geocoders
+#  include GeoKit::Geocoders
 
   # Associations
   has_one :plastic_collection_source
@@ -15,7 +15,7 @@ class School < ActiveRecord::Base
   validates :school_medium_id , :program_state_id , :school_type_id , :total_students , :name , :address , :presence => true
 
   # Geokit
-  acts_as_mappable
+ # acts_as_mappable
 
   before_save :set_location
 
