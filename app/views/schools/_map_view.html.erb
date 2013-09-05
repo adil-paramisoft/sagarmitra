@@ -1,9 +1,7 @@
 <script type="text/javascript">
     function initialize() {
-//        var myLatlng = new google.maps.LatLng('<%= @schools.first.lat %>','<%= @schools.first.lng %>');
         var mapOptions = {
             zoom: 15,
-//            center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -21,7 +19,7 @@
             html += "<b style='color: #0047CC;'><%= school.name %></b><br/>";
             <%  plastic_collection_details = school.plastic_collection_details %>
             html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= plastic_collection_details[:plastic_collected] %> tons</span><br/>";
-            html += "<span style='color: #0047CC;'>Money Earned</span>: <span style='font-weight: bold;'>Rs. <%= plastic_collection_details[:green_fund] %></span><br/>";
+            html += "<span style='color: #0047CC;'>Green Fund</span>: <span style='font-weight: bold;'>Rs. <%= plastic_collection_details[:green_fund] %></span><br/>";
             sLatlng = new google.maps.LatLng('<%= school.lat %>','<%= school.lng %>');
             marker = new google.maps.Marker({
                 position: sLatlng,
