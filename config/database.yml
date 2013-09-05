@@ -24,10 +24,10 @@ development:
   password: parami
   host: localhost
 
-development:
+production:
   adapter: postgresql
   encoding: unicode
-  database: sagarmitra_development
+  database: sagarmitra_production
   pool: 5
   username: postgres
   password: parami
