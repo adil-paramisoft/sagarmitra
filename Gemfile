@@ -19,8 +19,14 @@ gem 'rvm-capistrano'
 
 gem 'pg'
 
+# To fix JavaScript Runtime
+gem "execjs"
+gem "therubyracer"
+
+# Permissions
 gem "cancan"
 
+# Forms
 gem 'simple_form'
 
 # Acts os State machine for managing work flow of School through SagarMitra Program
