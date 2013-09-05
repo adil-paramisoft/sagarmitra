@@ -2,7 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
  #http_basic_authenticate_with name: "sm", password: "sm$007"
   # POST /resource
   def create
-    build_resource
+     @user =     User.new(user_params)
 
     if resource.save
       if resource.active_for_authentication?
@@ -23,5 +23,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
   end
+  
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit(:name,:email, :password , :provider)
+    end
 
 end

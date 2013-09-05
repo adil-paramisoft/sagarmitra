@@ -1,4 +1,4 @@
-<h3>Plastic Collection Events</h3>
+<h3>Plastic Collection Drive</h3>
 
 <table  class="table table-striped table-bordered" id="plastic_collection_event_table" >
   <thead>
@@ -11,9 +11,7 @@
       <th>Date</th>
       <th>Quality remark</th>
       <th>Feedback</th>     
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -28,9 +26,9 @@
         <td><%= plastic_collection_event.date %></td>
         <td><%= plastic_collection_event.quality_remark %></td>
         <td><%= plastic_collection_event.feedback %></td>
-        <td><%= link_to 'Show', plastic_collection_event %></td>
-        <td><%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %></td>
-        <td><%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', plastic_collection_event %> |
+            <%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %>|
+            <%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

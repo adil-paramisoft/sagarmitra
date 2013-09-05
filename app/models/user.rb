@@ -4,14 +4,16 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   
   devise :omniauthable, :omniauth_providers => [:facebook]
-  devise :database_authenticatable, :registerable,:rememberable
-         #:recoverable, , :trackable, :validatable#, :confirmable
+  devise :database_authenticatable, :registerable,:rememberable#,
+         #:recoverable,  :trackable, :validatable, :confirmable
   
   
    
   # Associations
   
-  has_and_belongs_to_many :roles       
+  has_and_belongs_to_many :roles    
+  validates :name , :email , :presence => true
+ # validates :email, :unique => true   
   
   def self.find_for_facebook_oauth(auth, role, signed_in_resource=nil)
            user = User.where(:provider => auth.provider, :uid => auth.uid).first
