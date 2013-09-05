@@ -4,6 +4,8 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
+    view_type = ["table", "map"].include?(params[:type]) ? params[:type] : nil
+    @view_type =  view_type || "map"
     @schools = School.all
   end
 

@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    function initialize() {
+//        var myLatlng = new google.maps.LatLng('<%= @schools.first.lat %>','<%= @schools.first.lng %>');
+        var mapOptions = {
+            zoom: 15,
+//            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        var infowindow = new google.maps.InfoWindow();
+        var bounds = new google.maps.LatLngBounds();
+
+        var marker;
+        var sLatlng;
+        var html;
+
+    <% @schools.each do |school| %>
+        <% if school.lat && school.lng %>
+            html = "";
+            html += "<b style='color: #0047CC;'><%= school.name %></b><br/>";
+            <%  plastic_collection_details = school.plastic_collection_details %>
+            html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= plastic_collection_details[:plastic_collected] %> tons</span><br/>";
+            html += "<span style='color: #0047CC;'>Money Earned</span>: <span style='font-weight: bold;'>Rs. <%= plastic_collection_details[:green_fund] %></span><br/>";
+            sLatlng = new google.maps.LatLng('<%= school.lat %>','<%= school.lng %>');
+            marker = new google.maps.Marker({
+                position: sLatlng,
+                map: map
+            });
+            bounds.extend(sLatlng);
+            google.maps.event.addListener(marker, 'click', (function(marker) {
+                return function() {
+                    infowindow.setContent(html);
+                    infowindow.open(map, marker);
+                }
+            })(marker));
+        <% end %>
+    <% end %>
+
+        map.fitBounds(bounds);
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div id="map-canvas" style="height: 600px; width: 100%"></div>

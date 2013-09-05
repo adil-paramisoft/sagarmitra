@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130904145737) do
+ActiveRecord::Schema.define(version: 20130905090033) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -146,6 +146,8 @@ ActiveRecord::Schema.define(version: 20130904145737) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.decimal  "lat",              precision: 15, scale: 10
+    t.decimal  "lng",              precision: 15, scale: 10
   end
 
   create_table "users", force: true do |t|

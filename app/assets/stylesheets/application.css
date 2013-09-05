@@ -11,3 +11,5 @@
  *= require_self
  *= require_tree .
  */
+
+.spacer { width: 100%; display: block; height: 10px; }

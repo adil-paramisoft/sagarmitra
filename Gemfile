@@ -23,10 +23,6 @@ gem "cancan"
 
 gem 'simple_form'
 
-# For location oriented functionality
-gem 'geokit'
-gem 'geokit-rails'
-
 # Acts os State machine for managing work flow of School through SagarMitra Program
 gem 'aasm'
  
