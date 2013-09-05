@@ -11,7 +11,7 @@ ActiveRecord::Base.connection.execute("TRUNCATE TABLE ROLES;")
 
 puts " -- Creating roles"
 
-Role.create([{name: 'uber-admin', description: 'Super admin of the app'},
+Role.create([{name: 'admin', description: 'Super admin of the app'},
              {name: 'school-admin', description: 'Admin for school'},
              {name: 'Volunteer'}])
 puts " -- Done!"

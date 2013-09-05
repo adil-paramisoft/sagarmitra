@@ -29,6 +29,7 @@
   <strong>Medium:</strong>
   <%= @school.school_medium.name %>
 </p>
-
+<% if can? :create, School %>
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>
+<%end%>

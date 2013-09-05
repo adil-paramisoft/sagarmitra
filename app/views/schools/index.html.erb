@@ -15,14 +15,17 @@
       <th>Medium</th>
       <th>Plastic Collected(Kgs)</th>
       <th>Green Fund(INR )</th>
-      <th>Actions</th>
+   <% if can? :create, School %>  
+     <th>Actions</th> 
+  <%end%>
+
     </tr>
   </thead>
 
   <tbody>
     <% @schools.each do |school| %>
       <tr>
-	    <td><%= school.name %></td>
+	    <td><%=  school.name  %></td>
         <td><%= school.address %></td>
         <td><%= school.school_type.name %></td>
         <td><%= school.program_state.name %></td>
@@ -31,17 +34,20 @@
         <%  plastic_collection_details = school.plastic_collection_details %>
         <td><%= plastic_collection_details[:plastic_collected] %> </td>
         <td><%= plastic_collection_details[:green_fund] %> </td>
+<% if can? :create, School %>
         <td><%= link_to 'Show', school %> |
         <%= link_to 'Edit', edit_school_path(school) %> |
         <%= link_to 'Destroy', school, method: :delete, data:{ confirm: 'Are you sure?' } %></td>
+<%end%>
       </tr>
     <% end %>
   
 </table>
 
 <br>
-
-<%= link_to 'New School', new_school_path %>
+<% if can? :create, School %>
+   <%= link_to 'New School', new_school_path %>
+<%end%>
 
 <script type="text/javascript">
     $(document).ready(function () {

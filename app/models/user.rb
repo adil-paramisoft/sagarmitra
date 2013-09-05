@@ -33,5 +33,9 @@ class User < ActiveRecord::Base
            end
            user
   end
+  
+  def role?(role)
+     return !!self.roles.where(name: role.to_s.camelize).first
+   end
          
 end
