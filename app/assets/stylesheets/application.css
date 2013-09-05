@@ -13,3 +13,8 @@
  */
 
 .spacer { width: 100%; display: block; height: 10px; }
+
+.dialogIsOpen .container {
+/*Blur and de-color*/
+-webkit-filter: blur(4px) grayscale(50%);
+}

@@ -62,4 +62,17 @@
     })
   }(window.jQuery)
 </script>
-<!--<script src="./Carousel Template · Bootstrap_files/holder.js"></script>-->
+<% if params[:launch] %>
+    <script type="text/javascript">
+        $("body").addClass("dialogIsOpen");
+        $("body").prepend("<div style='margin:auto; width: 300px;'><button type='button' class='btn btn-primary btn-lg launch_button'>Launch</button></div>");
+//        var top = $(window).height() / 2;
+//        var left = $(window).width() / 2;
+        $(".launch_button").css({'position': 'absolute', 'top': ($(window).height() / 2),
+            'z-index': 10000, 'height': '100px', 'width': '300px', 'margin': 'auto', 'font-size': '46px' });
+        $(".launch_button").click(function(){
+            $("body").removeClass("dialogIsOpen");
+            $(this).remove();
+        })
+    </script>
+<% end %>
