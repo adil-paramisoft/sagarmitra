@@ -39,6 +39,14 @@ role :db,  deployment_server, :primary => true # This is where Rails migrations 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
+
+namespace :deploy do
+  desc "Symlinks the database.yml"
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+  end
+end
+
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do ; end
@@ -48,17 +56,11 @@ namespace :deploy do
   end
 end
 
-namespace :deploy do
-  desc "Symlinks the database.yml"
-  task :symlink_db, :roles => :app do
-    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-  end
-end
-
 #set :rvm_ruby_string, "ruby 2.0.0p247"  # use the same ruby as used locally for deployment
 #set :rvm_autolibs_flag, "read-only"        # more info: rvm help autolibs
 
 #before 'deploy:setup', 'rvm:install_rvm'   # install RVM
 #before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, OR:
 
+after "deploy", "deploy:symlink_db"
 after "deploy", "deploy:migrate"
