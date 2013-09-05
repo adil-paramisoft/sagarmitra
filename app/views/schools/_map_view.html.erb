@@ -17,6 +17,7 @@
         <% if school.lat && school.lng %>
             html = "";
             html += "<b style='color: #0047CC;'><%= school.name %></b><br/>";
+            html += "<span style='color: #0047CC;'>No. of Collections</span>: <span style='font-weight: bold;'><%= school.number_of_collections %> tons</span><br/>";
             <%  plastic_collection_details = school.plastic_collection_details %>
             html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= plastic_collection_details[:plastic_collected] %> tons</span><br/>";
             html += "<span style='color: #0047CC;'>Green Fund</span>: <span style='font-weight: bold;'>Rs. <%= plastic_collection_details[:green_fund] %></span><br/>";
