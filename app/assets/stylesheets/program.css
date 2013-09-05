@@ -15,16 +15,25 @@
 
    /* Special class on .container surrounding .navbar, used for positioning it into place. */
    .navbar-wrapper {
-     position: absolute;
+     /*position: absolute;*/
      top: 0;
      left: 0;
      right: 0;
      z-index: 10;
      margin-top: 20px;
-     margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+     /*margin-bottom: -90px; *//* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
    }
    .navbar-wrapper .navbar {
+       float: right;
+       width: 100%;
+   }
 
+   a.logo {
+       display: block;
+   }
+   a.logo { text-decoration: none; background-color: transparent; }
+   a.logo img {
+       height: 135px;
    }
 
    /* Remove border and change up box shadow for more contrast */
@@ -61,6 +70,7 @@
    /* Carousel base class */
    .carousel {
      margin-bottom: 60px;
+     /*position: inherit;*/
    }
 
    .carousel .container {
