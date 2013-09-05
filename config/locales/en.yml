@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  time:
+      formats:
+        default: "%d/%m/%Y"
+        short: "%b, %d %Y"
+        long: "%B %d, %Y"
+        full: "%b %d, %Y %I:%M %p"
+        onlytime: "%I:%M %p"

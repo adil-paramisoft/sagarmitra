@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905090033) do
+ActiveRecord::Schema.define(version: 20130905195045) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20130905090033) do
     t.string   "name"
     t.text     "address"
     t.string   "contact_person"
-    t.integer  "phone_no_1"
-    t.integer  "phone_no_2"
+    t.string   "phone_no_1",     limit: 15
+    t.string   "phone_no_2",     limit: 15
     t.string   "website"
     t.string   "email"
     t.datetime "created_at"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20130905090033) do
     t.text     "interest"
     t.text     "responsibility"
     t.string   "email"
-    t.integer  "mobile"
+    t.string   "mobile",         limit: 15
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20130905090033) do
 
   create_table "school_volunteers", force: true do |t|
     t.boolean  "volunteer"
-    t.integer  "mobile"
+    t.string   "mobile",     limit: 15
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "school_id"
@@ -153,13 +153,13 @@ ActiveRecord::Schema.define(version: 20130905090033) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "mobile_number"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "mobile_number",          limit: 15
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",                     default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

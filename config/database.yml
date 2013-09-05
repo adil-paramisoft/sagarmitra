@@ -24,14 +24,6 @@ development:
   password: parami
   host: localhost
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: sagarmitra_production
-  pool: 5
-  username: postgres
-  password: parami
-  host: localhost
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.

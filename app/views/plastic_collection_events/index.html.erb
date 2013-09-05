@@ -11,9 +11,9 @@
       <th>Date</th>
       <th>Quality remark</th>
       <th>Feedback</th>    
-<% if can? :create, PlasticCollectionEvent %> 
+<%# if can? :create, PlasticCollectionEvent %>
       <th>Actions</th>
-<%end%>
+<%# end%>
     </tr>
   </thead>
 
@@ -25,31 +25,27 @@
         <td><%= plastic_collection_event.money_given %></td>
         <td><%= plastic_collection_event.volunteers_present %></td>
         <td><%= plastic_collection_event.plastic_collection_source.name %></td>
-        <td><%= plastic_collection_event.date %></td>
+        <td><%= l plastic_collection_event.date %></td>
         <td><%= plastic_collection_event.quality_remark %></td>
         <td><%= plastic_collection_event.feedback %></td>
-<% if can? :create, PlasticCollectionEvent %>
+<%# if can? :create, PlasticCollectionEvent %>
         <td><%= link_to 'Show', plastic_collection_event %> |
             <%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %>|
             <%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<%end%>
+<%# end%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
+
+<%# if can? :create, PlasticCollectionEvent %>
+	<%= link_to 'New Plastic collection event', new_plastic_collection_event_path %>
+<%# end%>
 
 
 <script type="text/javascript">
-//    $(document).ready(function () {
-        $('#plastic_collection_event_table').dataTable( {
-            "aaSorting": [[ 5, "desc" ]]
-        } );
-//    })
-
+    $('#plastic_collection_event_table').dataTable( {
+        "aaSorting": [[ 5, "desc" ]]
+    } );
 </script>
-
-<% if can? :create, PlasticCollectionEvent %>
-	<%= link_to 'New Plastic collection event', new_plastic_collection_event_path %>
-<%end%>	
