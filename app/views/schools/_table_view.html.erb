@@ -7,6 +7,7 @@
     <th>Program state</th>
     <th>Total students</th>
     <th>Medium</th>
+    <th>Number of Collections</th>
     <th>Plastic Collected (Kgs)</th>
     <th>Green Fund (INR)</th>
     <% if can? :create, School %>
@@ -25,6 +26,7 @@
         <td><%= school.program_state.name %></td>
         <td><%= school.total_students %></td>
         <td><%= school.school_medium.name %></td>
+        <td><%= school.number_of_collections %></td>
         <%  plastic_collection_details = school.plastic_collection_details %>
         <td><%= plastic_collection_details[:plastic_collected] %> </td>
         <td><%= plastic_collection_details[:green_fund] %> </td>
