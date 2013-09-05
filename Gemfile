@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -14,6 +14,9 @@ gem 'omniauth-facebook'
 #gem 'mysql2'
 gem 'phony_rails'
 gem 'email_validator', :require => 'email_validator/strict'
+
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 gem 'pg'
 
