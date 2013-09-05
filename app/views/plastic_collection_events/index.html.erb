@@ -37,3 +37,12 @@
 <br>
 
 <%= link_to 'New Plastic collection event', new_plastic_collection_event_path %>
+
+<script type="text/javascript">
+//    $(document).ready(function () {
+        $('#plastic_collection_event_table').dataTable( {
+            "aaSorting": [[ 5, "desc" ]]
+        } );
+//    })
+
+</script>

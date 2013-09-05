@@ -43,3 +43,10 @@
 
 <%= link_to 'New School', new_school_path %>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#school_table').dataTable( {
+            "aaSorting": [[ 6, "desc" ]]
+        } );
+    });
+</script>
