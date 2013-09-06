@@ -27,9 +27,8 @@
         <td><%= school.total_students %></td>
         <td><%= school.school_medium.name %></td>
         <td><%= school.number_of_collections %></td>
-        <%  plastic_collection_details = school.plastic_collection_details %>
-        <td><%= plastic_collection_details[:plastic_collected] %> </td>
-        <td><%= plastic_collection_details[:green_fund] %> </td>
+        <td><%= school.plastic_collected %> </td>
+        <td><%= school.green_fund %> </td>
         <% if can? :create, School %>
         <td><%= link_to 'Show', school %> |
           <%= link_to 'Edit', edit_school_path(school) %> |

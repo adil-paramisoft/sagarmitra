@@ -49,7 +49,7 @@ class School < ActiveRecord::Base
  
 
   def School.add_last_year_records
-    School.create(:name => 'St. Andrews Chinchwad', 
+    School.where(:name => 'St. Andrews Chinchwad', 
     :address => 'Block D 3, MIDC, Chinchwad, Pune - 411033',
     :number_of_collections => 5 ,
     :plastic_collected => 1599 , 
@@ -57,8 +57,9 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 2000)
-    School.create(:name => 'St. Ursulas Nigdi', 
+    :total_students => 2000).first_or_create
+    
+    School.where(:name => 'St. Ursulas Nigdi', 
     :address => 'Akurdi, Pune - 411035',
     :number_of_collections => 7 ,
     :plastic_collected => 1016 , 
@@ -66,8 +67,9 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 2000)
-    School.create(:name => 'St. Vincent’s – Camp', 
+    :total_students => 2000).first_or_create
+    
+    School.where(:name => 'St. Vincent’s – Camp', 
     :address => 'Survey No 2005/2006, Near Shivaji Market, St Vincents Street, Camp, Pune - 411001',
     :number_of_collections => 4 ,
     :plastic_collected => 796 , 
@@ -75,9 +77,9 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 2000)
+    :total_students => 2000).first_or_create
 
-    School.create(:name => 'Paranjape School - Kothrud ', 
+    School.where(:name => 'Paranjape School - Kothrud ', 
     :address => 'Survey No 40 Hissa No 1 To 3, Near Kothrud Telephone Exchange, Kothrud Depot, Pune - 411038',
     :number_of_collections => 6,
     :plastic_collected => 443 , 
@@ -85,9 +87,9 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 2000)
+    :total_students => 2000).first_or_create
     
-    School.create(:name => 'Mahesh Vidyalaya- Kothrud', 
+    School.where(:name => 'Mahesh Vidyalaya- Kothrud', 
     :address => 'Survey No 50 15/2 Nalawade Baug Gananjay Society, Near Springfield Society Opposite Ashish Garden, New D P Road, Kothrud Depot, Pune - 411038',
     :number_of_collections => 3 ,
     :plastic_collected => 112 , 
@@ -95,10 +97,10 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 800)
+    :total_students => 800).first_or_create
     
   
-    School.create(:name => 'Vidyaniketan School - Kothrud', 
+    School.where(:name => 'Vidyaniketan School - Kothrud', 
     :address => 'Survey No 634/9 A/1, Bibvewadi, Pune - 411037',
     :number_of_collections => 2 ,
     :plastic_collected => 89 , 
@@ -106,10 +108,10 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 800)  
+    :total_students => 800).first_or_create
 
 
-    School.create(:name => 'Saraswati Mandir ', 
+    School.where(:name => 'Saraswati Mandir ', 
     :address => '1359, Bajirao Rd, Shukrawar Peth, Pune - 411002',
     :number_of_collections => 2 ,
     :plastic_collected => 89 , 
@@ -117,7 +119,17 @@ class School < ActiveRecord::Base
     :school_type_id => 2,
     :program_state_id => 9,
     :school_medium_id => 1,
-    :total_students => 800)
+    :total_students => 800).first_or_create
+    
+    School.where(:name => 'Modern High School Nigadi', 
+    :address => 'Modern High School English Medium, Nigdi, Pune-411044',
+    :number_of_collections => 1 ,
+    :plastic_collected => 125 , 
+    :green_fund => 1000 ,
+    :school_type_id => 2,
+    :program_state_id => 9,
+    :school_medium_id => 1,
+    :total_students => 850).first_or_create
   end
 
 
