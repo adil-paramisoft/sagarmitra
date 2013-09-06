@@ -44,6 +44,19 @@ class School < ActiveRecord::Base
      end
      return green_fund
  end
+ 
+ def School.add_last_year_records
+   s1 = School.create(:name => 'St. Andrews Chinchwad', 
+                      :address => 'Block D 3, MIDC, Chinchwad, Pune - 411033',
+                      :number_of_collections => 5 ,
+                      :plastic_collected => 1599 , 
+                      :green_fund => 12792 ,
+                      :school_type_id => 2,
+                      :program_state_id => 9,
+                      :school_medium_id => 1,
+                      :total_students => 2000)
+ end
+ 
 
 private
   def set_location
