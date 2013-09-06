@@ -2,9 +2,11 @@
   <div style="float: left; margin-bottom: 15px;">
     <%= link_to(image_tag("sm_logo.png"), root_path, :class => "logo") %>
   </div>
+
   <div style="float: right; width: 80%;">
+
     <div style="text-align: right; padding-top: 10px; padding-bottom: 10px;">
-      Welcome <%= user_signed_in? ? user_profile_link : "Guest" %> |
+    <!--  Welcome <%= user_signed_in? ? user_profile_link : "Guest" %> |
      <span>
           <% unless user_signed_in? %>
               <%= link_to "Register", new_registration_path(:user) %> /
@@ -12,8 +14,9 @@
           <% else %>
               <%= link_to("Logout", destroy_user_session_path, :method => :delete ) %>
           <% end %>
-     </span>
+     </span> -->
     </div>
+
     <div class="navbar navbar-inverse">
 
       <div class="navbar-inner">
