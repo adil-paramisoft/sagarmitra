@@ -13,12 +13,36 @@
       </div><!--/span-->
       <div class="span9">
         <div class="hero-unit">
-          <h1>Sagar-Mitra Initative</h1>
-          <p> Container for team</p>
+          <p style="font-size: 20px; color: #0088cc; font-weight: 400;">
+            Sagar-Mitra Initative &raquo; Team
+          </p>
+          <div class="team">
+            <div class="tMember"><%= link_to image_tag("team/TAAlogo.png"), "http://www.taaindia.org/", target: :blank %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce"><%= image_tag("team/SETUlogo.jpg") %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce"><%= image_tag("team/CGMlogo.jpg") %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce"><%= link_to image_tag("team/lions_club_logo_color.jpg"), "http://www.lionsclubs.org/EN/index.php", target: :blank %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce"><%= link_to image_tag("team/rotary.jpg"), "http://www.rotary.org/", target: :blank  %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce"><%= image_tag("team/KCFlogo.jpg") %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce withbackground"><%= link_to image_tag("team/initiativers_logo.png"), "http://initiativers.com", target: :blank %></div>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="tMember reduce"><%= link_to image_tag("team/paramisoft.png"), "http://initiativers.com", target: :blank %></div>
+          </div>
+          <div style="clear: both;"></div>
         </div>
+      </div><!--/.fluid-container-->
+    </div>
+</div>
 
-    <hr>
-
-
-  </div><!--/.fluid-container-->
+<style type="text/css">
+.team { width: 100%; }
+.team .tMember { width: 100%; }
+.team .tMember.reduce { width: 60%; margin: auto; text-align: center; }
+.team .tMember.reduce.withbackground { background-color: #3C3745; text-align: center; }
+</style>
 
