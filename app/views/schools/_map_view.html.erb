@@ -9,30 +9,35 @@
         var infowindow = new google.maps.InfoWindow();
         var bounds = new google.maps.LatLngBounds();
 
-        var marker;
+        var marker = [];
+        var infoArray = [];
         var sLatlng;
         var html;
 
-    <% @schools.each do |school| %>
+    <% @schools.each_with_index do |school, index| %>
         <% if school.lat && school.lng %>
+            console.log("<%= school.number_of_collections %>")
+            console.log("<%= school.plastic_collected %>")
+            console.log("<%= school.green_fund %>")
             html = "";
             html += "<b style='color: #0047CC;'><%= school.name %></b><br/>";
-            html += "<span style='color: #0047CC;'>No. of Collections</span>: <span style='font-weight: bold;'><%= school.number_of_collections %> </span><br/>";
-            <%  plastic_collection_details = school.plastic_collection_details %>
-            html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= school.plastic_collected%> tons</span><br/>";
-            html += "<span style='color: #0047CC;'>Green Fund</span>: <span style='font-weight: bold;'>Rs. <%= school.green_fund %></span><br/>";
+            html += "<span style='color: #0047CC;'>No. of Collections</span>: <span style='font-weight: bold;'><%= "#{school.number_of_collections}" %> </span><br/>";
+            html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= "#{school.plastic_collected}" %> tons</span><br/>";
+            html += "<span style='color: #0047CC;'>Green Fund</span>: <span style='font-weight: bold;'>Rs. <%= "#{school.green_fund}" %></span><br/>";
+            infoArray.push(html)
             sLatlng = new google.maps.LatLng('<%= school.lat %>','<%= school.lng %>');
-            marker = new google.maps.Marker({
+            marker['<%= index %>'] = new google.maps.Marker({
                 position: sLatlng,
                 map: map
             });
+            console.log(html);
             bounds.extend(sLatlng);
-            google.maps.event.addListener(marker, 'click', (function(marker) {
+            google.maps.event.addListener(marker['<%= index %>'], 'click', (function(mrkr) {
                 return function() {
-                    infowindow.setContent(html);
-                    infowindow.open(map, marker);
+                    infowindow.setContent(infoArray['<%= index %>']);
+                    infowindow.open(map, mrkr);
                 }
-            })(marker));
+            })(marker['<%= index %>']));
         <% end %>
     <% end %>
 

@@ -29,21 +29,21 @@ class School < ActiveRecord::Base
      return {:plastic_collected =>  plastic_collected , :green_fund => green_fund }
   end
   
- def plastic_collected
-    plastic_collected = 0
-    self.plastic_collection_events.each do |event|
-      plastic_collected = plastic_collected + event.plastic_weight
-    end
-    return plastic_collected
- end
+ #def plastic_collected
+ #   plastic_collected = 0
+ #   self.plastic_collection_events.each do |event|
+ #     plastic_collected = plastic_collected + event.plastic_weight
+ #   end
+ #   return plastic_collected
+ #end
  
- def green_fund
-    green_fund = 0
-     self.plastic_collection_events.each do |event|
-       green_fund = green_fund + event.money_given
-     end
-     return green_fund
- end
+ #def green_fund
+ #   green_fund = 0
+ #    self.plastic_collection_events.each do |event|
+ #      green_fund = green_fund + event.money_given
+ #    end
+ #    return green_fund
+ #end
  
  def School.add_last_year_records
    s1 = School.create(:name => 'St. Andrews Chinchwad', 
