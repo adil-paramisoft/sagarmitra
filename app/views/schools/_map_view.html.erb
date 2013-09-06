@@ -22,7 +22,7 @@
             html = "";
             html += "<b style='color: #0047CC;'><%= school.name %></b><br/>";
             html += "<span style='color: #0047CC;'>No. of Collections</span>: <span style='font-weight: bold;'><%= "#{school.number_of_collections}" %> </span><br/>";
-            html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= "#{school.plastic_collected}" %> tons</span><br/>";
+            html += "<span style='color: #0047CC;'>Plastic Collected</span>: <span style='font-weight: bold;'><%= "#{school.plastic_collected}" %> Kgs </span><br/>";
             html += "<span style='color: #0047CC;'>Green Fund</span>: <span style='font-weight: bold;'>Rs. <%= "#{school.green_fund}" %></span><br/>";
             infoArray.push(html)
             sLatlng = new google.maps.LatLng('<%= school.lat %>','<%= school.lng %>');
