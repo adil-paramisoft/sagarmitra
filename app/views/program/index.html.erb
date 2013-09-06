@@ -28,12 +28,6 @@
     <p class="lead">Rs.1000 of Green Fund!</p>
   </div>
 
-  <hr class="featurette-divider">
-
-  <!-- /END THE FEATURETTES -->
-
-<%= render "shared/footer"%>
-
 <script>
   !function ($) {
     $(function(){
@@ -53,6 +47,7 @@
         $(".launch_button").click(function(){
             $("body").removeClass("dialogIsOpen");
             $(this).remove();
+            window.location.href = '/'
         })
     </script>
 <% end %>
