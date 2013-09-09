@@ -17,6 +17,7 @@
   <%= render "shared/google_analytics"%>
 </head>
 <body>
+	<%= render 'shared/facebook_javascript_sdk' %>
 
 <!-- Marketing messaging and featurettes
 ================================================== -->
@@ -35,9 +36,11 @@
     </div><!-- /.navbar-wrapper -->
 
     <%= yield %>
+	
   <hr class="featurette-divider">
 
   <!-- /END THE FEATURETTES -->
+	<%= render 'shared/facebook_like' %>
 
   <%= render "shared/footer"%>
 
