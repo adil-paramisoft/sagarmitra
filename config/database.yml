@@ -25,7 +25,7 @@ development:
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: sagarmitra-production
   pool: 5
   username: postgres
