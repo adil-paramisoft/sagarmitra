@@ -25,14 +25,11 @@ gem 'capistrano'
 gem 'rvm-capistrano'
 
 #gem 'mysql2'
-gem 'pg'
-
-#gem 'execjs'
-#gem 'therubyracer', :platforms => :ruby
+#gem 'pg'
 
 # To fix JavaScript Runtime
-#gem "execjs"
-#gem "therubyracer"
+gem "execjs"
+gem "therubyracer"
 
 # Permissions
 gem "cancan"
@@ -73,7 +70,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
- gem 'unicorn'
+# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
