@@ -88,7 +88,6 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.9)
     multipart-post (1.2.0)
-    mysql2 (0.3.13)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -195,7 +194,6 @@ DEPENDENCIES
   email_validator
   jbuilder (~> 1.2)
   jquery-rails
-  mysql2
   omniauth
   omniauth-facebook
   pg

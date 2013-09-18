@@ -25,8 +25,8 @@ gem 'email_validator', :require => 'email_validator/strict'
 gem 'capistrano'
 gem 'rvm-capistrano'
 
-gem 'mysql2'
-gem 'pg'
+#gem 'mysql2'
+#gem 'pg'
 
 #gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
