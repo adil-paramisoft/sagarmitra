@@ -29,7 +29,7 @@ gem 'rvm-capistrano'
 gem 'pg'
 
 #gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
+#gem 'therubyracer', :platforms => :ruby
 
 # To fix JavaScript Runtime
 #gem "execjs"
