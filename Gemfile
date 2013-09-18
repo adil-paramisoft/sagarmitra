@@ -20,6 +20,9 @@ gem 'rvm-capistrano'
 #gem 'mysql2'
 gem 'pg'
 
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
 # To fix JavaScript Runtime
 #gem "execjs"
 #gem "therubyracer"
