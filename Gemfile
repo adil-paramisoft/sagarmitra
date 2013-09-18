@@ -25,7 +25,7 @@ gem 'capistrano'
 gem 'rvm-capistrano'
 
 #gem 'mysql2'
-#gem 'pg'
+gem 'pg'
 
 # To fix JavaScript Runtime
 gem "execjs"
