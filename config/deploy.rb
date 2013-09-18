@@ -62,5 +62,5 @@ end
 #before 'deploy:setup', 'rvm:install_rvm'   # install RVM
 #before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, OR:
 
-after "deploy", "deploy:symlink_db"
+after "deploy:update_code", "deploy:symlink_db"
 after "deploy", "deploy:migrate"
