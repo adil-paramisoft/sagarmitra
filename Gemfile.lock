@@ -59,8 +59,6 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
-    email_validator (1.4.0)
-      activemodel
     erubis (2.7.0)
     execjs (2.0.1)
     faraday (0.8.8)
@@ -186,7 +184,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debugger
   devise
-  email_validator
   jbuilder (~> 1.2)
   jquery-rails
   omniauth
