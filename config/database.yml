@@ -25,11 +25,11 @@ development:
 
 production:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: sagarmitra-production
   pool: 5
   username: postgres
-  password: ParamiSoft$007
+  password: 
   host: localhost      
 
   # Connect on a TCP socket. Omitted by default since the client uses a
