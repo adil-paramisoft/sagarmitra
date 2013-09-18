@@ -196,7 +196,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-facebook
-  pg 
+  pg
   phony_rails
   rails (= 4.0.0)
   rvm-capistrano
