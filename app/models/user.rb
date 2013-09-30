@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   end
   
   def role?(role)
+      Rails.logger.info "role => #{role}"
      return !!self.roles.where(name: role.to_s.camelize).first
    end
          
