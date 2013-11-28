@@ -3,7 +3,7 @@
 <head>
   <title>Sagarmitra</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "jquery-ui-1.10.3.custom.css" %>
+ 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
    <!--[if lt IE 9]>
      <script src="../assets/js/html5shiv.js"></script>
@@ -12,14 +12,27 @@
   <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4sH7Z0XwjmqWPmhdx0byhhAoL3dlMOS4&sensor=true">
   </script>
+  <%= csrf_meta_tags %>
+<style type="text/css"></style><style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
+  <%= render "shared/google_analytics"%>
 
  <%= javascript_include_tag 'jquery-1.9.1.js'%>
  <%= javascript_include_tag 'jquery-ui-1.10.3.custom.js'%>
+ <%= stylesheet_link_tag    "jquery-ui-1.10.3.custom.css" %>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
 
-  <%= csrf_meta_tags %>
+  });
 
-<style type="text/css"></style><style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
-  <%= render "shared/google_analytics"%>
+  $(function() {
+    $( "#tabs" ).tabs();
+ //alert('dsfd');
+  });
+
+
+
+  </script>
 </head>
 <body>
 	<%= render 'shared/facebook_javascript_sdk' %>
@@ -48,6 +61,7 @@
 	<%= render 'shared/facebook_like' %>
 
   <%= render "shared/footer"%>
+
 
 
 

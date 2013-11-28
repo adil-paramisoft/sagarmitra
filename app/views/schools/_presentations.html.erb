@@ -1,0 +1,17 @@
+<%= select_tag :filter, options_from_collection_for_select(@presentation_type, "id", "name"),:prompt => "All",:id=>'presentation'  %>
+<div class='list'>
+	<%= render :partial => 'presentations_rows' %>
+</div>
+
+
+<script>
+    $( "#presentation" ).change(function() {
+	$.ajax({
+	 	url: "<%= presentation_school_path(1) %>",
+		success: success,
+		dataType: dataType
+	});
+      	
+    });
+
+  </script>

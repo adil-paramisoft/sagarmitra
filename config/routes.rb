@@ -33,7 +33,11 @@ Sagarmitra::Application.routes.draw do
 
   resources :presentations
 
-  resources :schools
+  resources :schools do
+     member do
+         get :presentation
+       end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

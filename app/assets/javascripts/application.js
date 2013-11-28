@@ -16,8 +16,3 @@
 //= require_tree .
 //= jquery-1.9.1
 //= jquery-ui-1.10.3.custom
-
-
-  $(function() {
-    $( "#tabs" ).tabs();
-  });

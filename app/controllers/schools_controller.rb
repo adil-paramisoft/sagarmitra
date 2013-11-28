@@ -13,6 +13,9 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
+    @plastic_collection_events = @school.plastic_collection_events
+    @presentation_type = PresentationType .all 
+    @presentations = @school.presentations
   end
 
   # GET /schools/new
@@ -62,6 +65,11 @@ class SchoolsController < ApplicationController
       format.html { redirect_to schools_url }
       format.json { head :no_content }
     end
+  end
+  
+  
+  def presentation
+    
   end
 
   private
