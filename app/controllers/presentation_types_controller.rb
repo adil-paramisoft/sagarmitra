@@ -1,6 +1,6 @@
 class PresentationTypesController < ApplicationController
   before_action :set_presentation_type, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /presentation_types
   # GET /presentation_types.json
   def index

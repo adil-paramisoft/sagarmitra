@@ -13,4 +13,7 @@ module ApplicationHelper
       link_to("#{current_user.name}", root_path, :class => 'decoration')
     #end
   end
+  
+ 
+  
 end

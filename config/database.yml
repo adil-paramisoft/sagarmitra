@@ -16,12 +16,13 @@
 #
 
 development:
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   database: sagarmitra_development
   pool: 5
-  username: root
-  password:
+  username: postgres
+  password: parami
+  host: localhost
 
 production:
   adapter: postgresql
@@ -29,7 +30,7 @@ production:
   database: sagarmitra-production
   pool: 5
   username: postgres
-  password: 
+  password: parami
   host: localhost      
 
   # Connect on a TCP socket. Omitted by default since the client uses a

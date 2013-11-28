@@ -1,6 +1,7 @@
 class PlasticCollectionEventsController < ApplicationController
-  before_action :set_plastic_collection_event, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_plastic_collection_event, only: [:show, :edit, :update, :destroy]
+  before_action :load_plastic_collection_event, only: :create
+  load_and_authorize_resource
   # GET /plastic_collection_events
   # GET /plastic_collection_events.json
   def index
@@ -65,6 +66,10 @@ class PlasticCollectionEventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_plastic_collection_event
       @plastic_collection_event = PlasticCollectionEvent.find(params[:id])
+    end
+
+    def load_plastic_collection_event
+         @plastic_collection_event = PlasticCollectionEvent.new(plastic_collection_event_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

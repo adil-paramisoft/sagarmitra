@@ -1,0 +1,26 @@
+<div id="tabs-1">
+  <strong>Name:</strong>
+  <%= @school.name %>
+</br>
+  <strong>Address:</strong>
+  <%= @school.address %>  
+</br>
+  <strong>School type:</strong>
+  <%= @school.school_type.name %>
+</br>
+  <strong>Program state:</strong>
+  <%= @school.program_state.name %>
+</br>
+  <strong>Total students:</strong>
+  <%= @school.total_students %>
+</br>
+  <strong>Medium:</strong>
+  <%= @school.school_medium.name %>
+
+<div>
+	<% if can? :create, School %>
+	<%= link_to 'Edit', edit_school_path(@school) %> |
+	<%= link_to 'Back', schools_path %>
+	<%end%>	
+</div>
+</div>

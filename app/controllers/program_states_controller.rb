@@ -1,6 +1,7 @@
 class ProgramStatesController < ApplicationController
-  before_action :set_program_state, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_program_state, only: [:show, :edit, :update, :destroy]
+  before_action :load_program_state, only: :create
+  load_and_authorize_resource
   # GET /program_states
   # GET /program_states.json
   def index
@@ -66,7 +67,11 @@ class ProgramStatesController < ApplicationController
     def set_program_state
       @program_state = ProgramState.find(params[:id])
     end
-
+    
+    def load_program_state
+         @program_state = ProgramState.new(program_state_params)
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_state_params
       params.require(:program_state).permit(:name, :description)

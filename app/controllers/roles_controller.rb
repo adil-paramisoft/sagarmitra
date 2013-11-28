@@ -1,6 +1,7 @@
 class RolesController < ApplicationController
-  before_action :set_role, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_role, only: [:show, :edit, :update, :destroy]
+  before_action :load_role, only: :create
+  load_and_authorize_resource
   # GET /roles
   # GET /roles.json
   def index
@@ -66,6 +67,11 @@ class RolesController < ApplicationController
     def set_role
       @role = Role.find(params[:id])
     end
+
+    def load_role
+         @role = Role.new(role_params)
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params

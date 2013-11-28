@@ -1,6 +1,7 @@
 class SchoolContactsController < ApplicationController
-  before_action :set_school_contact, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_school_contact, only: [:show, :edit, :update, :destroy]
+  before_action :load_plastic_collection_event, only: :create
+  load_and_authorize_resource
   # GET /school_contacts
   # GET /school_contacts.json
   def index
@@ -65,6 +66,10 @@ class SchoolContactsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_school_contact
       @school_contact = SchoolContact.find(params[:id])
+    end
+
+    def load_school_contact
+         @school_contact = SchoolContact.new(school_contact_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

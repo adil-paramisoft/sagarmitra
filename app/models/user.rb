@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
    
   # Associations
   
-  has_and_belongs_to_many :roles    
+  has_and_belongs_to_many :roles
   validates :name , :email , :presence => true
  # validates :email, :unique => true   
   
@@ -35,8 +35,7 @@ class User < ActiveRecord::Base
   end
   
   def role?(role)
-      Rails.logger.info "role => #{role}"
-     return !!self.roles.where(name: role.to_s.camelize).first
-   end
+         return !!self.roles.find_by_name(role.to_s)
+    end
          
 end

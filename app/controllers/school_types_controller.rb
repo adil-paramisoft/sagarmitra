@@ -1,6 +1,7 @@
 class SchoolTypesController < ApplicationController
-  before_action :set_school_type, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_school_type, only: [:show, :edit, :update, :destroy]
+  before_action :load_school_type, only: :create
+  load_and_authorize_resource
   # GET /school_types
   # GET /school_types.json
   def index
@@ -66,7 +67,9 @@ class SchoolTypesController < ApplicationController
     def set_school_type
       @school_type = SchoolType.find(params[:id])
     end
-
+    def load_school_type
+         @school_type = SchoolType.new(school_type_params)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_type_params
       params.require(:school_type).permit(:name, :description)

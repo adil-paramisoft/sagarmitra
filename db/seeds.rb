@@ -13,7 +13,8 @@ puts " -- Creating roles"
 
 Role.create([{name: 'admin', description: 'Super admin of the app'},
              {name: 'school-admin', description: 'Admin for school'},
-             {name: 'Volunteer'}])
+             {name: 'school-volunteer'}
+             {name: 'program-volunteer'}])
 puts " -- Done!"
 puts " -- Creating Program States"
              
@@ -75,3 +76,7 @@ puts " -- Done!"
 # Initial inserts for roles
 
 #ActiveRecord::Base.connection.execute("VACUUM")
+admin_role = Role.find_or_create_by_name 'admin'
+user = User.new(:email => 'chetan@paramisoft.com', :name => 'Chetan Jadhav', :password => 'welcome123')
+user.roles << admin_role
+user.save

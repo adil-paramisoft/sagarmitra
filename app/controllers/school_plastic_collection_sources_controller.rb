@@ -1,6 +1,8 @@
 class SchoolPlasticCollectionSourcesController < ApplicationController
-  before_action :set_school_plastic_collection_source, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_school_plastic_collection_source, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_action :load_school_plastic_collection_source, only: :create
+  load_and_authorize_resource
   # GET /school_plastic_collection_sources
   # GET /school_plastic_collection_sources.json
   def index
@@ -65,6 +67,10 @@ class SchoolPlasticCollectionSourcesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_school_plastic_collection_source
       @school_plastic_collection_source = SchoolPlasticCollectionSource.find(params[:id])
+    end
+
+    def load_school_plastic_collection_source
+         @school_plastic_collection_source = SchoolPlasticCollectionSource.new(school_plastic_collection_source_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,7 +1,8 @@
 class SchoolVolunteersController < ApplicationController
+ 
+  #before_action :set_school_volunteer, only: [:show, :edit, :update, :destroy]
+  before_action :load_school_volunteer, only: :create
   load_and_authorize_resource
-  before_action :set_school_volunteer, only: [:show, :edit, :update, :destroy]
-
   # GET /school_volunteers
   # GET /school_volunteers.json
   def index
@@ -69,6 +70,10 @@ class SchoolVolunteersController < ApplicationController
     def set_school_volunteer
       @school_volunteer = SchoolVolunteer.find(params[:id])
     end
+
+    def load_school_volunteer
+          @school_volunteer = SchoolVolunteer.new(school_volunteer_params)
+        end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_volunteer_params

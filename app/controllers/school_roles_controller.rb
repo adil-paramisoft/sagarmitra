@@ -1,6 +1,7 @@
 class SchoolRolesController < ApplicationController
-  before_action :set_school_role, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_school_role, only: [:show, :edit, :update, :destroy]
+  before_action :load_plastic_collection_event, only: :create
+  load_and_authorize_resource
   # GET /school_roles
   # GET /school_roles.json
   def index

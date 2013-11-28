@@ -1,35 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div id="tabs">
+  <%= render :partial=>'tab_header'%>
+  <%= render :partial=> 'school_profile'%>
 
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @school.address %>
-</p>
+  <div id="tabs-2">
+    <p>test 2</p>
+  </div>
 
-<p>
-  <strong>School type:</strong>
-  <%= @school.school_type.name %>
-</p>
+  <div id="tabs-3">
+    <p>test 3</p>
+    <p>test 4.</p>
+  </div>
 
-<p>
-  <strong>Program state:</strong>
-  <%= @school.program_state.name %>
-</p>
-
-<p>
-  <strong>Total students:</strong>
-  <%= @school.total_students %>
-</p>
-
-<p>
-  <strong>Medium:</strong>
-  <%= @school.school_medium.name %>
-</p>
-<% if can? :create, School %>
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
-<%end%>
+</div>

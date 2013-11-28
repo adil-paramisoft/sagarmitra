@@ -1,6 +1,7 @@
 class ProgramVolunteersController < ApplicationController
-  before_action :set_program_volunteer, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_program_volunteer, only: [:show, :edit, :update, :destroy]
+  before_action :load_program_volunteer, only: :create
+  load_and_authorize_resource
   # GET /program_volunteers
   # GET /program_volunteers.json
   def index
@@ -66,7 +67,11 @@ class ProgramVolunteersController < ApplicationController
     def set_program_volunteer
       @program_volunteer = ProgramVolunteer.find(params[:id])
     end
-
+    
+    def load_program_volunteer
+         @program_volunteer = ProgramVolunteer.new(program_volunteer_params)
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_volunteer_params
       params.require(:program_volunteer).permit(:name, :interest, :responsibility, :email, :mobile)

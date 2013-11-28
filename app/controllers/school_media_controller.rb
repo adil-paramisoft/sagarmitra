@@ -1,6 +1,7 @@
 class SchoolMediaController < ApplicationController
-  before_action :set_school_medium, only: [:show, :edit, :update, :destroy]
-
+  #before_action :set_school_medium, only: [:show, :edit, :update, :destroy]
+  before_action :load_school_medium, only: :create
+  load_and_authorize_resource
   # GET /school_media
   # GET /school_media.json
   def index
@@ -65,6 +66,11 @@ class SchoolMediaController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_school_medium
       @school_medium = SchoolMedium.find(params[:id])
+    end
+    
+    
+    def load_school_medium
+         @school_medium = SchoolMedium.new(school_medium_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

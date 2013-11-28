@@ -231,7 +231,7 @@ Devise.setup do |config|
 
   config.secret_key = 'be34b16406afac11e631976a46fcdc39592eef18f1a4a17459bafdb81591d151790c47a480a7e39d2336fc84de2a5d6cfce529f85352196b69e5525d855a808f'
   config.omniauth :facebook, "414737248638545", "e4a9f78914c1d37d7047ef092b81c7be"
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
+  #OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
   
 
   # ==> Warden configuration
