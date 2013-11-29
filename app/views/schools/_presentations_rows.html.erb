@@ -24,7 +24,7 @@
     <% @presentations.each do |presentation| %>
       <tr>
         <td><%= presentation.presented_by %></td>
-        <td><%= presentation.date %></td>
+        <td><%= l presentation.date%></td>
         <td><%= presentation.audience_count %></td>
         <td><%= presentation.summary %></td>
         <td><%= presentation.authorities_present %></td>

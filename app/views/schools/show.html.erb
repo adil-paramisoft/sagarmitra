@@ -1,3 +1,12 @@
+<div id='basic_school'>
+	<h3><%= @school.name%> </h3>
+	<p> 
+		No. of Collections: <b>	<%= @school.number_of_collections %> </b> </br>
+		Plastic Collected: <b> <%= @school.plastic_collected %> </b></br>
+		Green Fund: <b> <%= @school.green_fund %> </b>
+	</p>
+</div>
+
 <div id="tabs">
   <%= render :partial=>'tab_header'%>
   <%= render :partial=> 'school_profile'%>
@@ -9,3 +18,8 @@
   </div>
 
 </div>
+
+<script>
+ 	$( "#tabs" ).tabs();
+
+</script>
