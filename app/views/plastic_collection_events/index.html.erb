@@ -11,9 +11,9 @@
       <th>Date</th>
       <th>Quality remark</th>
       <th>Feedback</th>    
-<%# if can? :create, PlasticCollectionEvent %>
+<% if can? :create, PlasticCollectionEvent %>
       <th>Actions</th>
-<%# end%>
+<% end%>
     </tr>
   </thead>
 
@@ -28,11 +28,11 @@
         <td><%= l plastic_collection_event.date %></td>
         <td><%= plastic_collection_event.quality_remark %></td>
         <td><%= plastic_collection_event.feedback %></td>
-<%# if can? :create, PlasticCollectionEvent %>
+<% if can? :create, PlasticCollectionEvent %>
         <td><%= link_to 'Show', plastic_collection_event %> |
             <%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %>|
             <%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<%# end%>
+<% end%>
       </tr>
     <% end %>
   </tbody>

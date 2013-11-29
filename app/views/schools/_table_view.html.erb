@@ -10,7 +10,9 @@
     <th>Number of Collections</th>
     <th>Plastic Collected (Kgs)</th>
     <th>Green Fund (INR)</th>
-    <th>Actions</th>
+	<% if can? :create, PlasticCollectionEvent %>
+    	<th>Actions</th>
+	<%end%>
 
   </tr>
   </thead>
@@ -27,11 +29,12 @@
         <td><%= school.number_of_collections %></td>
         <td><%= school.plastic_collected %> </td>
         <td><%= school.green_fund %> </td>
-       
-        <td><%= link_to 'Show', school %> |
-          <%= link_to 'Edit', edit_school_path(school) %> |
-          <%= link_to 'Destroy', school, method: :delete, data:{ confirm: 'Are you sure?' } %></td>
-       </tr>
+		<% if can? :create, PlasticCollectionEvent %>
+        	<td><%= link_to 'Show', school %> |
+          		<%= link_to 'Edit', edit_school_path(school) %> |
+          		<%= link_to 'Destroy', school, method: :delete, data:{ confirm: 'Are you sure?' } %></td>
+       		</tr>
+		<%end%>
   <% end %>
 
   </table>
