@@ -27,6 +27,8 @@ gem 'rvm-capistrano'
 #gem 'mysql2'
 gem 'pg'
 
+gem 'rails_12factor', group: :production
+
 # To fix JavaScript Runtime
 gem "execjs"
 gem "therubyracer"
@@ -70,10 +72,12 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
- #gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
  gem 'debugger', group: [:development, :test]
+
+ruby "2.0.0"
