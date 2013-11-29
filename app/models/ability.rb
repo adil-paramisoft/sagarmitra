@@ -18,7 +18,7 @@ class Ability
         can :index, School
         can [:new,:show,:create],SchoolVolunteer
         can [:index],PlasticCollectionEvent
-        can [:show],School
+        can [:show,:presentation],School
       end
         
       

@@ -69,7 +69,16 @@ class SchoolsController < ApplicationController
   
   
   def presentation
-    
+    presentation_type_id = params[:presentation_id]
+    if presentation_type_id.size > 0 
+    @presentations = @school.presentations.where(:presentation_type_id=>presentation_type_id) 
+  else
+    @presentations = @school.presentations 
+  end
+     respond_to do |format|
+       format.html { render :partial=>'presentations_rows'  }
+       format.json { head :no_content }
+     end
   end
 
   private
@@ -77,7 +86,7 @@ class SchoolsController < ApplicationController
     def set_school
       @school = School.find(params[:id])
     end
-
+    
      def load_school_volunteer
         @school = School.new(school_params)
      end
