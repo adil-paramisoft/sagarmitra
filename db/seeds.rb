@@ -14,7 +14,8 @@ puts " -- Creating roles"
 Role.create([{name: 'admin', description: 'Super admin of the app'},
              {name: 'school-admin', description: 'Admin for school'},
              {name: 'school-volunteer'},
-             {name: 'program-volunteer'}])
+             {name: 'program-volunteer'}
+             ])
 puts " -- Done!"
 puts " -- Creating Program States"
              
