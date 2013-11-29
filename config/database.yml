@@ -21,7 +21,7 @@ development:
   database: sagarmitra_development
   pool: 5
   username: postgres
-  password: parami
+  password: 
   host: localhost
 
 production:
@@ -30,7 +30,7 @@ production:
   database: sagarmitra-production
   pool: 5
   username: postgres
-  password: parami
+  password: 
   host: localhost      
 
   # Connect on a TCP socket. Omitted by default since the client uses a
