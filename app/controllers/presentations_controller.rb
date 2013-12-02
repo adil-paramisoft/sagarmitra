@@ -26,10 +26,9 @@ class PresentationsController < ApplicationController
   # POST /presentations.json
   def create
     @presentation = Presentation.new(presentation_params)
-
     respond_to do |format|
       if @presentation.save
-        format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
+        format.html { redirect_to "#{school_path(@presentation.school)}#tabs-2", notice: 'Presentation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @presentation }
       else
         format.html { render action: 'new' }

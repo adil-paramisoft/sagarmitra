@@ -32,16 +32,16 @@
         <td><%= link_to 'Show', plastic_collection_event %> |
             <%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %>|
             <%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<% end%>
+<% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
 
-<%# if can? :create, PlasticCollectionEvent %>
+<% if can? :create, PlasticCollectionSource %>
 	<%= link_to 'New Plastic collection event', new_plastic_collection_event_path %>
-<%# end%>
+<% end%>
 
 
 <script type="text/javascript">

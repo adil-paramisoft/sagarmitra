@@ -29,7 +29,7 @@ class PlasticCollectionEventsController < ApplicationController
 
     respond_to do |format|
       if @plastic_collection_event.save
-        format.html { redirect_to @plastic_collection_event, notice: 'Plastic collection event was successfully created.' }
+        format.html { redirect_to "#{school_path(@plastic_collection_event.school)}#tabs-3" , notice: 'Plastic collection event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plastic_collection_event }
       else
         format.html { render action: 'new' }

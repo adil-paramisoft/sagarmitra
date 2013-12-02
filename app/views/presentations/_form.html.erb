@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.text_field :date,:id=>'datepicker' %>
   </div>
   <div class="field">
     <%= f.label :audience_count %><br>
@@ -51,3 +51,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+      $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+</script>

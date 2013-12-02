@@ -26,11 +26,12 @@
         <td><%= school_volunteer.name %></td>
         <td><%= school_volunteer.mobile %></td>
         <td><%= school_volunteer.email %></td>
-
+<% if can? :create SchoolVolunteer%>
         <td><%= link_to 'Show', school_volunteer %> |
          <%= link_to 'Edit', edit_school_volunteer_path(school_volunteer) %> |
         <%= link_to 'Destroy', school_volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+<%end%>
     <% end %>
   </tbody>
 </table>

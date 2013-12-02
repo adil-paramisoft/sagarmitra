@@ -15,10 +15,10 @@ class Ability
       elsif user.role? 'program-volunteer'
         
       else
-        can :index, School
-        can [:new,:show,:create],SchoolVolunteer
+        can [:show,:create],SchoolVolunteer
         can [:index],PlasticCollectionEvent
-        can [:show,:presentation],School
+        can [:index,:show,:presentation],School
+        can [:index],PlasticCollectionSource 
       end
         
       
