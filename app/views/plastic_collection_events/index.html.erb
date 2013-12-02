@@ -9,7 +9,7 @@
 	<%= t.day do |day, plastic_collection_events| %>
     <%= day.day %>
     <% plastic_collection_events.each do |plastic_collection_event| %>
-      <%= h(plastic_collection_event.school.name) %>
+		<%= link_to plastic_collection_event.school.name, plastic_collection_event.school %>
     <% end %>
   <% end %>
 <% end %>
