@@ -1,0 +1,58 @@
+<h3>Plastic Collection Drive</h3>
+
+<table  class="table table-striped table-bordered" id="plastic_collection_event_table" >
+  <thead>
+    <tr>
+	  <th>School</th>
+      <th>Plastic weight</th>
+      <th>Money given</th>
+      <th>Volunteers present</th>
+      <th>Plastic collection Source</th>
+      <th>Date</th>
+      <th>Quality remark</th>
+      <th>Feedback</th>    
+<% if can? :create, PlasticCollectionEvent %>
+      <th>Actions</th>
+<% end%>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plastic_collection_events.each do |plastic_collection_event| %>
+      <tr>
+        <td><%= plastic_collection_event.school.name  %></td>
+        <td><%= plastic_collection_event.plastic_weight %></td>
+        <td><%= plastic_collection_event.money_given %></td>
+        <td><%= plastic_collection_event.volunteers_present %></td>
+        <td><%= plastic_collection_event.plastic_collection_source.name %></td>
+        <td><%= l plastic_collection_event.date %></td>
+        <td><%= plastic_collection_event.quality_remark %></td>
+        <td><%= plastic_collection_event.feedback %></td>
+<% if can? :create, PlasticCollectionEvent %>
+        <td><%= link_to 'Show', plastic_collection_event %> |
+            <%= link_to 'Edit', edit_plastic_collection_event_path(plastic_collection_event) %>|
+            <%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<% if can? :create, PlasticCollectionSource %>
+	<%= link_to 'New Plastic collection event', new_plastic_collection_event_path %>
+<% end%>
+
+
+
+
+<script type="text/javascript">
+    $('#plastic_collection_event_table').dataTable( {
+        "aaSorting": [[ 5, "desc" ]]
+    } );
+</script>
+
+
+
+
+

@@ -73,6 +73,7 @@ end
 
 # Use unicorn as the app server
  gem 'unicorn'
+ gem "watu_table_builder", :require => "table_builder"
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

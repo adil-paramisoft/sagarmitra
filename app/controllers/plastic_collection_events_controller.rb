@@ -6,6 +6,8 @@ class PlasticCollectionEventsController < ApplicationController
   # GET /plastic_collection_events.json
   def index
     @plastic_collection_events = PlasticCollectionEvent.all
+    @date = params[:month] ? Date.strptime(params[:month], "%m-%Y") : Date.today  
+ 
   end
 
   # GET /plastic_collection_events/1
