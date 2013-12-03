@@ -1,13 +1,12 @@
 <div style="float:right" >
-<% if can? :create, Presentation %>
 	<div class="plastic_collection_event_school">
-	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_plastic_collection_event_path  %> Plastic Collection Events
+	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_plastic_collection_event_path if can? :create, PlasticCollectionEvent  %> Plastic Collection Events
 	</div>
 	<div class="school_presentation">
-	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_presentation_path  %> Presentation
+	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_presentation_path if can? :create, Presentation   %> Presentation
 	</div>
-<% end%>
 </div>
+
 
 <div id="calendar">
   <h2 id="month">
@@ -15,6 +14,7 @@
 	    <%=h @date.strftime("%B %Y") %>
 	    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%m-%Y") %>
 	</h2>
+	
 <%= calendar_for(@plastic_collection_events,:year =>@date.year, :month => @date.month) do |t| %>
   	<%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
 	<%= t.day do |day, plastic_collection_events| %>

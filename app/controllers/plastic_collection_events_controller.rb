@@ -7,7 +7,7 @@ class PlasticCollectionEventsController < ApplicationController
   def index
     @plastic_collection_events = PlasticCollectionEvent.all
     @date = params[:month] ? Date.strptime(params[:month], "%m-%Y") : Date.today  
- 
+    @presentations=Presentation.all
   end
 
   # GET /plastic_collection_events/1
