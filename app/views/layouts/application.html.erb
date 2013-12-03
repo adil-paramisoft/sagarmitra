@@ -19,10 +19,11 @@
   <%= csrf_meta_tags %>
 <style type="text/css"></style><style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
   <%= render "shared/google_analytics"%>
-
  <%= javascript_include_tag 'jquery-1.9.1.js'%>
  <%= javascript_include_tag 'jquery-ui-1.10.3.custom.js'%>
  <%= stylesheet_link_tag    "jquery-ui-1.10.3.custom.css" %>
+ <%= stylesheet_link_tag    "bootstrap-datetimepicker.min.css" %>
+ <%= javascript_include_tag 'bootstrap-datetimepicker.min.js'%>
 <script>
       $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
 </script>

@@ -43,9 +43,9 @@ Sagarmitra::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'program#index'
+     root 'program#index'
    
-
+     get '/calender' => 'program#calender'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

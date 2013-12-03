@@ -1,4 +1,4 @@
-<%= form_for(@presentation) do |f| %>
+<%= simple_form_for(@presentation) do |f| %>
   <% if @presentation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@presentation.errors.count, "error") %> prohibited this presentation from being saved:</h2>
@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+      <%= f.association :school %>
+  </div>
+  <div class="field">
+    <%= f.association :presentation_type %>
+  </div>
   <div class="field">
     <%= f.label :presented_by %><br>
     <%= f.text_field :presented_by %>
@@ -31,14 +36,8 @@
     <%= f.label :authorities_present %><br>
     <%= f.text_area :authorities_present %>
   </div>
-  <div class="field">
-    <%= f.label :presentation_type_id %><br>
-    <%= f.number_field :presentation_type_id %>
-  </div>
-  <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.number_field :school_id %>
-  </div>
+
+
   <div class="field">
     <%= f.label :followup_volunteer %><br>
     <%= f.text_field :followup_volunteer %>
