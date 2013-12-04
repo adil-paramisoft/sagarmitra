@@ -8,14 +8,23 @@ class SchoolsController < ApplicationController
     view_type = ["table", "map"].include?(params[:type]) ? params[:type] : nil
     @view_type =  view_type || "map"
     @schools = School.all
+    
   end
 
   # GET /schools/1
   # GET /schools/1.json
   def show
+    @month = (params[:month] || (Time.zone || Time).now.month).to_i
+    @year = (params[:year] || (Time.zone || Time).now.year).to_i
+    
     @plastic_collection_events = @school.plastic_collection_events
     @presentation_type = PresentationType .all 
     @presentations = @school.presentations
+    
+    @shown_month = Date.civil(@year, @month)
+    @event_strips = @school.plastic_collection_events.event_strips_for_month(@shown_month)
+    @event_strips.concat(@school.presentations.event_strips_for_month(@shown_month))
+    
   end
 
   # GET /schools/new
