@@ -45,8 +45,7 @@ class School < ActiveRecord::Base
  #    end
  #    return green_fund
  #end
- 
- 
+
 
   def School.add_last_year_records
     School.where(:name => 'St. Andrews Chinchwad', 

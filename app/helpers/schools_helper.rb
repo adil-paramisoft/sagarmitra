@@ -15,15 +15,9 @@ module SchoolsHelper
       :next_month_text => month_link(@shown_month.next_month) + " >>"    }
       
   end
+  
 
-  def event_calendar
-    
-    # args is an argument hash containing :event, :day, and :options
-    calendar event_calendar_opts do |args|
-      event = args[:event]
-      %(<a href="/schools/#{event.id}" title="#{h(event.name)}">#{h(event.class)}</a>)
-    end
-  end
+  
   
   
 end
