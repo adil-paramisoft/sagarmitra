@@ -1,13 +1,16 @@
 class PlasticCollectionEventsController < ApplicationController
+  
   #before_action :set_plastic_collection_event, only: [:show, :edit, :update, :destroy]
   before_action :load_plastic_collection_event, only: :create
   load_and_authorize_resource
   # GET /plastic_collection_events
   # GET /plastic_collection_events.json
   def index
-    @plastic_collection_events = PlasticCollectionEvent.all
-    @date = params[:month] ? Date.strptime(params[:month], "%m-%Y") : Date.today  
-    @presentations=Presentation.all
+    @month = (params[:month] || (Time.zone || Time).now.month).to_i
+    @year = (params[:year] || (Time.zone || Time).now.year).to_i
+      @shown_month = Date.civil(@year, @month)
+      @event_strips = PlasticCollectionEvent.event_strips_for_month(@shown_month)
+      @event_strips.concat(Presentation.event_strips_for_month(@shown_month))
   end
 
   # GET /plastic_collection_events/1
@@ -76,6 +79,8 @@ class PlasticCollectionEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plastic_collection_event_params
-      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present, :plastic_collection_source_id, :date, :quality_remark, :feedback, :school_id)
+      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present, :plastic_collection_source_id, :date,:start_at,:end_at, :quality_remark, :feedback, :school_id)
     end
+  
+  
 end

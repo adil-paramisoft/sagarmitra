@@ -21,9 +21,15 @@
     <%= f.text_field :presented_by %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date,:id=>'datepicker' %>
+	<%= f.label :start_at%>
+	<%= f.text_field :start_at, :id=>"datepicker" %>
   </div>
+
+<div class="field">
+	<%= f.label :end_at%>
+	<%= f.text_field :end_at, :id=>"datepicker2" %>
+  </div>
+
   <div class="field">
     <%= f.label :audience_count %><br>
     <%= f.number_field :audience_count %>
@@ -53,4 +59,5 @@
 
 <script>
       $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+$( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
 </script>

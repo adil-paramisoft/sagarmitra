@@ -19,8 +19,13 @@
     <%= f.association :plastic_collection_source %><br>
   </div>
   <div class="field">
-	<% f.label :start_on%>
-	<%= f.text_field :date, :id=>"datepicker" %>
+	<%= f.label :start_at%>
+	<%= f.text_field :start_at, :id=>"datepicker" %>
+  </div>
+
+<div class="field">
+	<%= f.label :end_at%>
+	<%= f.text_field :end_at, :id=>"datepicker2" %>
   </div>
  
  <div class="field">
@@ -47,4 +52,5 @@
 
 <script>
       $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+$( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
 </script>

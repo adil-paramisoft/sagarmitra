@@ -7,22 +7,8 @@
 	</div>
 </div>
 
+<%= stylesheet_link_tag "event_calendar" %>
 
-<div id="calendar">
-  <h2 id="month">
-	 <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%m-%Y") %>
-	    <%=h @date.strftime("%B %Y") %>
-	    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%m-%Y") %>
-	</h2>
-	
-<%= calendar_for(@plastic_collection_events,:year =>@date.year, :month => @date.month) do |t| %>
-  	<%= t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') %>
-	<%= t.day do |day, plastic_collection_events| %>
-    <%= day.day %>
-    <% plastic_collection_events.each do |plastic_collection_event| %>
-	<div class="plastic_collection_event_school">
-		<%= link_to plastic_collection_event.school.name, plastic_collection_event.school %>
-    <% end %>
-  <% end %>
-<% end %>
-</div>
+<h1>Calender</h1>
+
+<%= raw(event_calendar) %>

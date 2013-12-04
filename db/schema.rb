@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906060006) do
+ActiveRecord::Schema.define(version: 20131204081141) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
     t.float    "money_given"
     t.text     "volunteers_present"
     t.integer  "plastic_collection_source_id"
-    t.datetime "date"
     t.string   "quality_remark"
     t.text     "feedback"
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_at"
+    t.datetime "end_at"
   end
 
   create_table "plastic_collection_sources", force: true do |t|
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 20130906060006) do
 
   create_table "presentations", force: true do |t|
     t.string   "presented_by"
-    t.datetime "date"
     t.integer  "audience_count"
     t.text     "summary"
     t.text     "authorities_present"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20130906060006) do
     t.integer  "followup_volunteer_mno"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_at"
+    t.datetime "end_at"
   end
 
   create_table "program_states", force: true do |t|
