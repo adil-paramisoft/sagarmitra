@@ -20,7 +20,7 @@ module PlasticCollectionEventsHelper
     # args is an argument hash containing :event, :day, and :options
     calendar event_calendar_opts do |args|
       event = args[:event]
-      %(<a href="/schools/#{event.id}" title="#{h(event.name)}">#{h(event.name)}=>#{event.class}=>#{event.class}</a>)
+      %(<a href="/schools/#{event.school.id}" title="#{h(event.name)}">#{h(event.name)}=>#{event.class}=>#{event.class}</a>)
     end
   end
 end
