@@ -1,23 +1,103 @@
-<%= simple_form_for(@school_volunteer) do |f| %>
-  <%= f.error_notification %>
-  <div class="inputs">
-    <%= f.simple_fields_for  :school do |s|%>
-    <%= s.input :name , label: "School Name"  %>
-    <%= s.input :address , label: "School address"  %>
-    <%= s.input :total_students %>
-    <%= s.association :school_type  %>
-    <%= s.association :school_medium %>
-	<%= s.input :program_state_id , :as => :hidden,  :input_html => { :value => "1" } %>
-    
+<%= simple_form_for @school_volunteer ,:html=>{:class=>"form-horizontal"} do |f| %>
+<fieldset>
+
+<!-- Form Name -->
+<%= f.error_notification %>
+<div class="inputs">
+	 <%= f.simple_fields_for  :school do |s|%>
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="School_Name">School Name</label>
+  <div class="controls">
+       <%= s.input :name , label: false,:id=>"School_Name",:class=>"input-xlarge"  %>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">School address</label>
+  <div class="controls">                     
+     	<%= s.input :address , label: false,:id=>"textarea"  %>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Total students</label>
+  <div class="controls">
+	  <%= s.text_field :total_students,:id=>"textinput",:class=>"input-xlarge" %>
+ 
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School type</label>
+  <div class="controls">
+	<%= s.association :school_type,:class=>"input-xlarge",:id=>"selectbasic" ,label: false %>
+   </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School medium</label>
+  <div class="controls">
+	  <%= s.association :school_medium,:id=>"selectbasic", :class=>"input-xlarge",label: false %>
+   
+  </div>
+</div>
+<%= s.input :program_state_id , :as => :hidden,  :input_html => { :value => "1" } %>
 	<%end%>
-    <%= f.input :name , label: "Name" %>
-    <%= f.input :email , label: "Email" %>
-    <%= f.input :mobile , label: "Mobile number" %>
-    <%= f.input :volunteer  , label: "Yes, I will take responsibility for this school. "  %>
-
+	
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Contact Person</label>
+  <div class="controls">
+	<%= f.input :name , label: false,:id=>"textinput" %>
+        
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.button :submit , value: "Submit" %>
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Email Id</label>
+  <div class="controls">
+    <%= f.input :email , label: false,:id=>"textinput",:class=>"input-xlarge" %>
   </div>
+</div>
+
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="prependedtext">Mobile No</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">+91</span>      
+<%= f.text_field :mobile , label: "Mobile number",:id=>"prependedtext",:class=>"input-xlarge" %>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Multiple Checkboxes (inline) -->
+<div class="control-group">
+  <label class="control-label" for="checkboxes"></label>
+  <div class="controls">
+    <label class="checkbox inline" for="checkboxes-0">
+	<%= f.input :volunteer ,:required=>"required" , label: false %>
+          * Yes, I will take responsibility for this school.
+    </label>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+	<%= f.button :submit , value: "Submit",:id=>"singlebutton",:class=>"btn btn-primary" %>
+  
+  </div>
+</div>
+
+</fieldset>
 <% end %>
+

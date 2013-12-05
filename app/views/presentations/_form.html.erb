@@ -1,5 +1,9 @@
-<%= simple_form_for(@presentation) do |f| %>
-  <% if @presentation.errors.any? %>
+
+
+
+<%= simple_form_for @presentation ,:html=>{:class=>"form-horizontal"} do |f| %>
+
+<% if @presentation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@presentation.errors.count, "error") %> prohibited this presentation from being saved:</h2>
 
@@ -10,54 +14,111 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-      <%= f.association :school %>
-  </div>
-  <div class="field">
-    <%= f.association :presentation_type %>
-  </div>
-  <div class="field">
-    <%= f.label :presented_by %><br>
-    <%= f.text_field :presented_by %>
-  </div>
-  <div class="field">
-	<%= f.label :start_at%>
-	<%= f.text_field :start_at, :id=>"datepicker" %>
-  </div>
 
-<div class="field">
-	<%= f.label :end_at%>
-	<%= f.text_field :end_at, :id=>"datepicker2" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :audience_count %><br>
-    <%= f.number_field :audience_count %>
-  </div>
-  <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_area :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :authorities_present %><br>
-    <%= f.text_area :authorities_present %>
-  </div>
+<fieldset>
 
 
-  <div class="field">
-    <%= f.label :followup_volunteer %><br>
-    <%= f.text_field :followup_volunteer %>
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School Name</label>
+  <div class="controls">
+	     <%= f.association :school,:id=>"selectbasic" ,label: false,:class=>"input-xlarge" %>
   </div>
-  <div class="field">
-    <%= f.label :followup_volunteer_mno %><br>
-    <%= f.number_field :followup_volunteer_mno %>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">Presentation type</label>
+  <div class="controls">
+	 <%= f.association :presentation_type,label: false,:id=>"selectbasic",:class=>"input-xlarge" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Presented by</label>
+  <div class="controls">
+      <%= f.text_field :presented_by,:id=>"textinput",:class=>"input-xlarge" %>
   </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Start at</label>
+  <div class="controls">
+    	<%= f.text_field :start_at, :id=>"datepicker",:class=>"input-xlarge" %>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">End at</label>
+  <div class="controls">
+    <%= f.text_field :end_at, :id=>"datepicker2",:class=>"input-xlarge" %>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Audience count</label>
+  <div class="controls">
+	<%= f.number_field :audience_count,:class=>"input-xlarge" %>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Summary</label>
+  <div class="controls">                     
+     <%= f.text_area :summary %>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Authorities present</label>
+  <div class="controls">
+     <%= f.text_area :authorities_present %>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Followup volunteer</label>
+  <div class="controls">
+      <%= f.text_field :followup_volunteer %>
+    
+  </div>
+</div>
+
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="prependedtext">Followup volunteer mno</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">+91</span>
+     <%= f.text_field :followup_volunteer_mno %>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <div class="controls">
+   
+    <%= f.submit 'submit',:class=>"btn btn-primary",:id=>"singlebutton" %>
+  </div>
+</div>
+
+</fieldset>
+
 <% end %>
 
 <script>
       $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
 $( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
 </script>
+
+

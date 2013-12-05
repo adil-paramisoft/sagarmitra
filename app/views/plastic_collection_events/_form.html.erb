@@ -10,47 +10,109 @@
       </ul>
     </div>
   <% end %>
+<fieldset>
 
- <div class="field">
-    <%= f.association :school %><br>
-  </div>
 
- <div class="field">
-    <%= f.association :plastic_collection_source %><br>
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School</label>
+  <div class="controls">
+     <%= f.association :school,label: false %>
   </div>
-  <div class="field">
-	<%= f.label :start_at%>
-	<%= f.text_field :start_at, :id=>"datepicker" %>
-  </div>
+</div>
 
-<div class="field">
-	<%= f.label :end_at%>
-	<%= f.text_field :end_at, :id=>"datepicker2" %>
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">Plastic collection source</label>
+  <div class="controls">
+     <%= f.association :plastic_collection_source,label: false %>
   </div>
- 
- <div class="field">
-    <%= f.input :plastic_weight %><br>
+</div>
 
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Start at</label>
+  <div class="controls">
+    <%= f.text_field :start_at, :id=>"datepicker" %>
+    
   </div>
-  <div class="field">
-    <%= f.input :money_given %><br>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">End at</label>
+  <div class="controls">
+   <%= f.text_field :end_at, :id=>"datepicker2" %>
+    
   </div>
-  <div class="field">
-    <%= f.input :volunteers_present %><br>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Plastic weight</label>
+  <div class="controls">
+     <%= f.input :plastic_weight,label: false %>
+    
   </div>
-   <div class="field">
-    <%= f.input :quality_remark %><br>
+</div>
+
+<!-- Appended Input-->
+<div class="control-group">
+  <label class="control-label" for="appendedtext">Money given</label>
+  <div class="controls">
+    <div class="input-append">
+     <%= f.text_field :money_given,label: false %>
+      <span class="add-on">INR</span>
+    </div>
+    
   </div>
-  <div class="field">
-    <%= f.input :feedback %><br>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Volunteers present</label>
+  <div class="controls">                     
+   <%= f.input :volunteers_present,label: false %>
   </div>
- 
-  <div class="actions">
-    <%= f.submit 'Save' %>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Quality remark</label>
+  <div class="controls">
+    <%= f.input :quality_remark,label: false %>
+    
   </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Feedback</label>
+  <div class="controls">                     
+    <%= f.input :feedback,label: false %>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for=""></label>
+  <div class="controls">
+	 <%= f.submit 'submit',:class=>"btn btn-primary" %>
+   
+  </div>
+</div>
+
+</fieldset>
+
+
+
 <% end %>
 
 <script>
       $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
 $( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
 </script>
+
+
+
+

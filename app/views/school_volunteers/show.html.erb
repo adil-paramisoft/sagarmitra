@@ -1,53 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>School name:</strong>
-  <%= @school_volunteer.school.name %>
-</p>
-
-<p>
-  <strong>School address:</strong>
-  <%= @school_volunteer.school.address %>
-</p>
-
-
-<p>
-  <strong>School medium:</strong>
-  <%= @school_volunteer.school.school_medium.name %>
-</p>
-
-<p>
-  <strong>No of students:</strong>
-  <%= @school_volunteer.school.total_students %>
-</p>
-
-
-<p>
-  <strong>School type:</strong>
-  <%= @school_volunteer.school.school_type.name %>
-</p>
-
-<p>
-  <strong>Sagar-Mitra Program School:</strong>
-  <%= @school_volunteer.school.program_state.name %>
-</p>
-
-<p>
-  <strong>Volunteer Name:</strong>
-  <%= @school_volunteer.name %>
-</p>
-
-<p>
-  <strong>Mobile:</strong>
-  <%= @school_volunteer.mobile %>
-</p>
-
-
-<p>
-  <strong>Email</strong>
-  <%= @school_volunteer.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_school_volunteer_path(@school_volunteer) %> |
-<%= link_to 'Back', school_volunteers_path %>
+<p id="notice"><%= notice %></p>       
+ <div class="modal-dialog">
+ 	<div class="modal-content" >
+    	<div class="modal-header">
+        	<h4 class="modal-title" id="myModalLabel">Thank You . . ! ! !</h4>
+        </div>
+        <div class="modal-body">
+			<h5>Name:</h4>
+	    	<p><%= @school_volunteer.school.name %></p>
+			<h4>Description: </h4>
+			<p> <%= @school_volunteer.school.address %></p>
+			<h4>School medium: </h4>
+			<p>  <%= @school_volunteer.school.school_medium.name %> </p>
+			<h4>No of students: </h4>
+			<p>   <%= @school_volunteer.school.total_students %> </p>
+			<h4>School type: </h4>
+			<p> <%= @school_volunteer.school.school_type.name %> </p>
+			<h4>Sagar-Mitra Program School:</h4>
+			<p> <%= @school_volunteer.school.program_state.name %> </p>
+			<h4>Volunteer Name:</h4>
+			<p> <%= @school_volunteer.name %></p>
+			<h4>Mobile No: </h4>
+			<p> <%= @school_volunteer.mobile %></p>
+			<h4>Email Id: </h4>
+			<p><%= @school_volunteer.email %></p>
+		
+		</div>
+        <div class="modal-footer">
+        	<div class="btn-group">
+					<% if can? :edit, SchoolVolunteer %>
+							<%= link_to 'Edit', edit_school_volunteer_path(@school_volunteer),:class=>"btn btn-danger" %> |
+							<%= link_to 'All school Volunteers ', school_volunteers_path,:class=>"btn" %>
+					<%end%>
+        	<%= link_to 'Home', root_path,:class=>"btn btn-primary" %>
+        </div>
+    </div>
+  </div>
+</div>
+    
