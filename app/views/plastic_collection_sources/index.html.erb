@@ -1,6 +1,6 @@
-<h1>Listing plastic_collection_sources</h1>
+<legend>Listing plastic Collection Source</legend>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,8 +10,6 @@
       <th>Phone no 2</th>
       <th>Website</th>
       <th>Eamil</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -27,9 +25,9 @@
         <td><%= plastic_collection_source.website %></td>
         <td><%= plastic_collection_source.email %></td>
 <% if can? :create, PlasticCollectionEvent %>	
-        <td><%= link_to 'Show', plastic_collection_source %></td>
-        <td><%= link_to 'Edit', edit_plastic_collection_source_path(plastic_collection_source) %></td>
-        <td><%= link_to 'Destroy', plastic_collection_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <td> <%= link_to 'Show', plastic_collection_source, :class=>'btn' %> |
+        <%= link_to 'Edit', edit_plastic_collection_source_path(plastic_collection_source),:class=>'btn btn-primary' %> |
+        <%= link_to 'Destroy', plastic_collection_source, method: :delete, data: { confirm: 'Are you sure?' },:class=>'btn btn-danger' %></td>
       </tr>
 <% end %>
     <% end %>
@@ -38,5 +36,5 @@
 
 <br>
 <% if can? :create, PlasticCollectionEvent %>
-<%= link_to 'New Plastic collection source', new_plastic_collection_source_path %>
+<%= link_to 'New Plastic collection source', new_plastic_collection_source_path,:class=>"btn btn-primary" %>
 <%end%>

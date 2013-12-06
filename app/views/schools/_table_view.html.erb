@@ -17,6 +17,7 @@
   </tr>
   </thead>
 
+
   <tbody>
   <% @schools.each do |school| %>
       <tr>
@@ -30,9 +31,12 @@
         <td><%= school.plastic_collected %> </td>
         <td><%= school.green_fund %> </td>
 		<% if can? :create, School %>
-        	<td><%= link_to 'Show', school %> |
-          		<%= link_to 'Edit', edit_school_path(school) %> |
-          		<%= link_to 'Destroy', school, method: :delete, data:{ confirm: 'Are you sure?' } %></td>
+		
+        	<td>	
+					<%= link_to 'Show', school%>
+				 	<%= link_to 'Edit', edit_school_path(school)%> 
+				<%= link_to 'Destroy', school, method: :delete, data:{ confirm: 'Are you sure?' }%>
+				</td>
        		</tr>
 		<%end%>
   <% end %>
@@ -43,3 +47,7 @@
 <% if can? :create, School %>
 	<%= link_to 'New School', new_school_path %>
 <% end %>
+
+
+
+       

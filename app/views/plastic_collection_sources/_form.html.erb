@@ -1,4 +1,4 @@
-<%= simple_form_for(@plastic_collection_source) do |f| %>
+<%= simple_form_for @plastic_collection_source ,:html=>{:class=>"form-horizontal"} do |f| %>
   <% if @plastic_collection_source.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plastic_collection_source.errors.count, "error") %> prohibited this plastic_collection_source from being saved:</h2>
@@ -11,28 +11,84 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.input :name %><br>
+<fieldset>
+
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Name</label>
+  <div class="controls">
+      <%= f.input :name ,label: false %>
   </div>
-  <div class="field">
-    <%= f.input :address %><br>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Address</label>
+  <div class="controls">                     
+   <%= f.input :address, label: false %>
   </div>
-  <div class="field">
-    <%= f.input :contact_person %><br>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Contact person</label>
+  <div class="controls">
+   <%= f.input :contact_person , label: false%>
+    
   </div>
-  <div class="field">
-    <%= f.input :phone_no_1 %><br>
+</div>
+
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="prependedtext">Phone no 1</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">+91</span>
+      <%= f.text_field :phone_no_1, label: false %>
+    </div>
+    
   </div>
-  <div class="field">
-    <%= f.input :phone_no_2 %><br>
+</div>
+
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="prependedtext">Phone no 2</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">+91</span>
+      <%= f.text_field :phone_no_2, label: false %>
+    </div>
+    
   </div>
-  <div class="field">
-    <%= f.input :website %>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Website</label>
+  <div class="controls">
+     <%= f.input :website, label: false %>
+   
   </div>
-  <div class="field">
-    <%= f.input :email %>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Email</label>
+  <div class="controls">
+       <%= f.input :email ,label: false %>
+    
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+  <%= f.submit 'Submit', :class=>"btn btn-primary" %>
   </div>
+</div>
+
+</fieldset>
+
 <% end %>
