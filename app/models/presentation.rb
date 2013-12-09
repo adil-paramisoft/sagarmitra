@@ -11,5 +11,6 @@ class Presentation < ActiveRecord::Base
     '#DD8800'
   end
   
+validates :school,:presentation_type,:presented_by,:start_at,:end_at,:audience_count,:authorities_present,:followup_volunteer,:followup_volunteer_mno, :presence => true
   
 end

@@ -9,7 +9,7 @@ class SchoolVolunteer < ActiveRecord::Base
      phony_normalized_method :mobile
      
   validates :mobile, :phony_plausible => true
-  #validates :email, :email => {:strict_mode => true}  
+ # validates :email, :email => {:strict_mode => true}  
    accepts_nested_attributes_for :school
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204081141) do
+ActiveRecord::Schema.define(version: 20131209103629) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20131204081141) do
     t.integer  "presentation_type_id"
     t.integer  "school_id"
     t.string   "followup_volunteer"
-    t.integer  "followup_volunteer_mno"
+    t.string   "followup_volunteer_mno"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_at"

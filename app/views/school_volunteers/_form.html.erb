@@ -9,7 +9,7 @@
 <div class="control-group">
   <label class="control-label" for="School_Name">School Name</label>
   <div class="controls">
-       <%= s.input :name , label: false,:id=>"School_Name",:class=>"input-xlarge"  %>
+       <%= s.input :name , label: false %>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
 <div class="control-group">
   <label class="control-label" for="textarea">School address</label>
   <div class="controls">                     
-     	<%= s.input :address , label: false,:id=>"textarea"  %>
+     	<%= s.input :address , label: false %>
   </div>
 </div>
 
@@ -25,7 +25,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">Total students</label>
   <div class="controls">
-	  <%= s.text_field :total_students,:id=>"textinput",:class=>"input-xlarge" %>
+	  <%= s.text_field :total_students,:required=>"required" %>
  
   </div>
 </div>
@@ -34,7 +34,7 @@
 <div class="control-group">
   <label class="control-label" for="selectbasic">School type</label>
   <div class="controls">
-	<%= s.association :school_type,:class=>"input-xlarge",:id=>"selectbasic" ,label: false %>
+	<%= s.association :school_type ,label: false %>
    </div>
 </div>
 
@@ -42,7 +42,7 @@
 <div class="control-group">
   <label class="control-label" for="selectbasic">School medium</label>
   <div class="controls">
-	  <%= s.association :school_medium,:id=>"selectbasic", :class=>"input-xlarge",label: false %>
+	  <%= s.association :school_medium,label: false %>
    
   </div>
 </div>
@@ -72,7 +72,7 @@
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">+91</span>      
-<%= f.text_field :mobile , label: "Mobile number",:id=>"prependedtext",:class=>"input-xlarge" %>
+<%= f.text_field :mobile ,:required=>"required" %>
     </div>
     
   </div>

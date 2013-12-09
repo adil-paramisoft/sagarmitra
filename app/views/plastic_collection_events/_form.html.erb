@@ -33,7 +33,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">Start at</label>
   <div class="controls">
-    <%= f.text_field :start_at, :id=>"datepicker" %>
+    <%= f.text_field :start_at,:required=>"required",  :id=>"datepicker" %>
     
   </div>
 </div>
@@ -42,7 +42,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">End at</label>
   <div class="controls">
-   <%= f.text_field :end_at, :id=>"datepicker2" %>
+   <%= f.text_field :end_at,:required=>"required",  :id=>"datepicker2" %>
     
   </div>
 </div>
@@ -61,7 +61,7 @@
   <label class="control-label" for="appendedtext">Money given</label>
   <div class="controls">
     <div class="input-append">
-     <%= f.text_field :money_given,label: false %>
+     <%= f.text_field :money_given,label: false,:required=>"required" %>
       <span class="add-on">INR</span>
     </div>
     
