@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
   #before_action :set_school, only: [:show, :edit, :update, :destroy]
-  before_action :load_plastic_collection_event, only: :create
+  before_action :load_school, only: :create
   load_and_authorize_resource
   # GET /schools
   # GET /schools.json
@@ -96,7 +96,7 @@ class SchoolsController < ApplicationController
       @school = School.find(params[:id])
     end
     
-     def load_school_volunteer
+     def load_school
         @school = School.new(school_params)
      end
 

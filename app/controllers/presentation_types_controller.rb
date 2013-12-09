@@ -1,6 +1,7 @@
 class PresentationTypesController < ApplicationController
-  before_action :set_presentation_type, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #before_action :set_presentation_type, only: [:show, :edit, :update, :destroy]
+  before_action :load_presentation_type, only: :create
+   load_and_authorize_resource
   # GET /presentation_types
   # GET /presentation_types.json
   def index
@@ -66,7 +67,9 @@ class PresentationTypesController < ApplicationController
     def set_presentation_type
       @presentation_type = PresentationType.find(params[:id])
     end
-
+     def load_presentation_type
+        @presentation_type = PresentationType.new(presentation_type_params)
+     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_type_params
       params.require(:presentation_type).permit(:name, :description)

@@ -1,7 +1,13 @@
 module SchoolsHelper
   
-  def month_link(month_date)
-    link_to(I18n.localize(month_date, :format => "%B"), "?month=#{month_date.month}&year=#{month_date.year}\#tabs-4")
+  def month_link(month_date,arrow)
+    link_to "?month=#{month_date.month}&year=#{month_date.year}\#tabs-4" do
+      if arrow=='pre' then
+        "<< "+I18n.localize(month_date, :format => "%B").to_s
+      elsif arrow=='post'
+        I18n.localize(month_date, :format => "%B").to_s+" >>"
+      end
+    end
   end
   
   # custom options for this calendar
@@ -11,8 +17,8 @@ module SchoolsHelper
       :month => @month,
       :event_strips => @event_strips,
       :month_name_text => "<h3>"+I18n.localize(@shown_month, :format => "%B %Y")+"</h3>",
-      :previous_month_text => "<h4>"+"<< " + month_link(@shown_month.prev_month)+"</h4>",
-      :next_month_text => "<h4>"+month_link(@shown_month.next_month) + " >>"+"</h4>"    }
+      :previous_month_text => "<h4>"+ month_link(@shown_month.prev_month,"pre")+"</h4>",
+      :next_month_text => "<h4>"+month_link(@shown_month.next_month,"post")  +"</h4>"    }
       
   end
   
