@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :role %><br>
-    <%= f.text_field :role %>
+    <%= f.text_field :role,:required=>"required" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description,:required=>"required" %>
   </div>
   <div class="actions">
     <%= f.submit %>

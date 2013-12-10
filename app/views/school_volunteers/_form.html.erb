@@ -58,21 +58,32 @@
   </div>
 </div>
 
-<!-- Text input-->
+<!-- Prepended text-->
 <div class="control-group">
-  <label class="control-label" for="textinput">Email Id</label>
+  <label class="control-label" for="prependedtext">Email Id</label>
   <div class="controls">
-    <%= f.input :email , label: false,:id=>"textinput",:class=>"input-xlarge" %>
+    <div class="input-prepend">
+     
+     <%= f.input :email,label: false do%>
+	 <span class="add-on">@</span>
+	<%= f.input_field :email%>
+	<%end%>
+    </div>
+    
   </div>
 </div>
+
 
 <!-- Prepended text-->
 <div class="control-group">
   <label class="control-label" for="prependedtext">Mobile No</label>
   <div class="controls">
     <div class="input-prepend">
-      <span class="add-on">+91</span>      
-<%= f.text_field :mobile ,:required=>"required" %>
+         
+<%= f.input :mobile ,:render_options => { :wrapper => 'inline' },label: false do %>
+<span class="add-on">+91</span>   
+ <%= f.input_field :mobile  %>
+<%end%>
     </div>
     
   </div>

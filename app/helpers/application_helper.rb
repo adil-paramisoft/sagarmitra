@@ -1,4 +1,5 @@
 module ApplicationHelper
+   
   #require 'open-uri'
   def provider_label(name)
     if name.eql?(:gplus)
