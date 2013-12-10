@@ -11,6 +11,7 @@ class Presentation < ActiveRecord::Base
     '#DD8800'
   end
   
-validates :school,:presentation_type,:presented_by,:start_at,:end_at,:audience_count,:authorities_present,:followup_volunteer,:followup_volunteer_mno, :presence => true
-  
+validates :school,:presentation_type,:presented_by,:start_at,:end_at,:authorities_present,:followup_volunteer,:followup_volunteer_mno, :presence => true
+validates :audience_count,:numericality => {:greater_than_or_equal_to => 0}  
+ validates :followup_volunteer_mno, format: { with: /\d{10}/, message: "bad format" }   
 end

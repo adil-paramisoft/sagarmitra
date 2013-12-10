@@ -35,7 +35,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">Presented by</label>
   <div class="controls">
-      <%= f.text_field :presented_by,:required=>"required" %>
+      <%= f.input :presented_by, label: false %>
   </div>
 </div>
 
@@ -43,7 +43,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">Start at</label>
   <div class="controls">
-    	<%= f.text_field :start_at,:id=>'datepicker',:required=>"required"%>
+    	<%= f.input :start_at,as: :string,label: false,input_html: { id: "datepicker" } %>
   </div>
 </div>
 
@@ -51,7 +51,7 @@
 <div class="control-group">
   <label class="control-label" for="textinput">End at</label>
   <div class="controls">
-    <%= f.text_field :end_at,:id=>'datepicker2', :required=>"required" %>
+    <%= f.input :end_at,as: :string,label: false,input_html: { id: "datepicker2" } %>
   </div>
 </div>
 
@@ -59,32 +59,27 @@
 <div class="control-group">
   <label class="control-label" for="textinput">Audience count</label>
   <div class="controls">
-	<%= f.number_field :audience_count,:required=>"required" %>
+	<%= f.input :audience_count,label: false %>
   </div>
 </div>
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="textarea">Summary</label>
-  <div class="controls">                     
-     <%= f.text_area :summary %>
-  </div>
-</div>
+
 
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="textinput">Authorities present</label>
   <div class="controls">
-     <%= f.text_area :authorities_present,:required=>"required" %>
+     <%= f.input :authorities_present,label: false %>
     
   </div>
 </div>
+
 
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="textinput">Followup volunteer</label>
   <div class="controls">
-      <%= f.text_field :followup_volunteer,:required=>"required" %>
+      <%= f.input :followup_volunteer,label: false %>
     
   </div>
 </div>
@@ -94,12 +89,27 @@
   <label class="control-label" for="prependedtext">Followup volunteer mno</label>
   <div class="controls">
     <div class="input-prepend">
-      <span class="add-on">+91</span>
-     <%= f.text_field :followup_volunteer_mno,:required=>"required" %>
+     
+     <%= f.input :followup_volunteer_mno,label: false do%>
+		 <span class="add-on">+91</span>
+		<%= f.input_field :followup_volunteer_mno %>
+	<%end%>
     </div>
     
   </div>
 </div>
+
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Summary</label>
+  <div class="controls">                     
+     <%= f.text_area :summary %>
+  </div>
+</div>
+
+
+
 
 <!-- Button -->
 <div class="control-group">
