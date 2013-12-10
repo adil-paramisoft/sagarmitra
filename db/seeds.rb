@@ -13,32 +13,32 @@ puts " -- Creating roles"
 
 Role.create([{name: 'admin', description: 'Super admin of the app'},
              {name: 'school-admin', description: 'Admin for school'},
-             {name: 'school-volunteer'},
-             {name: 'program-volunteer'}
+             {name: 'school-volunteer',description: 'volunteer for school'},
+             {name: 'program-volunteer',description: 'volunteer for program'}
              ])
 puts " -- Done!"
 puts " -- Creating Program States"
              
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE PROGRAM_STATES RESTART IDENTITY;")
 
-ProgramState.create([     {name: 'Identified', description: ''},
-                          {name: 'Shot Listed', description: ''},
-                          {name: 'Contacted', description: ''},
-                          {name: 'Engaged', description: ''},
-                          {name: 'First Meeting Done', description: ''},
-                          {name: 'Approved', description: ''},
-                          {name: 'Teachers Presentation Done', description: ''},
-                          {name: 'Children Presentation Done', description: ''},
-                          {name: 'Collection Started', description: ''},
-                          {name: 'Collection problem', description: ''},
-                          {name: 'Training Problem', description: ''},
-                          {name: 'Need Traing Lecture', description: ''},
-                          {name: 'Re-Training Done', description: ''},
-                          {name: 'Ocean Patch Assigned', description: ''},
-                          {name: 'Ocean Patch Removed', description: ''},
-                          {name: 'Collection Stopped', description: ''},
-                          {name: 'Need Volunteers', description: ''},
-                          {name: 'Need Plastic Collector', description: ''}])
+ProgramState.create([     {name: 'Identified', description: 'Identified'},
+                          {name: 'Shot Listed', description: 'Shot Listed'},
+                          {name: 'Contacted', description: 'Contacted'},
+                          {name: 'Engaged', description: 'Engaged'},
+                          {name: 'First Meeting Done', description: 'First Meeting Done'},
+                          {name: 'Approved', description: 'Approved'},
+                          {name: 'Teachers Presentation Done', description: 'Teachers Presentation Done'},
+                          {name: 'Children Presentation Done', description: 'Children Presentation Done'},
+                          {name: 'Collection Started', description: 'Collection Started'},
+                          {name: 'Collection problem', description: 'Collection problem'},
+                          {name: 'Training Problem', description: 'Training Problem'},
+                          {name: 'Need Traing Lecture', description: 'Need Traing Lecture'},
+                          {name: 'Re-Training Done', description: 'Re-Training Done'},
+                          {name: 'Ocean Patch Assigned', description: 'Ocean Patch Assigned'},
+                          {name: 'Ocean Patch Removed', description: 'Ocean Patch Removed'},
+                          {name: 'Collection Stopped', description: 'Collection Stopped'},
+                          {name: 'Need Volunteers', description: 'Need Volunteers'},
+                          {name: 'Need Plastic Collector', description: 'Need Plastic Collector'}])
 puts " -- Done!"
 
 puts " -- Creating School Types"
@@ -56,20 +56,20 @@ puts " -- Done!"
 puts " -- Creating Presentation Types"
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE PRESENTATION_TYPES RESTART IDENTITY;")
 
-PresentationType.create([{name: 'School Decision makers', description: ''},
-                         {name: 'Teachers', description: ''},
-                         {name: 'Chindren', description: ''},
-                         {name: 'Partners', description: ''},
-                         {name: 'Government', description: ''}])
+PresentationType.create([{name: 'School Decision makers', description: 'School Decision makers'},
+                         {name: 'Teachers', description: 'Teachers'},
+                         {name: 'Chindren', description: 'Chindren'},
+                         {name: 'Partners', description: 'Partners'},
+                         {name: 'Government', description: 'Government'}])
 puts " -- Done!"
 
 puts " -- Creating School Mediums "
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE SCHOOL_MEDIA RESTART IDENTITY;")
 
-SchoolMedium.create([{name: 'English', description: ''},
-                         {name: 'Marathi', description: ''},
-                         {name: 'Urdu', description: ''},
-                         {name: 'Semi-English', description: ''}])
+SchoolMedium.create([{name: 'English', description: 'English'},
+                         {name: 'Marathi', description: 'Marathi'},
+                         {name: 'Urdu', description: 'Urdu'},
+                         {name: 'Semi-English', description: 'Semi-English'}])
 puts " -- Done!"
 
 #  Run VACUUM command
