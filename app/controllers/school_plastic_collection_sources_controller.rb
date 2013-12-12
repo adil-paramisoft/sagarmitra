@@ -70,7 +70,7 @@ class SchoolPlasticCollectionSourcesController < ApplicationController
     end
 
     def load_school_plastic_collection_source
-         @school_plastic_collection_source = SchoolPlasticCollectionSource.new(school_plastic_collection_source_params)
+      @school_plastic_collection_source = SchoolPlasticCollectionSource.new(school_plastic_collection_source_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

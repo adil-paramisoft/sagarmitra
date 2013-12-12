@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
   # Associations
   
   has_and_belongs_to_many :roles
-  validates :name , :email , :presence => true
+  #validations
+  validates :name , :email , 
+  :presence => true
  # validates :email, :unique => true   
   
   def self.find_for_facebook_oauth(auth, role, signed_in_resource=nil)

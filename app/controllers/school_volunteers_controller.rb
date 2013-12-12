@@ -73,7 +73,7 @@ class SchoolVolunteersController < ApplicationController
 
     def load_school_volunteer
           @school_volunteer = SchoolVolunteer.new(school_volunteer_params)
-        end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_volunteer_params

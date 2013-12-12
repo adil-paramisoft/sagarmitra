@@ -1,3 +1,5 @@
 class SchoolMedium < ActiveRecord::Base
-    validates :name , :description ,  :presence => true
+    #validations
+    validates :name , :description ,  
+              :presence => true
 end

@@ -68,7 +68,7 @@ class PresentationsController < ApplicationController
     end
 
     def load_presentation
-          @presentation = Presentation.new(presentation_params)
+      @presentation = Presentation.new(presentation_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

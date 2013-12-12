@@ -12,7 +12,9 @@ class School < ActiveRecord::Base
   belongs_to :school_type
   belongs_to :school_medium
 
-  validates :school_medium_id , :program_state_id , :school_type_id , :total_students , :name , :address , :presence => true
+  #validations
+  validates :school_medium_id , :program_state_id , :school_type_id , :total_students , :name , :address , 
+            :presence => true
 
   # Geokit
   # acts_as_mappable

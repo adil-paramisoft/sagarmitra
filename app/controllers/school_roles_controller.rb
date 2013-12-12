@@ -69,7 +69,7 @@ class SchoolRolesController < ApplicationController
     end
 
     def load_school_role
-         @school_role = SchoolRole.new(school_role_params)
+      @school_role = SchoolRole.new(school_role_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

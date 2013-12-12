@@ -69,7 +69,7 @@ class RolesController < ApplicationController
     end
 
     def load_role
-         @role = Role.new(role_params)
+      @role = Role.new(role_params)
     end
 
 

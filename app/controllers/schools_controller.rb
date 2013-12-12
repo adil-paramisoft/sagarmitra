@@ -96,9 +96,9 @@ class SchoolsController < ApplicationController
       @school = School.find(params[:id])
     end
     
-     def load_school
-        @school = School.new(school_params)
-     end
+    def load_school
+      @school = School.new(school_params)
+    end
 
 
 

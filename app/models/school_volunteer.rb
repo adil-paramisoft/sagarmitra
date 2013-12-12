@@ -1,6 +1,8 @@
 class SchoolVolunteer < ActiveRecord::Base
   belongs_to :school
-  validates :volunteer , :mobile , :name , :email , :presence => true
+  #validations
+  validates :volunteer , :mobile , :name , :email , 
+            :presence => true
 
   # Normalizes the attribute itself before validation
    phony_normalize :mobile, :default_country_code => 'IN'
