@@ -1,12 +1,45 @@
-<%= simple_form_for(@school_medium) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for @school_medium ,:html=>{:class=>"form-horizontal"} do |f| %>
+  <% if @school_medium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school_medium.errors.count, "error") %> prohibited this role from being saved:</h2>
 
-  <div class="inputs">
-    <%= f.input :name,:required=>"required" %>
-    <%= f.input :description ,:required=>"required"%>
-  </div>
+      <ul>
+      <% @school_medium.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<fieldset>
 
-  <div class="actions">
-    <%= f.button :submit %>
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Name</label>
+  <div class="controls">
+        <%= f.input :name,label: false %>
+    
   </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Description</label>
+  <div class="controls">                     
+       <%= f.input :description,label: false %>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">	
+		<div class="btn-group">
+			<%= f.submit "Submit",:class=>"btn btn-primary" %>
+			<%= link_to 'All School medium ',school_media_path,:class=>"btn" %>
+			<%= link_to 'cancel', new_school_medium_path,:class=>"btn btn-danger" %>
+	  	</div>
+  </div>
+</div>
+
+</fieldset>
 <% end %>
