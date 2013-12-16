@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209103629) do
+ActiveRecord::Schema.define(version: 20131216115054) do
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20131209103629) do
   create_table "school_contacts", force: true do |t|
     t.integer  "school_id"
     t.integer  "user_id"
-    t.integer  "schoold_role_id"
+    t.integer  "school_role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

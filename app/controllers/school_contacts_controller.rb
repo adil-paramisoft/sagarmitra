@@ -1,6 +1,6 @@
 class SchoolContactsController < ApplicationController
   #before_action :set_school_contact, only: [:show, :edit, :update, :destroy]
-  before_action :load_plastic_collection_event, only: :create
+  before_action :load_school_contact, only: :create
   load_and_authorize_resource
   # GET /school_contacts
   # GET /school_contacts.json
@@ -74,6 +74,6 @@ class SchoolContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_contact_params
-      params.require(:school_contact).permit(:school_id, :user_id, :schoold_role_id)
+      params.require(:school_contact).permit(:school_id, :user_id, :school_role_id)
     end
 end
