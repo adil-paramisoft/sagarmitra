@@ -15,7 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         #render js: %(window.location.href='#{after_inactive_sign_up_path_for(resource)}')
       end
       
-     
+       respond_to do |format|
+            format.html { redirect_to root_path  }
+      end
       
     else
       clean_up_passwords resource
