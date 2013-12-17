@@ -44,8 +44,11 @@
   <label class="control-label" for="prependedtext">Phone no 1</label>
   <div class="controls">
     <div class="input-prepend">
-      <span class="add-on">+91</span>
-      <%= f.text_field :phone_no_1, label: false %>
+      
+      <%= f.input :phone_no_1 ,label: false do %>
+		<span class="add-on">+91</span>
+		<%= f.input_field :phone_no_1, label: false%>
+      <%end%>
     </div>
     
   </div>
@@ -56,8 +59,11 @@
   <label class="control-label" for="prependedtext">Phone no 2</label>
   <div class="controls">
     <div class="input-prepend">
-      <span class="add-on">+91</span>
-      <%= f.text_field :phone_no_2, label: false %>
+      
+      <%= f.input :phone_no_2, label: false do %>
+			<span class="add-on">+91</span>
+			<%= f.input_field :phone_no_2 %>
+		<%end%>
     </div>
     
   </div>
