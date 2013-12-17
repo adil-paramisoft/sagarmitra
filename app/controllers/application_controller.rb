@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
  # end
   
   
+  
+  
   def get_program_name
     
     # TODO extract domain name from the request and check the core DB for program name
