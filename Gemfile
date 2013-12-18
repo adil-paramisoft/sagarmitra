@@ -20,7 +20,7 @@ gem 'omniauth-facebook'
 
 gem 'phony_rails'
 #gem 'email_validator', :require => 'email_validator/strict'
-
+gem 'bootstrap-sass', '2.3.2.0'
 gem 'capistrano'
 gem 'rvm-capistrano'
 

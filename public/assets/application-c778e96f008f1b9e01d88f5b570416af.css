@@ -1,0 +1,591 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+.spacer { width: 100%; display: block; height: 10px; }
+
+.dialogIsOpen .container {
+/*Blur and de-color*/
+-webkit-filter: blur(4px) grayscale(50%);
+}
+
+
+@import "bootstrap";
+
+/*
+ * Table
+ */
+
+table.dataTable {
+	margin: 0 auto;
+	clear: both;
+	width: 100%;
+}
+
+table.dataTable thead th {
+	padding: 3px 18px 3px 10px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+	cursor: pointer;
+	*cursor: hand;
+}
+
+table.dataTable tfoot th {
+	padding: 3px 18px 3px 10px;
+	border-top: 1px solid black;
+	font-weight: bold;
+}
+
+table.dataTable td {
+	padding: 3px 10px;
+}
+
+table.dataTable td.center,
+table.dataTable td.dataTables_empty {
+	text-align: center;
+}
+
+table.dataTable tr.odd { background-color: #E2E4FF; }
+table.dataTable tr.even { background-color: white; }
+
+table.dataTable tr.odd td.sorting_1 { background-color: #D3D6FF; }
+table.dataTable tr.odd td.sorting_2 { background-color: #DADCFF; }
+table.dataTable tr.odd td.sorting_3 { background-color: #E0E2FF; }
+table.dataTable tr.even td.sorting_1 { background-color: #EAEBFF; }
+table.dataTable tr.even td.sorting_2 { background-color: #F2F3FF; }
+table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
+
+
+/*
+ * Table wrapper
+ */
+.dataTables_wrapper {
+	position: relative;
+	clear: both;
+	*zoom: 1;
+}
+
+
+/*
+ * Page length menu
+ */
+.dataTables_length {
+	float: left;
+}
+
+
+/*
+ * Filter
+ */
+.dataTables_filter {
+	float: right;
+	text-align: right;
+}
+
+
+/*
+ * Table information
+ */
+.dataTables_info {
+	clear: both;
+	float: left;
+}
+
+
+/*
+ * Pagination
+ */
+.dataTables_paginate {
+	float: right;
+	text-align: right;
+}
+
+/* Two button pagination - previous / next */
+.paginate_disabled_previous,
+.paginate_enabled_previous,
+.paginate_disabled_next,
+.paginate_enabled_next {
+	height: 19px;
+	float: left;
+	cursor: pointer;
+	*cursor: hand;
+	color: #111 !important;
+}
+.paginate_disabled_previous:hover,
+.paginate_enabled_previous:hover,
+.paginate_disabled_next:hover,
+.paginate_enabled_next:hover {
+	text-decoration: none !important;
+}
+.paginate_disabled_previous:active,
+.paginate_enabled_previous:active,
+.paginate_disabled_next:active,
+.paginate_enabled_next:active {
+	outline: none;
+}
+
+.paginate_disabled_previous,
+.paginate_disabled_next {
+	color: #666 !important;
+}
+.paginate_disabled_previous,
+.paginate_enabled_previous {
+	padding-left: 23px;
+}
+.paginate_disabled_next,
+.paginate_enabled_next {
+	padding-right: 23px;
+	margin-left: 10px;
+}
+
+.paginate_enabled_previous { background: url('back_enabled.png') no-repeat top left; }
+.paginate_enabled_previous:hover { background: url('back_enabled_hover.png') no-repeat top left; }
+.paginate_disabled_previous { background: url('back_disabled.png') no-repeat top left; }
+
+.paginate_enabled_next { background: url('forward_enabled.png') no-repeat top right; }
+.paginate_enabled_next:hover { background: url('forward_enabled_hover.png') no-repeat top right; }
+.paginate_disabled_next { background: url('forward_disabled.png') no-repeat top right; }
+
+/* Full number pagination */
+.paging_full_numbers {
+	height: 22px;
+	line-height: 22px;
+}
+.paging_full_numbers a:active {
+	outline: none
+}
+.paging_full_numbers a:hover {
+	text-decoration: none;
+}
+
+.paging_full_numbers a.paginate_button,
+.paging_full_numbers a.paginate_active {
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+	color: #333 !important;
+}
+
+.paging_full_numbers a.paginate_button {
+	background-color: #ddd;
+}
+
+.paging_full_numbers a.paginate_button:hover {
+	background-color: #ccc;
+	text-decoration: none !important;
+}
+
+.paging_full_numbers a.paginate_active {
+	background-color: #99B3FF;
+}
+
+
+/*
+ * Processing indicator
+ */
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px 0;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: white;
+}
+
+
+/*
+ * Sorting
+ */
+.sorting { background: url('sort_both.png') no-repeat center right; }
+.sorting_asc { background: url('sort_asc.png') no-repeat center right; }
+.sorting_desc { background: url('sort_desc.png') no-repeat center right; }
+
+.sorting_asc_disabled { background: url('sort_asc_disabled.png') no-repeat center right; }
+.sorting_desc_disabled { background: url('sort_desc_disabled.png') no-repeat center right; }
+ 
+table.dataTable thead th:active,
+table.dataTable thead td:active {
+	outline: none;
+}
+
+
+/*
+ * Scrolling
+ */
+.dataTables_scroll {
+	clear: both;
+}
+
+.dataTables_scrollBody {
+	*margin-top: -1px;
+	-webkit-overflow-scrolling: touch;
+}
+
+#calendar table {
+  border-collapse: collapse;
+  width: 100%; }
+
+#calendar td,
+#calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999; }
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 14.2857142857143%; }
+
+#calendar td {
+  background: #FFF;
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px; }
+
+#calendar .notmonth {
+  color: #CCC; }
+
+#calendar #month {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center; }
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999; }
+
+#calendar .today {
+  background-color: #D7F2FF; }
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none; }
+
+#calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  text-align: center; }
+
+.plastic_collection_event_school {
+  color: Green;
+  font-size: 14px; }
+
+.plastic_collection_event_school a:link,
+.plastic_collection_event_school a:visited {
+  color: Green;
+  text-decoration: none; }
+
+.school_presentation {
+  color: #DD7700;
+  font-size: 14px; }
+
+.plastic_collection_event_school:hover a {
+  text-decoration: none;
+  font-size: x-small;
+  text-decoration: none;
+  color: #000000; }
+
+.symbol_table {
+  float: right; }
+
+   /* GLOBAL STYLES
+   -------------------------------------------------- */
+   /* Padding below the footer and lighter body text */
+
+
+   body {
+     padding-bottom: 40px;
+     color: #5a5a5a;
+   }
+
+
+
+   /* CUSTOMIZE THE NAVBAR
+   -------------------------------------------------- */
+
+   /* Special class on .container surrounding .navbar, used for positioning it into place. */
+   .navbar-wrapper {
+     /*position: absolute;*/
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 10;
+     margin-top: 20px;
+     /*margin-bottom: -90px; *//* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+   }
+   .navbar-wrapper .navbar {
+       float: right;
+       width: 100%;
+   }
+
+   a.logo {
+       display: block;
+   }
+   a.logo { text-decoration: none; background-color: transparent; }
+   a.logo img {
+       height: 135px;
+   }
+
+   /* Remove border and change up box shadow for more contrast */
+   .navbar .navbar-inner {
+     border: 0;
+     -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+        -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+             box-shadow: 0 2px 10px rgba(0,0,0,.25);
+   }
+
+   /* Downsize the brand/project name a bit */
+   .navbar .brand {
+     padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+     font-size: 16px;
+     font-weight: bold;
+     text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+   }
+
+   /* Navbar links: increase padding for taller navbar */
+   .navbar .nav > li > a {
+     padding: 15px 20px;
+   }
+
+   /* Offset the responsive button for proper vertical alignment */
+   .navbar .btn-navbar {
+     margin-top: 10px;
+   }
+
+
+
+   /* CUSTOMIZE THE CAROUSEL
+   -------------------------------------------------- */
+
+   /* Carousel base class */
+   .carousel {
+     margin-bottom: 60px;
+     /*position: inherit;*/
+   }
+
+   .carousel .container {
+     position: relative;
+     z-index: 9;
+   }
+
+   .carousel-control {
+     height: 55px;
+     margin-top: 0;
+     font-size: 120px;
+     text-shadow: 0 1px 1px rgba(0,0,0,.4);
+     border: 0;
+     z-index: 10;
+   }
+
+   .carousel .item {
+     height: 380px;
+   }
+   .carousel img {
+     /*position: absolute;*/
+     top: 0;
+     left: 0;
+     min-width: 100%;
+     height: 167px;
+   }
+
+   .carousel-caption {
+     background-color: transparent;
+     position: static;
+     /*max-width: 550px;*/
+     /*max-width: 650px;*/
+     padding: 0 20px;
+     /*margin-top: 200px;*/
+     /*margin: 185px auto 0px auto;*/
+   }
+   .carousel-caption .sections {
+       color: #fff;
+       text-shadow: 0 1px 1px rgba(0,0,0,.4);
+       text-align: center;
+   }
+   .carousel-caption .sections .section {
+       width: 30%;
+       float: left;
+       margin: 0px 1.5%;
+       padding-top: 10px;
+       font-size: 17px;
+       line-height: 20px;
+   }
+   .carousel-caption h1,
+   .carousel-caption .lead {
+     margin: 0;
+     line-height: 1.25;
+     color: #fff;
+     text-shadow: 0 1px 1px rgba(0,0,0,.4);
+     /*text-align: center;*/
+     padding-top: 15px
+   }
+   .carousel-caption .lead { padding-top: 35px;
+       text-align: center; }
+   .carousel-caption h1 { font-size: 25px;
+       padding-bottom: 20px;
+       padding-top: 15px; }
+   .carousel-caption .btn {
+     margin-top: 10px;
+   }
+
+
+
+   /* MARKETING CONTENT
+   -------------------------------------------------- */
+
+   /* Center align the text within the three columns below the carousel */
+   .marketing .span4 {
+     text-align: center;
+   }
+   .marketing h2 {
+     font-weight: normal;
+   }
+   .marketing .span4 p {
+     margin-left: 10px;
+     margin-right: 10px;
+   }
+
+
+   /* Featurettes
+   ------------------------- */
+
+   .featurette-divider {
+     margin: 80px 0; /* Space out the Bootstrap <hr> more */
+   }
+   .featurette {
+     padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+     overflow: hidden; /* Vertically center images part 2: clear their floats. */
+   }
+   .featurette-image {
+     margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+   }
+
+   /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+   .featurette-image.pull-left {
+     margin-right: 40px;
+   }
+   .featurette-image.pull-right {
+     margin-left: 40px;
+   }
+
+   /* Thin out the marketing headings */
+   .featurette-heading {
+     font-size: 50px;
+     font-weight: 300;
+     line-height: 1;
+     letter-spacing: -1px;
+   }
+
+
+
+   /* RESPONSIVE CSS
+   -------------------------------------------------- */
+
+   @media (max-width: 979px) {
+
+     .container.navbar-wrapper {
+       margin-bottom: 0;
+       width: auto;
+     }
+     .navbar-inner {
+       border-radius: 0;
+       margin: -20px 0;
+     }
+
+     .carousel .item {
+       height: 500px;
+     }
+     .carousel img {
+       width: auto;
+       height: 500px;
+     }
+
+     .featurette {
+       height: auto;
+       padding: 0;
+     }
+     .featurette-image.pull-left,
+     .featurette-image.pull-right {
+       display: block;
+       float: none;
+       max-width: 40%;
+       margin: 0 auto 20px;
+     }
+   }
+
+
+   @media (max-width: 767px) {
+
+     .navbar-inner {
+       margin: -20px;
+     }
+
+     .carousel {
+       margin-left: -20px;
+       margin-right: -20px;
+     }
+     .carousel .container {
+
+     }
+     .carousel .item {
+       height: 300px;
+     }
+     .carousel img {
+       height: 300px;
+     }
+     .carousel-caption {
+       width: 65%;
+       padding: 0 70px;
+       margin-top: 100px;
+     }
+     .carousel-caption h1 {
+       font-size: 30px;
+     }
+     .carousel-caption .lead,
+     .carousel-caption .btn {
+       font-size: 18px;
+     }
+
+     .marketing .span4 + .span4 {
+       margin-top: 40px;
+     }
+
+     .featurette-heading {
+       font-size: 30px;
+     }
+     .featurette .lead {
+       font-size: 18px;
+       line-height: 1.5;
+     }
+
+   }
