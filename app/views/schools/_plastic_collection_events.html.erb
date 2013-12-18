@@ -28,7 +28,7 @@
         <td><%= plastic_collection_event.plastic_weight %></td>
         <td><%= plastic_collection_event.money_given %></td>
         <td><%= plastic_collection_event.volunteers_present %></td>
-        <td><%= plastic_collection_event.plastic_collection_source.name %></td>
+        <td><%= plastic_collection_event.plastic_collection_source.name if plastic_collection_event.plastic_collection_source.present? %></td>
         <td><%= l plastic_collection_event.start_at %></td>
         <td><%= plastic_collection_event.quality_remark %></td>
         <td><%= plastic_collection_event.feedback %></td>
