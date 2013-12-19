@@ -100,4 +100,17 @@ Sagarmitra::Application.routes.draw do
   match   'initiative/team', to:  'initiative#team' , via: [:get]
   match   'initiative/contact', to:  'initiative#contact' , via: [:get]
 
+
+
+#admin
+
+namespace :admin do
+  get '/index' => 'program#index'
+end
+
+
+
+
+
+
 end
