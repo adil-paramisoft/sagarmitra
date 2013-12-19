@@ -1,25 +1,45 @@
+<div style="float:right">
+	<% if can? :create, School %>
+	<%= link_to  edit_school_path(@school) do %>
+		<i class="icon-edit"></i>Edit
+	<%end%> 
+	<%end%>	
+</div>
+  	<strong>
+		<i class="icon-user"> </i>Name:
+	</strong>
+  	<%= @school.name %>
+</br>
 
-  <strong>Name:</strong>
-  <%= @school.name %>
+  	<strong>
+	<i class=" icon-map-marker"></i>Address:
+	</strong>
+  	<%= @school.address %>  
 </br>
-  <strong>Address:</strong>
-  <%= @school.address %>  
+ 	<strong>
+	 <i class=" icon-info-sign"></i>		School type:
+	</strong>
+  	<%= @school.school_type.name %>
 </br>
-  <strong>School type:</strong>
-  <%= @school.school_type.name %>
+  	<strong>
+		<i class="icon-check"></i>Program state:
+	</strong>
+  	<%= @school.program_state.name %>
 </br>
-  <strong>Program state:</strong>
-  <%= @school.program_state.name %>
+  	<strong>
+	<i class=" icon-book"></i>	Total students:
+	</strong>
+  	<%= @school.total_students %>
 </br>
-  <strong>Total students:</strong>
-  <%= @school.total_students %>
-</br>
-  <strong>Medium:</strong>
+ 	<strong>
+		<i class=" icon-font"></i>Medium:
+	</strong>
   <%= @school.school_medium.name %>
 
 <div>
 	<% if can? :create, School %>
-	<%= link_to 'Edit', edit_school_path(@school) %> |
-	<%= link_to 'Back', schools_path %>
+		<%= link_to  schools_path do %>
+			<i class=" icon-circle-arrow-left"></i>Back
+		<%end%>
 	<%end%>	
 </div>
