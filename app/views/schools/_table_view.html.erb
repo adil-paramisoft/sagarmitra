@@ -3,18 +3,16 @@
 
 <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
-    <table class="table table-striped custab">
+    <table class="table table-striped custab table-bordered ">
     <thead>
 		<% if can? :create, School %>
 			<%= link_to '+ New School', new_school_path,:class=>"btn btn-primary btn-xs pull-right" %>
 		<% end %>
         <tr>
-            <th>Name</th>
+            <th>Name(Total Student)</th>
 		    <th>Address</th>
 		    <th>School type(Medium)</th>
 		    <th>Program state</th>
-		    <th>Total students</th>
-		  
 		    <th>Number of Collections</th>
 		    <th>Plastic Collected (Kgs)</th>
 		    <th>Green Fund (INR)</th>
@@ -25,12 +23,11 @@
     </thead>
             <tr>
                 <% @schools.each do |school| %>
-				      <tr>
-				        <td><%= link_to school.name, school   %></td>
+				      <tr class=<%= settabelstyles school.program_state.id %>>
+				        <td><%= link_to school.name, school   %><%="(#{school.total_students})" %></td>
 				        <td><%= school.address %></td>
 				        <td><%="  #{school.school_type.name} (#{school.school_medium.name})" %></td>
 				        <td><%= school.program_state.name %></td>
-				        <td><%= school.total_students %></td>
 				        <td><%= school.number_of_collections %></td>
 				        <td><%= school.plastic_collected %> </td>
 				        <td><%= school.green_fund %> </td>

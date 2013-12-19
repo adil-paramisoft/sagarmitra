@@ -32,4 +32,22 @@ module SchoolsHelper
   
   
   
+  def settabelstyles state
+    case state
+    when 1..8,13   
+       "info"
+    when 9,14    
+      "success"
+    when 10,11,16
+      "error"
+    when 12,15,17,18
+      "warning"
+    else
+
+    end
+    
+    
+   
+  end
+  
 end
