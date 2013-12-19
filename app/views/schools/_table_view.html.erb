@@ -1,53 +1,60 @@
-<table cellpadding="0" cellspacing="0"  class="table table-striped table-bordered" id="school_table">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>School type</th>
-    <th>Program state</th>
-    <th>Total students</th>
-    <th>Medium</th>
-    <th>Number of Collections</th>
-    <th>Plastic Collected (Kgs)</th>
-    <th>Green Fund (INR)</th>
-	<% if can? :create, PlasticCollectionEvent %>
-    	<th>Actions</th>
-	<%end%>
-
-  </tr>
-  </thead>
 
 
-  <tbody>
-  <% @schools.each do |school| %>
-      <tr>
-        <td><%= link_to school.name, school   %></td>
-        <td><%= school.address %></td>
-        <td><%= school.school_type.name %></td>
-        <td><%= school.program_state.name %></td>
-        <td><%= school.total_students %></td>
-        <td><%= school.school_medium.name %></td>
-        <td><%= school.number_of_collections %></td>
-        <td><%= school.plastic_collected %> </td>
-        <td><%= school.green_fund %> </td>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
 		<% if can? :create, School %>
-		
-        	<td>	
-					<%= link_to 'Show', school%>
-				 	<%= link_to 'Edit', edit_school_path(school)%> 
-				<%= link_to 'Destroy', school, method: :delete, data:{ confirm: 'Are you sure?' }%>
-				</td>
-       		</tr>
-		<%end%>
-  <% end %>
+			<%= link_to '+ New School', new_school_path,:class=>"btn btn-primary btn-xs pull-right" %>
+		<% end %>
+        <tr>
+            <th>Name</th>
+		    <th>Address</th>
+		    <th>School type(Medium)</th>
+		    <th>Program state</th>
+		    <th>Total students</th>
+		  
+		    <th>Number of Collections</th>
+		    <th>Plastic Collected (Kgs)</th>
+		    <th>Green Fund (INR)</th>
+			<% if can? :create, PlasticCollectionEvent %>
+		    	<th class="text-center">Actions</th>
+			<%end%>           
+        </tr>
+    </thead>
+            <tr>
+                <% @schools.each do |school| %>
+				      <tr>
+				        <td><%= link_to school.name, school   %></td>
+				        <td><%= school.address %></td>
+				        <td><%="  #{school.school_type.name} (#{school.school_medium.name})" %></td>
+				        <td><%= school.program_state.name %></td>
+				        <td><%= school.total_students %></td>
+				        <td><%= school.number_of_collections %></td>
+				        <td><%= school.plastic_collected %> </td>
+				        <td><%= school.green_fund %> </td>
+						<% if can? :create, School %>
 
-  </table>
-
-<br>
-<% if can? :create, School %>
-	<%= link_to 'New School', new_school_path %>
-<% end %>
-
-
-
+				        	<td class="text-center">	
+									<%= link_to  school do %>
+									<i class="icon-folder-open"></i>Show
+									<%end%>
+								 	<%= link_to  edit_school_path(school) do %>
+										 <i class="icon-edit"></i>Edit
+								 	<%end%>
+								<%= link_to  school, method: :delete, data:{ confirm: 'Are you sure?' } do%>
+								<i class="icon-trash"></i>Del
+								<%end%>
+								</td>
+				       		</tr>
+						<%end%>
+				  <% end %>
+				
+               
+            	 
+            
+    </table>
+    </div>
+</div>
        
