@@ -5,95 +5,86 @@
 .item {
     color: #666;
     background: #333;
-    height: 300px;
-    line-height: 300px; /* Align the text vertically center. */
-    font-size: 52px;
-    text-align: center;    
-    font-family: "trebuchet ms", sans-serif;    
+    height: 260px;
+   
 }
-.carousel{
-    margin-top: 20px;
-}
-.carousel-control{
-	top: 50%;
-}
-.bs-example{
-	margin: 20px;
-}
+
 </style>
 
-<div class="bs-example">
-	<div id="myCarousel" class="carousel slide">
-<!-- Carousel indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-<!-- Carousel items -->
-	<div class="carousel-inner">
-		<div class="active item">
-			<div class="container">
-				<div class="carousel-caption">
-					<h1>Plastic from our homes is killing millions of birds and fishes!</h1>
-				</div>
-			<div>
-			<img src="assets/slide-01.jpg" alt="">
-		</div>
-		<div class="carousel-caption">
-			<div class="sections">
-				<div class="section">Urban plastic waste, worldwide</div>
-				<div class="section">Average 1,50,000 plastic pieces per sq. km of ocean.</div>
-				<div class="section">Plastic has entered the oceanic food chain.</div>
-			</div>
-			<div class="clearfix"></div>
-			<p class="lead">Millions of us are needed to save them.</p>
-		</div>
-	</div>
-</div>
-	<div class="item">
-		<div class="container">
-			<div class="carousel-caption">
-				<h1>Is this going to be our legacy?</h1>
-			</div>
-
-		<img src="assets/slide-02.jpg" alt="">
-	
-	<div class="carousel-caption">
-		<div class="sections">
-			<div class="section">Plastic goes from Rivers to the Oceans</div>
-			<div class="section">Our Legacy?</div>
-			<div class="section">A bottle-top is a plastic-bullet for 700 years!</div>
-		</div>
-		<div class="clearfix"></div>
-			<p class="lead">Will our children inherit a poisoned planet?</p>
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+	<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+	<!-- Carousel items -->
+    <div class="item active">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Plastic from our homes is killing millions of birds and fishes!</h1>
+        </div>
+        <div>
+          <img src="assets/slide-01.jpg" alt="">
+        </div>
+        <div class="carousel-caption">
+          <div class="sections">
+            <div class="section">Urban plastic waste, worldwide</div>
+            <div class="section">Average 1,50,000 plastic pieces per sq. km of ocean.</div>
+            <div class="section">Plastic has entered the oceanic food chain.</div>
+          </div>
+          <div class="clearfix"></div>
+          <p class="lead">Millions of us are needed to save them.</p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="container">
+        <div class="carousel-caption">
+        <h1>Is this going to be our legacy?</h1>
+          </div>
+        <div>
+          <img src="assets/slide-02.jpg" alt="">
+        </div>
+        <div class="carousel-caption">
+          <div class="sections">
+            <div class="section">Plastic goes from Rivers to the Oceans</div>
+            <div class="section">Our Legacy?</div>
+            <div class="section">A bottle-top is a plastic-bullet for 700 years!</div>
+          </div>
+          <div class="clearfix"></div>
+          <p class="lead">Will our children inherit a poisoned planet?</p>
 			<%#= link_to 'Learn More', 'program/learnmore' , :class => 'btn btn-large btn-primary'%>
-		</div>
-	</div>
-</div>
-<div class="item">
-	<div class="container">
-		<div class="carousel-caption">
-			<h1>The Sagar-Mitra Initiative</h1>
-		</div>
-		<div>
-			<img src="assets/slide-03.jpg" alt="">
-		</div>
-	<div class="carousel-caption">
-		<div class="sections">
-			<div class="section">Sagar-Mitra Initiative presentation to school children</div>
-			<div class="section">100 kg plastic collected at school saves 1 sq km of ocean from doubling its plastic waste</div>
-			<div class="section">Plastic collected by children is recycled</div>
-		</div>
-		<div class="clearfix"></div>
-			<p class="lead">A Personal-Action Program. By our Children, for a Safe Future!</p>
-			<!--<a class="btn btn-large btn-primary" href="program/gallery">Browse gallery</a>-->
-		</div>
-	</div>
-	</div>
-	</div>
-<!-- Carousel nav -->
-<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+
+      <div class="container">
+        <div class="carousel-caption">
+        <h1>The Sagar-Mitra Initiative</h1>
+        </div>
+        <div>
+          <img src="assets/slide-03.jpg" alt="">
+        </div>
+        <div class="carousel-caption">
+          <div class="sections">
+            <div class="section">Sagar-Mitra Initiative presentation to school children</div>
+            <div class="section">100 kg plastic collected at school saves 1 sq km of ocean from doubling its plastic waste</div>
+            <div class="section">Plastic collected by children is recycled</div>
+          </div>
+          <div class="clearfix"></div>
+          <p class="lead">A Personal-Action Program. By our Children, for a Safe Future!</p>
+          <!--<a class="btn btn-large btn-primary" href="program/gallery">Browse gallery</a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
-</div>
+</div> <!-- carousel -->
+
+
