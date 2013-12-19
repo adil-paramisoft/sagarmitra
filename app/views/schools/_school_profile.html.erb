@@ -1,9 +1,10 @@
 <div style="float:right">
-	<% if can? :create, School %>
-	<%= link_to  edit_school_path(@school) do %>
-		<i class="icon-edit"></i>Edit
-	<%end%> 
-	<%end%>	
+<% if can? :create, School %>
+		<%= link_to  edit_school_path(@school) do %>
+			<i class="icon-edit"></i>Edit
+		<%end%> 
+<%end%>	
+	
 </div>
   	<strong>
 		<i class="icon-user"> </i>Name:
