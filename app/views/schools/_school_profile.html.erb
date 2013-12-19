@@ -11,32 +11,36 @@
 	</strong>
   	<%= @school.name %>
 </br>
-
+</br>
   	<strong>
 	<i class=" icon-map-marker"></i>Address:
 	</strong>
   	<%= @school.address %>  
+</br>
 </br>
  	<strong>
 	 <i class=" icon-info-sign"></i>		School type:
 	</strong>
   	<%= @school.school_type.name %>
 </br>
+</br>
   	<strong>
 		<i class="icon-check"></i>Program state:
 	</strong>
   	<%= @school.program_state.name %>
+</br>
 </br>
   	<strong>
 	<i class=" icon-book"></i>	Total students:
 	</strong>
   	<%= @school.total_students %>
 </br>
+</br>
  	<strong>
 		<i class=" icon-font"></i>Medium:
 	</strong>
   <%= @school.school_medium.name %>
-
+</br>
 <div>
 	<% if can? :create, School %>
 		<%= link_to  schools_path do %>
