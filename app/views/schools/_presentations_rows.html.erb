@@ -1,54 +1,67 @@
-<% if can? :create, Presentation %>
-	<div style="float:right">
-	<%= link_to image_tag("/assets/netvibes.png", :border => 0), new_presentation_path %>
-	</div>
-<% end%>
-
-</br>
-<table  class="table table-striped table-bordered" id="plastic_collection_event_table" >
-  <thead>
-    <tr>
-		<th>Presented by</th>
-	    <th>Date</th>
-	    <th>Audience count</th>
-	    <th>Summary</th>
-	    <th>Authorities present</th>
-	    <th>Presentation type</th>
-	    <th>School</th>
-	    <th>Followup volunteer</th>
-	    <th>Followup volunteer mno</th>
-<% if can? :create, Presentation %>
-      <th>Actions</th>
-<% end%>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @presentations.each do |presentation| %>
-      <tr>
-        <td><%= presentation.presented_by %></td>
-        <td><%= l presentation.start_at%></td>
-        <td><%= presentation.audience_count %></td>
-        <td><%= presentation.summary %></td>
-        <td><%= presentation.authorities_present %></td>
-        <td><%= presentation.presentation_type_id %></td>
-        <td><%= presentation.school_id %></td>
-        <td><%= presentation.followup_volunteer %></td>
-        <td><%= presentation.followup_volunteer_mno %></td>
-		
-		<% if can? :create, PlasticCollectionEvent %>
-			<td>        
-				<%= link_to 'Show', presentation %> |
-            	<%= link_to 'Edit', edit_presentation_path(presentation) %>|
-            	<%= link_to 'Destroy', presentation, method: :delete, data: { confirm: 'Are you sure?' } %>
-			</td>
+<div class="container">
+    
+    <table class="table table-striped custab table-bordered ">
+    <thead>
+        <tr>
+          		<th>Presented by</th>
+			    <th>Date</th>
+			    <th>Audience count</th>
+			    <th>Summary</th>
+			    <th>Authorities present</th>
+			    <th>Presentation type</th>
+			    <th>School</th>
+			    <th>Followup volunteer</th>
+			    <th>Followup volunteer mno</th>
+		<% if can? :create, Presentation %>
+		      <th lass="text-center">Actions</th>
 		<% end%>
-		
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+		      
+        </tr>
+    </thead>
+            <tr>
+	
+	
+			 <% @presentations.each do |presentation| %>
+			      <tr>
+			        <td><%= presentation.presented_by %></td>
+			        <td><%= l presentation.start_at%></td>
+			        <td><%= presentation.audience_count %></td>
+			        <td><%= presentation.summary %></td>
+			        <td><%= presentation.authorities_present %></td>
+			        <td><%= presentation.presentation_type_id %></td>
+			        <td><%= presentation.school_id %></td>
+			        <td><%= presentation.followup_volunteer %></td>
+			        <td><%= presentation.followup_volunteer_mno %></td>
+					<% if can? :create, PlasticCollectionEvent %>
+						<td>        
+							<%= link_to  presentation do %> 
+									<i class="icon-folder-open"></i>Show
+							<%end%>
+						</br>	
+			            	<%= link_to  edit_presentation_path(presentation) do %>
+									<i class="icon-edit"></i>Edit
+							<%end%>
+							</br>
+			            	<%= link_to  presentation, method: :delete, data: { confirm: 'Are you sure?' } do %>
+								<i class="icon-trash"></i>Del
+							<%end%>
+						</td>
+					<% end%>
+
+			      </tr>
+			    <% end %>
+    		</table>
+    </div>
+
+       
+
+
+
+
+
+
+
+
 
 
 

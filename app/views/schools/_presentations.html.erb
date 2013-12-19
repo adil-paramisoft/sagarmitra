@@ -1,4 +1,12 @@
 <%= select_tag :filter, options_from_collection_for_select(@presentation_type, "id", "name"),:prompt => "All",:id=>'presentation'  %>
+	<% if can? :create, Presentation %>
+		<div style="float:right">
+			<%= link_to  new_presentation_path do %>
+				<%=image_tag("/assets/netvibes.png", :border => 0) %> New Presentation
+			<%end%>
+		</div>
+	<% end%>
+
 <div id='list'>
 	<%= render :partial => 'presentations_rows' %>
 </div>

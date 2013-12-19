@@ -43,7 +43,7 @@ module SchoolsHelper
     when 12,15,17,18
       "warning"
     else
-
+      
     end
     
     
