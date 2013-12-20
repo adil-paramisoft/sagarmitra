@@ -1,0 +1,40 @@
+<h1>Listing Plastic Collection Event</h1>
+<table>
+  <thead>
+    <tr>
+    <th>School Name</th>
+    <th>Plastic Collection Source</th>
+    <th>Start at</th>
+    <th>End at</th>
+	<th>Plastic weight</th>
+	<th>money_given</th>
+	<th>volunteers_present</th>
+	<th>quality_remark</th>
+	<th>feedback</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%  @plastic_collection_event.each do |plastic_collection_event| %>
+      <tr>
+        <td><%=  plastic_collection_event.school.name %></td>
+	   <td><%=  plastic_collection_event.plastic_collection_source.name if plastic_collection_event.plastic_collection_source.present?  %></td>
+	<td><%= plastic_collection_event.start_at%></td>
+		<td><%= plastic_collection_event.end_at%></td>
+		<td><%= plastic_collection_event.plastic_weight%>
+		<td><%= plastic_collection_event.money_given%><td>
+		<td><%= plastic_collection_event.volunteers_present%></td>
+		<td><%= plastic_collection_event.quality_remark%>
+		<td><%= plastic_collection_event.feedback%><td>
+				
+        <td><%= link_to 'Show', admin_plastic_collection_event_path(plastic_collection_event) %></td>
+        <td><%= link_to 'Edit', edit_admin_plastic_collection_event_path(plastic_collection_event) %></td>
+        <td><%= link_to 'Destroy', plastic_collection_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New School role', new_school_role_path %>
