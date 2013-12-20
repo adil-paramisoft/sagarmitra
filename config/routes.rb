@@ -106,6 +106,7 @@ Sagarmitra::Application.routes.draw do
 
 namespace :admin do
   get '/index' => 'program#index'
+    resources :plastic_collection_events
 end
 
 

@@ -15,47 +15,21 @@ class PlasticCollectionEventsController < ApplicationController
 
   # GET /plastic_collection_events/1
   # GET /plastic_collection_events/1.json
-  def show
-  end
+
 
   # GET /plastic_collection_events/new
-  def new
-    @plastic_collection_event = PlasticCollectionEvent.new
-  end
+  
 
   # GET /plastic_collection_events/1/edit
-  def edit
-  end
+
 
   # POST /plastic_collection_events
   # POST /plastic_collection_events.json
-  def create
-    @plastic_collection_event = PlasticCollectionEvent.new(plastic_collection_event_params)
-
-    respond_to do |format|
-      if @plastic_collection_event.save
-        format.html { redirect_to "#{school_path(@plastic_collection_event.school)}#tabs-3" , notice: 'Plastic collection event was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @plastic_collection_event }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @plastic_collection_event.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  
 
   # PATCH/PUT /plastic_collection_events/1
   # PATCH/PUT /plastic_collection_events/1.json
-  def update
-    respond_to do |format|
-      if @plastic_collection_event.update(plastic_collection_event_params)
-        format.html { redirect_to @plastic_collection_event, notice: 'Plastic collection event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @plastic_collection_event.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  
 
   # DELETE /plastic_collection_events/1
   # DELETE /plastic_collection_events/1.json
