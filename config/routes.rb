@@ -17,8 +17,6 @@ Sagarmitra::Application.routes.draw do
 
   resources :school_plastic_collection_sources
 
-  resources :plastic_collection_events
-
   resources :plastic_collection_sources
 
   resources :school_types
