@@ -1,47 +1,60 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>School:</strong>
-  <%= @plastic_collection_event.school.name %>
-</p>
+<div class="row-fluid well">
 
-<p>
-  <strong>Plastic weight:</strong>
-  <%= @plastic_collection_event.plastic_weight %>
-</p>
+  <%= link_to admin_plastic_collection_events_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+      <%end%>
 
-<p>
-  <strong>Money given:</strong>
-  <%= @plastic_collection_event.money_given %>
-</p>
 
-<p>
-  <strong>Volunteers present:</strong>
-  <%= @plastic_collection_event.volunteers_present %>
-</p>
+  <div style="float:right">
 
-<p>
-  <strong>Plastic collection Source:</strong>
-  <%= @plastic_collection_event.plastic_collection_source.name if @plastic_collection_event.plastic_collection_source.present? %>
-</p>
+   <% if can? :create, PlasticCollectionEvent %>
+  <%= link_to  edit_admin_plastic_collection_event_path(@plastic_collection_event) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+</br>
 
-<p>
-  <strong>Date:</strong>
-  <%= @plastic_collection_event.start_at %>
-</p>
 
-<p>
-  <strong>Quality remark:</strong>
-  <%= @plastic_collection_event.quality_remark %>
-</p>
+  </div>
 
-<p>
-  <strong>Feedback:</strong>
-  <%= @plastic_collection_event.feedback %>
-</p>
+  <h3>Plastic Vollection Event</h3>
+  <h5> at <%= @plastic_collection_event.school.name %> </h5>
 
-<% if can? :create, PlasticCollectionEvent %> 
-  <%= link_to 'Edit', edit_admin_plastic_collection_event_path(@plastic_collection_event) %> |
-  <%= link_to 'Back', admin_plastic_collection_events_path %>
+  <div class="span9">
 
-<%end%>
+
+    <table class="table">
+
+      <thead>
+      <tr>
+        <th ><i class="icon-bookmark"></i> Plastic weight</th>
+
+        <th><i class="icon-leaf"></i>  Money given</th>
+        <th><i class="icon-check"></i>Plastic collection Source </th>
+        <th><i class="icon-check"></i>Date and Time</th>
+
+
+
+      </tr>
+      </thead>
+      <tr>
+        <td class="text-center"> <%= @plastic_collection_event.plastic_weight %></td>
+        <td class="text-center"> <%= @plastic_collection_event.money_given %></td>
+        <td class="text-center"><%= @plastic_collection_event.plastic_collection_source.name if @plastic_collection_event.plastic_collection_source.present? %></td>
+        <td class="text-center"> <%= l(@plastic_collection_event.start_at) %> to <%= l(@plastic_collection_event.end_at) %> </td>
+
+      </tr>
+    </table>
+
+    <i class="icon-check"></i>Volunteers present : </h6><%= @plastic_collection_event.volunteers_present %></h6></br></br>
+    <i class="icon-check"></i>Quality remark: </h6>  <%= @plastic_collection_event.quality_remark %></h6></br></br>
+    <i class="icon-check"></i>Feedback: </h6>  <%= @plastic_collection_event.feedback %></h6> </br></br>
+    <%= calender_jump_to @plastic_collection_event.start_at %>
+  </div>
+
+
+
+</div>
+
 

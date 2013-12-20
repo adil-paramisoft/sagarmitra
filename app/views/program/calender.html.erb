@@ -1,7 +1,9 @@
 <div style="float:right" >
 	<div class="plastic_collection_event_school">
-	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_plastic_collection_event_path if can? :create, PlasticCollectionEvent  %> Plastic Collection Events
+	    <%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_admin_plastic_collection_event_path if can? :create, PlasticCollectionEvent  %> Plastic Collection Events
 	</div>
+
+
 	<div class="school_presentation">
 	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_presentation_path if can? :create, Presentation   %> Presentation
 	</div>

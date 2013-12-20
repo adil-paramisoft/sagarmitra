@@ -15,6 +15,11 @@ module ApplicationHelper
     #end
   end
   
- 
+ def calender_jump_to date
+   link_to calender_path.to_s + "?month=#{@plastic_collection_event.start_at.month}&year=#{@plastic_collection_event.start_at.year}\#tabs-4" do
+     "Show me in Calender"
+   end
+
+ end
   
 end
