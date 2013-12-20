@@ -1,5 +1,8 @@
 <div class="row-fluid well">
-	<h3><%= @school.name%></h3>
+  <%= link_to  schools_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
+  <h3><%= @school.name%></h3>
   
 <div class="span9">
 	
