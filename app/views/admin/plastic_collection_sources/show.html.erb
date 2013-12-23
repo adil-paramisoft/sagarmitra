@@ -1,39 +1,56 @@
 <p id="notice"><%= notice %></p>
+<div class="row-fluid well">
 
-<p>
-  <strong>Name:</strong>
-  <%= @plastic_collection_source.name %>
-</p>
+  <%= link_to admin_plastic_collection_sources_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
 
-<p>
-  <strong>Address:</strong>
-  <%= @plastic_collection_source.address %>
-</p>
 
-<p>
-  <strong>Contact person:</strong>
-  <%= @plastic_collection_source.contact_person %>
-</p>
+  <div style="float:right">
 
-<p>
-  <strong>Phone no 1:</strong>
-  <%= @plastic_collection_source.phone_no_1 %>
-</p>
+    <% if can? :create, PlasticCollectionEvent %>
+        <%= link_to  edit_admin_plastic_collection_source_path(@plastic_collection_source) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
 
-<p>
-  <strong>Phone no 2:</strong>
-  <%= @plastic_collection_source.phone_no_2 %>
-</p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @plastic_collection_source.website %>
-</p>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @plastic_collection_source.email %>
-</p>
 
-<%= link_to 'Edit', edit_plastic_collection_source_path(@plastic_collection_source) %> |
-<%= link_to 'Back', plastic_collection_sources_path %>
+  <h3> <%= @plastic_collection_source.name %> </h3>
+  <h5>Our Plastic collection sources</h5>
+  <div class="span9">
+
+
+    <table class="table">
+
+      <thead>
+      <tr>
+        <th ><i class="icon-globe"></i> Contact Person</th>
+        <th><i class="icon-leaf"></i>  Phone No 1</th>
+        <th><i class="icon-cog"></i>Phone No 2 </th>
+        <th><i class="icon-time"></i>Web site</th>
+        <th><i class="ui-icon-mail-open" ></i> Email Id</th>
+
+
+      </tr>
+      </thead>
+      <tr>
+        <td class="text-center"> <%= @plastic_collection_source.contact_person %></td>
+        <td class="text-center"> <%= @plastic_collection_source.phone_no_1 %></td>
+        <td class="text-center"><%= @plastic_collection_source.phone_no_2 %></td>
+        <td class="text-center"> <%= @plastic_collection_source.website %> </td>
+        <td class="text-center"> <%= @plastic_collection_source.email %></td>
+      </tr>
+    </table>
+
+    <i class="icon-check"></i>Address : </h6><%= @plastic_collection_source.address %></h6></br></br>
+
+
+  </div>
+
+
+
+</div>

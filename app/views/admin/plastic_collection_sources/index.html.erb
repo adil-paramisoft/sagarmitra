@@ -9,7 +9,7 @@
 
       <% if can? :create, PlasticCollectionEvent %>
           <div style="float:left">
-            <%= link_to  new_plastic_collection_source_path do %>
+            <%= link_to  new_admin_plastic_collection_source_path do %>
                 <%=image_tag("/assets/netvibes.png", :border => 0) %>New Plastic collection source
             <%end%>
           </div>
@@ -46,15 +46,15 @@
                 <% if can? :create, PlasticCollectionEvent %>
                     <td>
 
-                      <%= link_to  plastic_collection_source do %>
+                      <%= link_to  admin_plastic_collection_source_path(plastic_collection_source) do %>
                           <i class="icon-folder-open"></i>Show
                       <%end%>
                       </br>
-                      <%= link_to  edit_plastic_collection_source_path(plastic_collection_source) do%>
+                      <%= link_to  edit_admin_plastic_collection_source_path(plastic_collection_source) do%>
                           <i class="icon-edit"></i>Edit
                       <%end%>
                       </br>
-                      <%= link_to  plastic_collection_source, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                      <%= link_to  admin_plastic_collection_source_path(plastic_collection_source), method: :delete, data: { confirm: 'Are you sure?' } do %>
                           <i class="icon-trash"></i>Del
                       <%end%>
                     </td>

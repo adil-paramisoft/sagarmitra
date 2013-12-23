@@ -29,7 +29,7 @@ class Admin::PlasticCollectionSourcesController < ApplicationController
 
     respond_to do |format|
       if @plastic_collection_source.save
-        format.html { redirect_to @plastic_collection_source, notice: 'Plastic collection source was successfully created.' }
+        format.html { redirect_to admin_plastic_collection_source_path(@plastic_collection_source), notice: 'Plastic collection source was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plastic_collection_source }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class Admin::PlasticCollectionSourcesController < ApplicationController
   def update
     respond_to do |format|
       if @plastic_collection_source.update(plastic_collection_source_params)
-        format.html { redirect_to @plastic_collection_source, notice: 'Plastic collection source was successfully updated.' }
+        format.html { redirect_to admin_plastic_collection_source_path(@plastic_collection_source) , notice: 'Plastic collection source was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class Admin::PlasticCollectionSourcesController < ApplicationController
   def destroy
     @plastic_collection_source.destroy
     respond_to do |format|
-      format.html { redirect_to plastic_collection_sources_url }
+      format.html { redirect_to admin_plastic_collection_sources_url }
       format.json { head :no_content }
     end
   end

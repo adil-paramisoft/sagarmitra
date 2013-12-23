@@ -58,7 +58,7 @@ class Admin::PlasticCollectionEventsController < ApplicationController
   def destroy
     @plastic_collection_event.destroy
     respond_to do |format|
-      format.html { redirect_to plastic_collection_events_url }
+      format.html { redirect_to admin_plastic_collection_events_url }
       format.json { head :no_content }
     end
   end

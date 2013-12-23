@@ -1,4 +1,4 @@
-<%= simple_form_for @plastic_collection_source ,:html=>{:class=>"form-horizontal"} do |f| %>
+<%= simple_form_for [:admin,@plastic_collection_source] ,:html=>{:class=>"form-horizontal"} do |f| %>
   <% if @plastic_collection_source.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plastic_collection_source.errors.count, "error") %> prohibited this plastic_collection_source from being saved:</h2>
@@ -94,8 +94,8 @@
 		<div class="btn-group">
 					
 						<%= f.submit "Submit",:class=>"btn btn-primary"%>
-						<%= link_to 'All Plastic Collection Sources ', plastic_collection_sources_path,:class=>"btn" %>
-						<%= link_to 'Clear', new_plastic_collection_source_path,:class=>"btn btn-danger" %>
+						<%= link_to 'All Plastic Collection Sources ', admin_plastic_collection_sources_path,:class=>"btn" %>
+						<%= link_to 'Clear', new_admin_plastic_collection_source_path,:class=>"btn btn-danger" %>
 	  	</div>
 </div>
 
