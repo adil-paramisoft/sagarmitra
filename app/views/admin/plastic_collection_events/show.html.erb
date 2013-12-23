@@ -18,7 +18,7 @@
 
   </div>
 
-  <h3>Plastic Vollection Event</h3>
+  <h3>Plastic Collection Event</h3>
   <h5> at <%= @plastic_collection_event.school.name %> </h5>
 
   <div class="span9">
@@ -28,19 +28,18 @@
 
       <thead>
       <tr>
-        <th ><i class="icon-bookmark"></i> Plastic weight</th>
-
+        <th ><i class="icon-globe"></i> Plastic weight</th>
         <th><i class="icon-leaf"></i>  Money given</th>
-        <th><i class="icon-check"></i>Plastic collection Source </th>
-        <th><i class="icon-check"></i>Date and Time</th>
+        <th><i class="icon-cog"></i>Plastic collection Source </th>
+        <th><i class="icon-time"></i>Date and Time</th>
 
 
 
       </tr>
       </thead>
       <tr>
-        <td class="text-center"> <%= @plastic_collection_event.plastic_weight %></td>
-        <td class="text-center"> <%= @plastic_collection_event.money_given %></td>
+        <td class="text-center"> <%= @plastic_collection_event.plastic_weight %> kg</td>
+        <td class="text-center"> <%= @plastic_collection_event.money_given %> INR</td>
         <td class="text-center"><%= @plastic_collection_event.plastic_collection_source.name if @plastic_collection_event.plastic_collection_source.present? %></td>
         <td class="text-center"> <%= l(@plastic_collection_event.start_at) %> to <%= l(@plastic_collection_event.end_at) %> </td>
 
