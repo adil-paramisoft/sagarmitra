@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+
+      <%=render :partial=> 'admin/sidebar'%>
+
+    </div>
+    <div class="span9">
+
+      <% if can? :create, PlasticCollectionEvent %>
+          <div style="float:left">
+            <%= link_to  new_plastic_collection_source_path do %>
+                <%=image_tag("/assets/netvibes.png", :border => 0) %>New Plastic collection source
+            <%end%>
+          </div>
+      <%end%>
+
+
+        <table class="table table-striped custab table-bordered ">
+          <thead>
+          <tr>
+
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone no 1</th>
+            <th>Website</th>
+            <th>Email</th>
+
+
+            <% if can? :create, PlasticCollectionEvent %>
+                <th class="text-center">Actions</th>
+            <% end%>
+
+          </tr>
+          </thead>
+          <tr>
+
+
+            <% @plastic_collection_sources.each do |plastic_collection_source| %>
+              <tr>
+                <td><%= plastic_collection_source.name %></td>
+                <td><%= plastic_collection_source.address %></td>
+                <td><%= plastic_collection_source.phone_no_1 %></td>
+                <td><%= plastic_collection_source.phone_no_2 %></td>
+                <td><%= plastic_collection_source.email %></td>
+                <% if can? :create, PlasticCollectionEvent %>
+                    <td>
+
+                      <%= link_to  plastic_collection_source do %>
+                          <i class="icon-folder-open"></i>Show
+                      <%end%>
+                      </br>
+                      <%= link_to  edit_plastic_collection_source_path(plastic_collection_source) do%>
+                          <i class="icon-edit"></i>Edit
+                      <%end%>
+                      </br>
+                      <%= link_to  plastic_collection_source, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                          <i class="icon-trash"></i>Del
+                      <%end%>
+                    </td>
+                    </tr>
+                <% end %>
+          <% end %>
+
+
+
+
+        </table>
+      </div>
+
+
+
+
+
+
+    </div>
+
+</div>
+
