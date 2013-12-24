@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+
+      <%=render :partial=> 'admin/sidebar'%>
+
+    </div>
+    <div class="span9">
+
+      <% if can? :create, School %>
+          <div style="float:left">
+            <%= link_to  new_admin_school_path do %>
+                <%=image_tag("/assets/netvibes.png", :border => 0) %>New School
+            <%end%>
+          </div>
+      <%end%>
+
+
+      <table class="table table-striped custab table-bordered ">
+        <thead>
+        <tr>
+
+          <th>Name(Total Student)</th>
+          <th>Address</th>
+          <th>School type(Medium)</th>
+          <th>Program state</th>
+          <th>Number of Collections</th>
+          <th>Plastic Collected (Kgs)</th>
+          <th>Green Fund (INR)</th>
+
+
+          <% if can? :create, School %>
+              <th class="text-center">Actions</th>
+          <% end%>
+
+        </tr>
+        </thead>
+        <tr>
+
+
+          <% @schools.each do |school| %>
+            <tr class=<%= settabelstyles school.program_state.id %>>
+              <td><%= link_to school.name, school   %><%="(#{school.total_students})" %></td>
+              <td><%= school.address %></td>
+              <td><%="  #{school.school_type.name} (#{school.school_medium.name})" %></td>
+              <td><%= school.program_state.name %></td>
+              <td><%= school.number_of_collections %></td>
+              <td><%= school.plastic_collected %> </td>
+              <td><%= school.green_fund %> </td>
+              <% if can? :create, School %>
+
+                  <td class="text-center">
+                    <%= link_to  school do %>
+                        <i class="icon-folder-open"></i>Show
+                    <%end%>
+                    <%= link_to  edit_admin_school_path(school) do %>
+                        <i class="icon-edit"></i>Edit
+                    <%end%>
+                    <%= link_to  admin_school_path(school), method: :delete, data:{ confirm: 'Are you sure?' } do%>
+                        <i class="icon-trash"></i>Del
+                    <%end%>
+                  </td>
+                  </tr>
+              <% end %>
+        <% end %>
+
+
+
+
+      </table>
+    </div>
+
+
+
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+

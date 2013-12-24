@@ -107,6 +107,9 @@ namespace :admin do
     resources :plastic_collection_events
     resources :plastic_collection_sources
     resources :presentations
+    resources :schools
+
+
 end
 
 
