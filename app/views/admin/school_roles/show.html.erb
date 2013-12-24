@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div class="row-fluid well">
+
+  <%= link_to admin_school_roles_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
+
+
+  <div style="float:right">
+
+    <% if can? :create, PlasticCollectionEvent %>
+        <%= link_to  edit_admin_school_role_path(@school_role) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
+
+
+  </div>
+
+
+  <h3> <%= @school_role.role %></h3>
+  <h5><%= @school_role.description %></h5>
+
+
+
+
+</div>
+
+
+
+

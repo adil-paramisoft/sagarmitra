@@ -1,4 +1,4 @@
-class SchoolTypesController < ApplicationController
+class Admin::SchoolTypesController < ApplicationController
   #before_action :set_school_type, only: [:show, :edit, :update, :destroy]
   before_action :load_school_type, only: :create
   load_and_authorize_resource
@@ -29,7 +29,7 @@ class SchoolTypesController < ApplicationController
 
     respond_to do |format|
       if @school_type.save
-        format.html { redirect_to @school_type, notice: 'School type was successfully created.' }
+        format.html { redirect_to admin_school_type_path(@school_type), notice: 'School type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @school_type }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class SchoolTypesController < ApplicationController
   def update
     respond_to do |format|
       if @school_type.update(school_type_params)
-        format.html { redirect_to @school_type, notice: 'School type was successfully updated.' }
+        format.html { redirect_to admin_school_type_path(@school_type), notice: 'School type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class SchoolTypesController < ApplicationController
   def destroy
     @school_type.destroy
     respond_to do |format|
-      format.html { redirect_to school_types_url }
+      format.html { redirect_to admin_school_types_url }
       format.json { head :no_content }
     end
   end

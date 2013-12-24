@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="row-fluid well">
+
+  <%= link_to admin_school_media_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
+
+
+  <div style="float:right">
+
+    <% if can? :create, PlasticCollectionEvent %>
+        <%= link_to  edit_admin_school_medium_path(@school_medium) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
+
+
+  </div>
+
+
+  <h3> <%= @school_medium.name %> </h3>
+  <h5><%= @school_medium.description %></h5>
+
+
+
+
+</div>
+
+
+

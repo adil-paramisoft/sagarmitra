@@ -1,4 +1,4 @@
-class SchoolMediaController < ApplicationController
+class Admin::SchoolMediaController < ApplicationController
   #before_action :set_school_medium, only: [:show, :edit, :update, :destroy]
   before_action :load_school_medium, only: :create
   load_and_authorize_resource
@@ -29,7 +29,7 @@ class SchoolMediaController < ApplicationController
 
     respond_to do |format|
       if @school_medium.save
-        format.html { redirect_to @school_medium, notice: 'School medium was successfully created.' }
+        format.html { redirect_to admin_school_medium_path(@school_medium), notice: 'School medium was successfully created.' }
         format.json { render action: 'show', status: :created, location: @school_medium }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class SchoolMediaController < ApplicationController
   def update
     respond_to do |format|
       if @school_medium.update(school_medium_params)
-        format.html { redirect_to @school_medium, notice: 'School medium was successfully updated.' }
+        format.html { redirect_to admin_school_medium_path(@school_medium), notice: 'School medium was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class SchoolMediaController < ApplicationController
   def destroy
     @school_medium.destroy
     respond_to do |format|
-      format.html { redirect_to school_media_url }
+      format.html { redirect_to admin_school_media_url }
       format.json { head :no_content }
     end
   end
