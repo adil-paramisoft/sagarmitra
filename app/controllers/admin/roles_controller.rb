@@ -1,4 +1,4 @@
-class RolesController < ApplicationController
+class Admin::RolesController < ApplicationController
   #before_action :set_role, only: [:show, :edit, :update, :destroy]
   before_action :load_role, only: :create
   load_and_authorize_resource
@@ -29,7 +29,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.save
-        format.html { redirect_to @role, notice: 'Role was successfully created.' }
+        format.html { redirect_to admin_role_path(@role), notice: 'Role was successfully created.' }
         format.json { render action: 'show', status: :created, location: @role }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class RolesController < ApplicationController
   def update
     respond_to do |format|
       if @role.update(role_params)
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
+        format.html { redirect_to admin_roles_path(@role), notice: 'Role was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class RolesController < ApplicationController
   def destroy
     @role.destroy
     respond_to do |format|
-      format.html { redirect_to roles_url }
+      format.html { redirect_to admin_roles_url }
       format.json { head :no_content }
     end
   end

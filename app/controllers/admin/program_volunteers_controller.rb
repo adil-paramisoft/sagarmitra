@@ -1,4 +1,4 @@
-class ProgramVolunteersController < ApplicationController
+class Admin::ProgramVolunteersController < ApplicationController
   #before_action :set_program_volunteer, only: [:show, :edit, :update, :destroy]
   before_action :load_program_volunteer, only: :create
   load_and_authorize_resource

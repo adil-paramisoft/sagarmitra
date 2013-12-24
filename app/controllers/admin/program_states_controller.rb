@@ -1,4 +1,4 @@
-class ProgramStatesController < ApplicationController
+class Admin::ProgramStatesController < ApplicationController
   #before_action :set_program_state, only: [:show, :edit, :update, :destroy]
   before_action :load_program_state, only: :create
   load_and_authorize_resource
@@ -29,7 +29,7 @@ class ProgramStatesController < ApplicationController
 
     respond_to do |format|
       if @program_state.save
-        format.html { redirect_to @program_state, notice: 'Program state was successfully created.' }
+        format.html { redirect_to admin_program_state_path(@program_state), notice: 'Program state was successfully created.' }
         format.json { render action: 'show', status: :created, location: @program_state }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class ProgramStatesController < ApplicationController
   def update
     respond_to do |format|
       if @program_state.update(program_state_params)
-        format.html { redirect_to @program_state, notice: 'Program state was successfully updated.' }
+        format.html { redirect_to admin_program_state_path( @program_state), notice: 'Program state was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class ProgramStatesController < ApplicationController
   def destroy
     @program_state.destroy
     respond_to do |format|
-      format.html { redirect_to program_states_url }
+      format.html { redirect_to admin_program_states_url }
       format.json { head :no_content }
     end
   end

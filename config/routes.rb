@@ -1,5 +1,5 @@
 Sagarmitra::Application.routes.draw do
-  resources :program_volunteers
+
 
   resources :school_volunteers
 
@@ -13,7 +13,7 @@ Sagarmitra::Application.routes.draw do
   
   resources :school_media
 
-  resources :roles
+
 
   resources :school_plastic_collection_sources
 
@@ -21,7 +21,7 @@ Sagarmitra::Application.routes.draw do
 
   resources :school_types
 
-  resources :program_states
+
 
   resources :school_contacts
 
@@ -110,6 +110,9 @@ namespace :admin do
     resources :schools
     resources :presentation_types
 
+    resources :roles
+    resources :program_states
+    resources :program_volunteers
 
 end
 
