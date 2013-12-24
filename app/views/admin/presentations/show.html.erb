@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+<div class="row-fluid well">
+
+  <%= link_to admin_presentations_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
+
+
+  <div style="float:right">
+
+    <% if can? :create, PlasticCollectionEvent %>
+        <%= link_to  edit_admin_presentation_path(@presentation) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
+
+
+  </div>
+
+  <h3><%= @presentation.presentation_type.name %> Presentation </h3>
+  <h5> at <%= @presentation.school.name %> By <%= @presentation.presented_by %>  </h5>
+
+  <div class="span9">
+
+
+    <table class="table">
+
+      <thead>
+      <tr>
+
+        <th><i class="icon-cog"></i>Audience Count</th>
+        <th><i class="icon-time"></i>Date and Time</th>
+        <th><i class="icon-leaf"></i>Followup Volunteer</th>
+
+
+      </tr>
+      </thead>
+      <tr>
+        <td class="text-center">  <%= @presentation.audience_count %></td>
+        <td class="text-center"> <%= l(  @presentation.start_at ) %> to <%= l(@presentation.end_at) %> </td>
+        <td class="text-center"> <%= @presentation.followup_volunteer %>(<%= @presentation.followup_volunteer_mno %>)</td>
+      </tr>
+    </table>
+
+    <i class="icon-check"></i>Authorities Present : </h6> <%= @presentation.authorities_present %></h6></br></br>
+    <i class="icon-check"></i>summary: </h6>    <%= @presentation.summary %></h6> </br></br>
+    <%= link_to "Show in schools Profile",school_path(@presentation.school)+"#tabs-2" %>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

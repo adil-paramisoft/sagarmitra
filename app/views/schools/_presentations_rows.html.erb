@@ -34,15 +34,15 @@
 			        <td><%= presentation.followup_volunteer_mno %></td>
 					<% if can? :create, PlasticCollectionEvent %>
 						<td>        
-							<%= link_to  presentation do %> 
+							<%= link_to  admin_presentation_path(presentation) do %>
 									<i class="icon-folder-open"></i>Show
 							<%end%>
 						</br>	
-			            	<%= link_to  edit_presentation_path(presentation) do %>
+			            	<%= link_to  edit_admin_presentation_path(presentation) do %>
 									<i class="icon-edit"></i>Edit
 							<%end%>
 							</br>
-			            	<%= link_to  presentation, method: :delete, data: { confirm: 'Are you sure?' } do %>
+			            	<%= link_to  admin_presentation_path(presentation), method: :delete, data: { confirm: 'Are you sure?' } do %>
 								<i class="icon-trash"></i>Del
 							<%end%>
 						</td>
