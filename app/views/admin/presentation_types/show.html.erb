@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="row-fluid well">
+
+  <%= link_to admin_presentation_types_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
+
+
+  <div style="float:right">
+
+    <% if can? :create, PlasticCollectionEvent %>
+        <%= link_to  edit_admin_presentation_type_path(@presentation_type) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
+
+
+  </div>
+
+
+  <h3> <%= @presentation_type.name %> Presentation </h3>
+  <h5><%= @presentation_type.description %></h5>
+
+
+
+
+</div>
+
+
+

@@ -1,4 +1,4 @@
-class PresentationTypesController < ApplicationController
+class Admin::PresentationTypesController < ApplicationController
   #before_action :set_presentation_type, only: [:show, :edit, :update, :destroy]
   before_action :load_presentation_type, only: :create
    load_and_authorize_resource
@@ -29,7 +29,7 @@ class PresentationTypesController < ApplicationController
 
     respond_to do |format|
       if @presentation_type.save
-        format.html { redirect_to @presentation_type, notice: 'Presentation type was successfully created.' }
+        format.html { redirect_to admin_presentation_type_path(@presentation_type), notice: 'Presentation type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @presentation_type }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class PresentationTypesController < ApplicationController
   def update
     respond_to do |format|
       if @presentation_type.update(presentation_type_params)
-        format.html { redirect_to @presentation_type, notice: 'Presentation type was successfully updated.' }
+        format.html { redirect_to admin_presentation_type_path(@presentation_type), notice: 'Presentation type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class PresentationTypesController < ApplicationController
   def destroy
     @presentation_type.destroy
     respond_to do |format|
-      format.html { redirect_to presentation_types_url }
+      format.html { redirect_to admin_presentation_types_url }
       format.json { head :no_content }
     end
   end

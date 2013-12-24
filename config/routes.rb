@@ -27,7 +27,7 @@ Sagarmitra::Application.routes.draw do
 
   resources :school_roles
 
-  resources :presentation_types
+
 
   resources :presentations
 
@@ -108,6 +108,7 @@ namespace :admin do
     resources :plastic_collection_sources
     resources :presentations
     resources :schools
+    resources :presentation_types
 
 
 end
