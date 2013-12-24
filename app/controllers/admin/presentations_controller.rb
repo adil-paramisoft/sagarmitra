@@ -2,6 +2,7 @@ class Admin::PresentationsController < ApplicationController
   #before_action :set_presentation, only: [:show, :edit, :update, :destroy]
   before_action :load_presentation, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /presentations
   # GET /presentations.json
   def index

@@ -2,6 +2,7 @@ class Admin::ProgramVolunteersController < ApplicationController
   #before_action :set_program_volunteer, only: [:show, :edit, :update, :destroy]
   before_action :load_program_volunteer, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /program_volunteers
   # GET /program_volunteers.json
   def index

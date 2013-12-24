@@ -2,6 +2,7 @@ class Admin::SchoolMediaController < ApplicationController
   #before_action :set_school_medium, only: [:show, :edit, :update, :destroy]
   before_action :load_school_medium, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /school_media
   # GET /school_media.json
   def index

@@ -2,6 +2,7 @@ class Admin::RolesController < ApplicationController
   #before_action :set_role, only: [:show, :edit, :update, :destroy]
   before_action :load_role, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /roles
   # GET /roles.json
   def index

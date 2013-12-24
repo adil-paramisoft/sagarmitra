@@ -2,6 +2,7 @@ class Admin::ProgramStatesController < ApplicationController
   #before_action :set_program_state, only: [:show, :edit, :update, :destroy]
   before_action :load_program_state, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /program_states
   # GET /program_states.json
   def index

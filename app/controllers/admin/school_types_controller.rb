@@ -2,6 +2,7 @@ class Admin::SchoolTypesController < ApplicationController
   #before_action :set_school_type, only: [:show, :edit, :update, :destroy]
   before_action :load_school_type, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /school_types
   # GET /school_types.json
   def index

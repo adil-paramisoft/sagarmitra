@@ -2,6 +2,7 @@ class Admin::SchoolRolesController < ApplicationController
   #before_action :set_school_role, only: [:show, :edit, :update, :destroy]
   before_action :load_school_role, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /school_roles
   # GET /school_roles.json
   def index

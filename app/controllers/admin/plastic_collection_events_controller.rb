@@ -3,6 +3,9 @@ class Admin::PlasticCollectionEventsController < ApplicationController
   #before_action :set_plastic_collection_event, only: [:show, :edit, :update, :destroy]
   before_action :load_plastic_collection_event, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
+
+
   # GET /plastic_collection_events
   # GET /plastic_collection_events.json
   def index

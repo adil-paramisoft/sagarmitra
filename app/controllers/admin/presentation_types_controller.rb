@@ -2,6 +2,7 @@ class Admin::PresentationTypesController < ApplicationController
   #before_action :set_presentation_type, only: [:show, :edit, :update, :destroy]
   before_action :load_presentation_type, only: :create
    load_and_authorize_resource
+  before_filter :verify_admin
   # GET /presentation_types
   # GET /presentation_types.json
   def index

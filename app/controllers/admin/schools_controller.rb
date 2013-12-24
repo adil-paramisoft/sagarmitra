@@ -2,6 +2,7 @@ class Admin::SchoolsController < ApplicationController
   #before_action :set_school, only: [:show, :edit, :update, :destroy]
   before_action :load_school, only: :create
   load_and_authorize_resource
+  before_filter :verify_admin
   # GET /schools
   # GET /schools.json
   def index
