@@ -29,7 +29,7 @@ class Admin::ProgramVolunteersController < ApplicationController
 
     respond_to do |format|
       if @program_volunteer.save
-        format.html { redirect_to @program_volunteer, notice: 'Program volunteer was successfully created.' }
+        format.html { redirect_to admin_program_volunteer_path(@program_volunteer), notice: 'Program volunteer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @program_volunteer }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class Admin::ProgramVolunteersController < ApplicationController
   def update
     respond_to do |format|
       if @program_volunteer.update(program_volunteer_params)
-        format.html { redirect_to @program_volunteer, notice: 'Program volunteer was successfully updated.' }
+        format.html { redirect_to admin_program_volunteer_path(@program_volunteer), notice: 'Program volunteer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class Admin::ProgramVolunteersController < ApplicationController
   def destroy
     @program_volunteer.destroy
     respond_to do |format|
-      format.html { redirect_to program_volunteers_url }
+      format.html { redirect_to admin_program_volunteers_url }
       format.json { head :no_content }
     end
   end

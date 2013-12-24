@@ -1,29 +1,57 @@
 <p id="notice"><%= notice %></p>
+<div class="row-fluid well">
 
-<p>
-  <strong>Name:</strong>
-  <%= @program_volunteer.name %>
-</p>
+  <%= link_to admin_program_volunteers_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
 
-<p>
-  <strong>Interest:</strong>
-  <%= @program_volunteer.interest %>
-</p>
 
-<p>
-  <strong>Responsibility:</strong>
-  <%= @program_volunteer.responsibility %>
-</p>
+  <div style="float:right">
 
-<p>
-  <strong>Email:</strong>
-  <%= @program_volunteer.email %>
-</p>
+    <% if can? :create, PlasticCollectionEvent %>
+        <%= link_to  edit_admin_program_volunteer_path(@program_volunteer) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
 
-<p>
-  <strong>Mobile:</strong>
-  <%= @program_volunteer.mobile %>
-</p>
 
-<%= link_to 'Edit', edit_program_volunteer_path(@program_volunteer) %> |
-<%= link_to 'Back', program_volunteers_path %>
+  </div>
+
+  <h3>Program Volunteer</h3>
+  <h5> at  <%= @program_volunteer.name %> </h5>
+
+  <div class="span9">
+
+
+    <table class="table">
+
+      <thead>
+      <tr>
+        <th ><i class="icon-globe"></i> Interest</th>
+        <th><i class="icon-leaf"></i> responsibility</th>
+        <th><i class="icon-cog"></i>Email </th>
+        <th><i class="icon-time"></i>mobile</th>
+
+
+
+      </tr>
+      </thead>
+      <tr>
+        <td class="text-center">  <%= @program_volunteer.interest %> </td>
+        <td class="text-center">  <%= @program_volunteer.responsibility %></td>
+        <td class="text-center"><%= @program_volunteer.email %></td>
+        <td class="text-center"> <%= @program_volunteer.mobile %> </td>
+
+      </tr>
+    </table>
+
+
+  </div>
+
+
+
+</div>
+
+
+

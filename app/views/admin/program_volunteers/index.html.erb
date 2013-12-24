@@ -1,34 +1,77 @@
-<h1>Listing program_volunteers</h1>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Interest</th>
-      <th>Responsibility</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <%=render :partial=> 'admin/sidebar'%>
 
-  <tbody>
-    <% @program_volunteers.each do |program_volunteer| %>
-      <tr>
-        <td><%= program_volunteer.name %></td>
-        <td><%= program_volunteer.interest %></td>
-        <td><%= program_volunteer.responsibility %></td>
-        <td><%= program_volunteer.email %></td>
-        <td><%= program_volunteer.mobile %></td>
+    </div>
+    <div class="span9">
+
+      <% if can? :create, PlasticCollectionEvent %>
+          <div style="float:left">
+            <%= link_to  new_admin_program_volunteer_path do %>
+                <%=image_tag("/assets/netvibes.png", :border => 0) %>New Program Volunteer
+            <%end%>
+          </div>
+      <%end%>
 
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <table class="table table-striped custab table-bordered ">
+        <thead>
+        <tr>
 
-<br>
+          <th>Name</th>
+          <th>Interest</th>
+          <th>Responsibility</th>
+          <th>Email</th>
+          <th>Mobile</th>
+
+
+          <% if can? :create, PlasticCollectionEvent %>
+              <th class="text-center">Actions</th>
+          <% end%>
+
+        </tr>
+        </thead>
+        <tr>
+
+
+          <% @program_volunteers.each do |program_volunteer| %>
+            <tr>
+              <td><%= program_volunteer.name %></td>
+              <td><%= program_volunteer.interest %></td>
+              <td><%= program_volunteer.responsibility %></td>
+              <td><%= program_volunteer.email %></td>
+              <td><%= program_volunteer.mobile %></td>
+
+
+              <% if can? :create, PlasticCollectionEvent %>
+                  <td>
+
+                    <%= link_to  admin_program_volunteer_path(program_volunteer) do %>
+                        <i class="icon-folder-open"></i>Show
+                    <%end%>
+                    </br>
+                    <%= link_to  edit_admin_program_volunteer_path(program_volunteer) do%>
+                        <i class="icon-edit"></i>Edit
+                    <%end%>
+                    </br>
+                    <%= link_to  admin_program_volunteer_path(program_volunteer), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <i class="icon-trash"></i>Del
+                    <%end%>
+                  </td>
+                  </tr>
+              <% end %>
+        <% end %>
+
+
+
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
 
 
