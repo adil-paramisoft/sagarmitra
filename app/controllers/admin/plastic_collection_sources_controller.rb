@@ -2,6 +2,7 @@ class Admin::PlasticCollectionSourcesController < ApplicationController
   #before_action :set_plastic_collection_source, only: [:show, :edit, :update, :destroy]
   before_action :load_plastic_collection_source, only: :create
    load_and_authorize_resource
+  before_filter :verify_admin
    before_filter :verify_admin
   # GET /plastic_collection_sources
   # GET /plastic_collection_sources.json
