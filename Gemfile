@@ -22,7 +22,7 @@ gem 'pg'
 
 # To fix JavaScript Runtime
 #gem "execjs"
-#gem "therubyracer"
+gem "therubyracer"
 
 # Permissions
 gem "cancan"

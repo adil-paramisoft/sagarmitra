@@ -1,7 +1,8 @@
 <div data-no-turbolink>
   <ul class="nav">
-    <li class="active"><a href="/">Home</a></li>
+    <li class=<%="active"if action_name=="index"%> > <a href="/">Home</a></li>
     <li><%= link_to 'Schools', schools_path %></li>
+    <li class=<%="active"if action_name=="collection"%>><%= link_to 'Collections',"/collection"%><li>
     <li><%= link_to 'Initiative', '/initiative' %></li>
   </ul>
 </div>

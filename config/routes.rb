@@ -90,7 +90,7 @@ Sagarmitra::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
+  get '/collection' => 'program#collection'
   match   'initiative', to:  'initiative#concept' , via: [:get]
   match   'initiative/concept', to:  'initiative#concept' , via: [:get]
   match   'initiative/team', to:  'initiative#team' , via: [:get]
