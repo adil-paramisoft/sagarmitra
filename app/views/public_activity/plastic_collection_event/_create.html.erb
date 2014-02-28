@@ -1,0 +1,5 @@
+<div class="hero-unit">
+<%= link_to activity.trackable.school.name, activity.trackable.school  %> has collected plastic of <%= activity.trackable.plastic_weight %>KG  
+<div class="clearfix"></div>
+ <i class="icon-time" style="margin-top: 06px;"></i> <small><%= time_ago_in_words(activity.trackable.created_at) %> ago </small>
+</div>

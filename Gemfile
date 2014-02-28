@@ -24,6 +24,12 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'capistrano'
 gem 'rvm-capistrano'
 
+#For school and principal images
+gem "paperclip", "~> 4.1"
+
+#For timeline feature
+gem 'public_activity'
+
 #gem 'mysql2'
 gem 'pg'
 
