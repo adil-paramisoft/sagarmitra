@@ -1,4 +1,7 @@
 class PlasticCollectionEvent < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
+
   has_event_calendar
   belongs_to :school
   belongs_to :plastic_collection_source
