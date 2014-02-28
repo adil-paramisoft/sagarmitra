@@ -13,6 +13,6 @@ class SchoolVolunteer < ActiveRecord::Base
   validates :mobile, :phony_plausible => true
   validates_uniqueness_of :email
  # validates :email, :email => {:strict_mode => true}  
-   accepts_nested_attributes_for :school
+   accepts_nested_attributes_for :school 
   
 end

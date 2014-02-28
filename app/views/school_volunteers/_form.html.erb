@@ -1,4 +1,4 @@
-<%= simple_form_for @school_volunteer ,:html=>{:class=>"form-horizontal"} do |f| %>
+<%= simple_form_for @school_volunteer ,:html=>{:class=>"form-horizontal", multipart: true} do |f| %>
 <fieldset>
 
 
@@ -53,6 +53,13 @@
    </div>
 </div>
 
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School photo</label>
+  <div class="controls">
+  <%= s.input :image , as: :file, label: false %>
+   </div>
+</div>
+
 <!-- Select Basic -->
 <div class="control-group">
   <label class="control-label" for="selectbasic">School medium</label>
@@ -61,6 +68,33 @@
   </div>
 </div>
 <%= s.input :program_state_id , :as => :hidden,  :input_html => { :value => "1" } %>
+
+
+ <%= s.simple_fields_for  :principal_details do |p|%>
+
+ <div class="control-group">
+  <label class="control-label" for="School_Name">Principal Name</label>
+  <div class="controls">
+   <%= p.input :name , label: false %>
+ </div>
+</div>  
+
+<div class="control-group">
+  <label class="control-label" for="selectbasic">Principal photo</label>
+  <div class="controls">
+  <%= p.input :photo , as: :file, label: false %>
+   </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="selectbasic"> In Office Since</label>
+  <div class="controls">
+    <%= p.input :in_office_since , as: :string, label: false, input_html: { class: "datetime-picker" }%>
+   </div>
+</div>
+
+ <% end %>
+
 	<%end%>
 	
 <!-- Text input-->
@@ -125,4 +159,10 @@
 
 </fieldset>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datetime-picker').datepicker();
+  })
+</script>
 

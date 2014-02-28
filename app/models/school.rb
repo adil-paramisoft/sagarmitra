@@ -12,9 +12,22 @@ class School < ActiveRecord::Base
   belongs_to :school_type
   belongs_to :school_medium
 
+  has_many :principal_details
+
+  attr_accessor :image
+
+  has_attached_file :image,
+                      :styles => {  :small => '100x100>', :display => '512x384>' },
+                      :default_style => :display,
+                      :url => '/schools/:id/:style/:basename.:extension',
+                      :path => ':rails_root/public/schools/:id/:style/:basename.:extension'
+
   #validations
   validates :school_medium_id , :program_state_id , :school_type_id , :total_students , :name , :address , 
             :presence => true
+  validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)            
+
+  accepts_nested_attributes_for :principal_details          
 
   # Geokit
   # acts_as_mappable

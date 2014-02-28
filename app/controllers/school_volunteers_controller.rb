@@ -17,7 +17,7 @@ class SchoolVolunteersController < ApplicationController
   # GET /school_volunteers/new
   def new
     @school_volunteer = SchoolVolunteer.new
-    @school_volunteer.build_school
+    @school_volunteer.build_school.principal_details.build
   end
 
   # GET /school_volunteers/1/edit
@@ -77,6 +77,9 @@ class SchoolVolunteersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_volunteer_params
-      params.require(:school_volunteer).permit(:volunteer, :mobile , :email , :name ,  school_attributes:[:id , :name, :address,  :school_medium_id, :total_students, :school_type_id, :program_state_id])
+      params.require(:school_volunteer).permit(:volunteer, :mobile , :email , :name ,
+                                                school_attributes:[:id , :name, :address, :image, :school_medium_id, 
+                                                                    :total_students, :school_type_id, :program_state_id,
+                                                                    principal_details_attributes:[:in_office_since, :photo, :name]])
     end
 end
