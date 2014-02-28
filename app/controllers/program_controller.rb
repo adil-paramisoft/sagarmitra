@@ -1,7 +1,12 @@
 class ProgramController < ApplicationController
 
   def index
-        
+     @total_student_count  = School.sum(:total_students)
+     @total_school_count = School.all.size
+     @total_teachers_involved_count = Presentation.where("presentation_types.name = ?","Teachers").includes(:presentation_type).sum(:audience_count)
+     @activities = PublicActivity::Activity.order("created_at desc").all
+     @plastic_collected_count = PlasticCollectionEvent.sum(:plastic_weight)
+     @green_fund_count = PlasticCollectionEvent.sum(:money_given)
   end
   
   def calender
