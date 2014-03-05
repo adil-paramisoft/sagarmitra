@@ -1,4 +1,7 @@
 class Presentation < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
+
   has_event_calendar
   belongs_to :presentation_type
   belongs_to :school
