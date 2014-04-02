@@ -89,7 +89,7 @@
 		  </div>
 
           <div id="tabs-5" class="tab-pane">
-            <%= render :partial=>'principal' %>
+            <%= render :partial=>'principal'  if @school.principal_detail.present? %>
           </div>
 
         </div>
