@@ -3,11 +3,8 @@ class SchoolVolunteersController < ApplicationController
   #before_action :set_school_volunteer, only: [:show, :edit, :update, :destroy]
   before_action :load_school_volunteer, only: :create
   load_and_authorize_resource
-  # GET /school_volunteers
-  # GET /school_volunteers.json
-  def index
-    @school_volunteers = SchoolVolunteer.all
-  end
+
+
 
   # GET /school_volunteers/1
   # GET /school_volunteers/1.json

@@ -1,0 +1,168 @@
+<%= simple_form_for [:admin,@school_volunteer] ,:html=>{:class=>"form-horizontal", multipart: true} do |f| %>
+<fieldset>
+
+
+ <% if @school_volunteer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school_volunteer.errors.count, "error") %> prohibited this school volunteer from being saved:</h2>
+
+      <ul>
+      <% @school_volunteer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<!-- Form Name -->
+
+<div class="inputs">
+	 <%= f.simple_fields_for  :school do |s|%>
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="School_Name">School Name</label>
+  <div class="controls">
+       <%= s.input :name , label: false %>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">School address</label>
+  <div class="controls">                     
+     	<%= s.input :address , label: false %>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Total students</label>
+  <div class="controls">
+	  <%= s.input :total_students,label: false,:required=>"required" %>
+ 
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School type</label>
+  <div class="controls">
+	<%= s.association :school_type ,label: false %>
+   </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School photo</label>
+  <div class="controls">
+  <%= s.input :image , as: :file, label: false %>
+   </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="selectbasic">School medium</label>
+  <div class="controls">
+	  <%= s.association :school_medium,label: false %>
+  </div>
+</div>
+<%= s.input :program_state_id , :as => :hidden,  :input_html => { :value => "1" } %>
+
+
+ <%= s.simple_fields_for  :principal_details do |p|%>
+
+ <div class="control-group">
+  <label class="control-label" for="School_Name">Principal Name</label>
+  <div class="controls">
+   <%= p.input :name , label: false %>
+ </div>
+</div>  
+
+<div class="control-group">
+  <label class="control-label" for="selectbasic">Principal photo</label>
+  <div class="controls">
+  <%= p.input :photo , as: :file, label: false %>
+   </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="selectbasic"> In Office Since</label>
+  <div class="controls">
+    <%= p.input :in_office_since , as: :string, label: false, input_html: { class: "datetime-picker" }%>
+   </div>
+</div>
+
+ <% end %>
+
+	<%end%>
+	
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Contact Person</label>
+  <div class="controls">
+	<%= f.input :name , label: false,:id=>"textinput" %>
+        
+  </div>
+</div>
+
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="prependedtext">Email Id</label>
+  <div class="controls">
+    <div class="input-prepend">
+     
+     <%= f.input :email,label: false do%>
+	 <span class="add-on">@</span>
+	<%= f.input_field :email%>
+	<%end%>
+    </div>
+    
+  </div>
+</div>
+
+
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="prependedtext">Mobile No</label>
+  <div class="controls">
+    <div class="input-prepend">
+         
+<%= f.input :mobile ,:render_options => { :wrapper => 'inline' },label: false do %>
+<span class="add-on">+91</span>   
+ <%= f.input_field :mobile  %>
+<%end%>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Multiple Checkboxes (inline) -->
+<div class="control-group">
+  <label class="control-label" for="checkboxes"></label>
+  <div class="controls">
+    <label class="checkbox inline" for="checkboxes-0">
+	<%= f.input :volunteer ,:required=>"required" , label: false %>
+          * Yes, I will take responsibility for this school.
+    </label>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="singlebutton"></label>
+  <div class="controls">
+	<%= f.button :submit , value: "Submit",:id=>"singlebutton",:class=>"btn btn-primary" %>
+  
+  </div>
+</div>
+
+</fieldset>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datetime-picker').datepicker();
+  })
+</script>
+

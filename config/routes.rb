@@ -47,6 +47,7 @@ namespace :admin do
     resources :school_roles
     resources :school_media
     resources :school_types
+    resources :school_volunteers
 end
 
 
