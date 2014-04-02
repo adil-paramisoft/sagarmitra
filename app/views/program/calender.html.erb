@@ -1,12 +1,26 @@
 <div style="float:right" >
-	<div class="plastic_collection_event_school">
-	    <%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_admin_plastic_collection_event_path if can? :create, PlasticCollectionEvent  %> Plastic Collection Events
-	</div>
 
 
-	<div class="school_presentation">
-	<%= link_to image_tag("/assets/netvibes.png", :border => 0),  new_admin_presentation_path if can? :create, Presentation   %> Presentation
-	</div>
+  <% if can? :create, PlasticCollectionEvent  %>
+      <div class="plastic_collection_event_school">
+        <%= link_to  new_admin_plastic_collection_event_path do %>
+            <%=image_tag("/assets/netvibes.png", :border => 0) %>Plastic Collection Events
+        <%end%>
+      </div>
+  <%end%>
+
+
+
+  <% if can? :create, Presentation  %>
+      <div class="school_presentation">
+        <%= link_to  new_admin_presentation_path do %>
+            <%=image_tag("/assets/netvibes.png", :border => 0) %>Presentation
+        <%end%>
+      </div>
+  <%end%>
+
+
+
 </div>
 </br>
 </br>
