@@ -57,7 +57,7 @@ class Admin::PresentationsController < ApplicationController
   def destroy
     @presentation.destroy
     respond_to do |format|
-      format.html { redirect_to presentations_url }
+      format.html { redirect_to request.env["HTTP_REFERER"] }
       format.json { head :no_content }
     end
   end

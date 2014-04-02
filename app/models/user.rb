@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   :presence => true
   validates :email, 
             uniqueness: true
+  validates_confirmation_of :password
   def self.find_for_facebook_oauth(auth, role, signed_in_resource=nil)
            user = User.where(:provider => auth.provider, :uid => auth.uid).first
            unless user

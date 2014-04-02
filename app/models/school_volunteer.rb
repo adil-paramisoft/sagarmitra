@@ -28,8 +28,6 @@ class SchoolVolunteer < ActiveRecord::Base
   def upload_flickr_photos
     self.school.upload_flickr_photo
     self.school.principal_detail.upload_flickr_photo
-    p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    p self.school.principal_detail.photo.flickr_url
   end
   
 end

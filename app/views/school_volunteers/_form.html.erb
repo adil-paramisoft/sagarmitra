@@ -154,7 +154,14 @@
 <div class="control-group">
   <label class="control-label" for="singlebutton"></label>
   <div class="controls">
-	<%= f.button :submit , value: "Submit",:id=>"singlebutton",:class=>"btn btn-primary" %>
+
+    <div class="btn-group">
+      <%= f.button :submit , value: "Submit",:id=>"singlebutton",:class=>"btn btn-primary" %>
+      <%= link_to 'Back', request.env["HTTP_REFERER"] ,:class=>"btn btn-danger" %>
+
+    </div>
+
+
   
   </div>
 </div>
