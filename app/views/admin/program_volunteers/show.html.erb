@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row-fluid well">
 
-  <%= link_to admin_program_volunteers_path do %>
+  <%= link_to request.env["HTTP_REFERER"]  do %>
       <i class=" icon-circle-arrow-left"></i>Back
   <%end%>
 
