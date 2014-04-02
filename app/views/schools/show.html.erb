@@ -1,35 +1,72 @@
-<div class="row-fluid well">
-  <%= link_to  schools_path do %>
-      <i class=" icon-circle-arrow-left"></i>Back
+<div class=" well">
+
+  <%= link_to  schools_path  do  %>
+      <div style="text-align: right;">
+        <i class=" icon-circle-arrow-left"></i>Back
+      </div>
   <%end%>
-  <h3><%= @school.name%></h3>
-  
-<div class="span9">
-	
 
-	<table class="table">
-		
-		<thead>
-	        <tr>
-	          		<th ><i class="icon-bookmark"></i> No. of Collections</th>
-				    <th><i class="icon-globe"></i>   Plastic Collected</th>
-				    <th><i class="icon-leaf"></i>  Green Fund</th>
-				    <th><i class="icon-check"></i>State </th>
-				    
+  <div class="row-fluid">
+  <div class="span4">
 
 
-	        </tr>
-	    </thead>
-		 <tr>
-	 	<td class="text-center"><%= @school.number_of_collections %></td>
-	    <td class="text-center"> <%= @school.plastic_collected %> </td>
-	    <td class="text-center"> <%= @school.green_fund %></td>
-	    <td class="text-center"><%=  @school.program_state.name%></td>
-	</tr>
-</table>
+    <ul class="thumbnails">
+      <li class="span9">
+        <div class="thumbnail">
+          <%if @school.photo.present? %>
+              <img src=<%= @school.photo.flickr_url  %>  alt="">
+          <%else%>
+              <img src=<%= "/assets/default.jpg"  %>  alt="">
+          <%end%>
+
+
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+  <div class="span8">
+
+
+
+
+    <h3><%= @school.name%></h3>
+
+    <div class="span12">
+
+
+      <table class="table">
+
+        <thead>
+        <tr>
+          <th ><i class="icon-bookmark"></i> No. of Collections</th>
+          <th><i class="icon-globe"></i>   Plastic Collected</th>
+          <th><i class="icon-leaf"></i>  Green Fund</th>
+          <th><i class="icon-check"></i>State </th>
+
+
+
+        </tr>
+        </thead>
+        <tr>
+          <td class="text-center"><%= @school.number_of_collections %></td>
+          <td class="text-center"> <%= @school.plastic_collected %> </td>
+          <td class="text-center"> <%= @school.green_fund %></td>
+          <td class="text-center"><%=  @school.program_state.name%></td>
+        </tr>
+      </table>
+    </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
 
-</div>
+
 
 
 <div class="school_profile">
