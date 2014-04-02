@@ -9,7 +9,8 @@ class SchoolVolunteer < ActiveRecord::Base
    
    # Creates method normalized_fax_number that returns the normalized version of fax_number
      phony_normalized_method :mobile
-  validates :mobile, format: { with: /\d{10}/, message: "bad format" }   
+  #validates :mobile, format: { with: /\d{10}/, message: "bad format" }
+  validates_plausible_phone :mobile, :with => /\d{10}/
   validates :mobile, :phony_plausible => true
   validates_uniqueness_of :email
  # validates :email, :email => {:strict_mode => true}  

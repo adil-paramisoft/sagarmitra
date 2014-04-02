@@ -1,10 +1,13 @@
-class SchoolVolunteersController < ApplicationController
+class Admin::SchoolVolunteersController < ApplicationController
  
   #before_action :set_school_volunteer, only: [:show, :edit, :update, :destroy]
   before_action :load_school_volunteer, only: :create
   load_and_authorize_resource
-
-
+  # GET /school_volunteers
+  # GET /school_volunteers.json
+  def index
+    @school_volunteers = SchoolVolunteer.all
+  end
 
   # GET /school_volunteers/1
   # GET /school_volunteers/1.json
@@ -31,7 +34,7 @@ class SchoolVolunteersController < ApplicationController
         format.html { redirect_to @school_volunteer, notice: 'School volunteer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @school_volunteer }
       else
-
+        
         format.html { render action: 'new' }
         format.json { render json: @school_volunteer.errors, status: :unprocessable_entity }
       end

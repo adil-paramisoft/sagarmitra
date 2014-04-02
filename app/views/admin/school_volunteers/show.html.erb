@@ -28,7 +28,8 @@
         <div class="modal-footer">
         	<div class="btn-group">
 					<% if can? :edit, SchoolVolunteer %>
-							<%= link_to 'Edit', edit_school_volunteer_path(@school_volunteer),:class=>"btn btn-danger" %> |
+							<%= link_to 'Edit', edit_admin_school_volunteer_path(@school_volunteer),:class=>"btn btn-danger" %> |
+							<%= link_to 'All school Volunteers ', admin_school_volunteers_path,:class=>"btn" %>
 					<%end%>
         	<%= link_to 'Home', root_path,:class=>"btn btn-primary" %>
         </div>
