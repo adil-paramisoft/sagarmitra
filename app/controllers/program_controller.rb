@@ -21,6 +21,7 @@ class ProgramController < ApplicationController
     @shown_month = Date.civil(@year, @month)
     @event_strips = PlasticCollectionEvent.event_strips_for_month(@shown_month)
     @event_strips.concat(Presentation.event_strips_for_month(@shown_month))
+    @event_strips.concat(OfflineEvent.event_strips_for_month(@shown_month))
   end
   
 end

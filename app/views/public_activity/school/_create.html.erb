@@ -1,0 +1,8 @@
+<% unless activity.trackable.nil? %>
+    <div class="hero-unit">
+      A school was added to <%= link_to activity.trackable.name %><%= activity.trackable_type %>
+      <div class="clearfix"></div>
+      <i class="icon-time" style="margin-top: 06px;"></i>
+      <small><%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+    </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="row-fluid well">
+
+  <%= link_to admin_offline_events_path do %>
+      <i class=" icon-circle-arrow-left"></i>Back
+  <%end%>
+
+
+  <div style="float:right">
+
+    <% if can? :create, OfflineEvent %>
+        <%= link_to  edit_admin_offline_event_path(@offline_event) do %>
+            <i class="icon-edit"></i>Edit
+        <%end%>
+    <%end%>
+    </br>
+
+
+  </div>
+
+  <h3>Offline Event</h3>
+
+
+  <div class="span9">
+    <strong><i class="icon-user"></i>School Name :</strong> </h6><%= @offline_event.school_name%></h6></br></br>
+    <strong><i class="icon-map-marker"></i>School Address: </strong></h6><%= @offline_event.school_address%></h6></br></br>
+    <strong><i class="icon-check"></i>Event Name : </strong></h6><%= @offline_event.event_name %></h6></br></br>
+    <strong><i class="icon-time"></i>Date and Time : </strong></h6><%= l(  @offline_event.start_at ) %> to <%= l(@offline_event.end_at) %></h6></br></br>
+    <strong><i class="icon-leaf"></i>Volunteers present : </strong></h6><%= @offline_event.volunteers_present %></h6></br></br>
+
+    <strong><i class="icon-list-alt"></i></strong>Description: </h6>  <%= @offline_event.event_description %></h6> </br></br>
+
+  </div>
+
+
+
+</div>
+
+

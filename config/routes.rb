@@ -12,7 +12,7 @@ Sagarmitra::Application.routes.draw do
   resources :plastic_collection_sources
   resources :school_contacts
   resources :presentations
-
+  resources :offline_events
   resources :schools do
      member do
          get :presentation
@@ -48,6 +48,7 @@ namespace :admin do
     resources :school_media
     resources :school_types
     resources :school_volunteers
+    resources :offline_events
 end
 
 
