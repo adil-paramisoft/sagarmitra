@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216115054) do
+ActiveRecord::Schema.define(version: 20140310120348) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "trackable_id"
+    t.string   "trackable_type"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.string   "key"
+    t.text     "parameters"
+    t.integer  "recipient_id"
+    t.string   "recipient_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
+
+  create_table "photos", force: true do |t|
+    t.string   "imageable_type",     limit: 30
+    t.integer  "imageable_id"
+    t.integer  "flickr_photo_id",    limit: 8
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "title",              limit: 100
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["flickr_photo_id"], name: "index_photos_on_flickr_photo_id", using: :btree
 
   create_table "plastic_collection_events", force: true do |t|
     t.float    "plastic_weight"
@@ -59,6 +90,15 @@ ActiveRecord::Schema.define(version: 20131216115054) do
     t.datetime "updated_at"
     t.datetime "start_at"
     t.datetime "end_at"
+  end
+
+  create_table "principal_details", force: true do |t|
+    t.integer  "school_id"
+    t.string   "name"
+    t.string   "detail_status",   limit: 1, default: "A"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "in_office_since"
   end
 
   create_table "program_states", force: true do |t|

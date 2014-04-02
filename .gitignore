@@ -16,3 +16,6 @@
 /tmp
 /config/database.yml
 .env
+
+# Ignore rubymine editors config files
+/.idea

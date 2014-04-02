@@ -1,5 +1,5 @@
 class SchoolVolunteersController < ApplicationController
- 
+
   #before_action :set_school_volunteer, only: [:show, :edit, :update, :destroy]
   before_action :load_school_volunteer, only: :create
   load_and_authorize_resource
@@ -17,11 +17,14 @@ class SchoolVolunteersController < ApplicationController
   # GET /school_volunteers/new
   def new
     @school_volunteer = SchoolVolunteer.new
-    @school_volunteer.build_school.principal_details.build
+    @school_volunteer.build_school.build_photo
+    @school_volunteer.school.build_principal_detail.build_photo
   end
 
   # GET /school_volunteers/1/edit
   def edit
+    @school_volunteer.school.build_photo unless @school_volunteer.school.photo.present?
+    @school_volunteer.school.principal_detail.build_photo unless @school_volunteer.school.principal_detail.photo.present?
   end
 
   # POST /school_volunteers
@@ -31,10 +34,13 @@ class SchoolVolunteersController < ApplicationController
 
     respond_to do |format|
       if @school_volunteer.save
+        @school_volunteer.upload_flickr_photos
         format.html { redirect_to @school_volunteer, notice: 'School volunteer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @school_volunteer }
       else
-        
+        @school_volunteer.school.build_photo
+        @school_volunteer.school.principal_detail.build_photo
+
         format.html { render action: 'new' }
         format.json { render json: @school_volunteer.errors, status: :unprocessable_entity }
       end
@@ -46,6 +52,7 @@ class SchoolVolunteersController < ApplicationController
   def update
     respond_to do |format|
       if @school_volunteer.update(school_volunteer_params)
+        @school_volunteer.upload_flickr_photos
         format.html { redirect_to @school_volunteer, notice: 'School volunteer was successfully updated.' }
         format.json { head :no_content }
       else
@@ -66,20 +73,24 @@ class SchoolVolunteersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_volunteer
-      @school_volunteer = SchoolVolunteer.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_volunteer
+    @school_volunteer = SchoolVolunteer.find(params[:id])
+  end
 
-    def load_school_volunteer
-          @school_volunteer = SchoolVolunteer.new(school_volunteer_params)
-    end
+  def load_school_volunteer
+    @school_volunteer = SchoolVolunteer.new(school_volunteer_params)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_volunteer_params
-      params.require(:school_volunteer).permit(:volunteer, :mobile , :email , :name ,
-                                                school_attributes:[:id , :name, :address, :image, :school_medium_id, 
-                                                                    :total_students, :school_type_id, :program_state_id,
-                                                                    principal_details_attributes:[:in_office_since, :photo, :name]])
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_volunteer_params
+    params.require(:school_volunteer).permit(:volunteer, :mobile , :email , :name , :id,
+                                             school_attributes:[:id , :name, :address, :school_medium_id,
+                                                                :total_students, :school_type_id, :program_state_id,
+                                                                photo_attributes: [:title, :description,
+                                                                                    :image, :_destroy, :id],
+                                                                principal_detail_attributes:[:in_office_since, :name,
+                                                                                             photo_attributes: [:title, :description,
+                                                                                                                 :image, :_destroy, :id]]])
+  end
 end

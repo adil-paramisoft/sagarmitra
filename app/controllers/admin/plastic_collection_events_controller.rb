@@ -31,6 +31,7 @@ class Admin::PlasticCollectionEventsController < ApplicationController
 
     respond_to do |format|
       if @plastic_collection_event.save
+        @plastic_collection_event.upload_flickr_photos
         format.html { redirect_to admin_plastic_collection_event_path(@plastic_collection_event) , notice: 'Plastic collection event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plastic_collection_event }
       else
@@ -45,6 +46,7 @@ class Admin::PlasticCollectionEventsController < ApplicationController
   def update
     respond_to do |format|
       if @plastic_collection_event.update(plastic_collection_event_params)
+        @plastic_collection_event.upload_flickr_photos
         format.html { redirect_to admin_plastic_collection_event_path(@plastic_collection_event), notice: 'Plastic collection event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -76,7 +78,11 @@ class Admin::PlasticCollectionEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plastic_collection_event_params
-      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present, :plastic_collection_source_id, :date,:start_at,:end_at, :quality_remark, :feedback, :school_id)
+      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present,
+                                                       :plastic_collection_source_id, :date,:start_at,:end_at,
+                                                       :quality_remark, :feedback, :school_id,
+                                                       photos_attributes: [:title, :description,
+                                                                           :image, :_destroy, :id])
     end
   
   

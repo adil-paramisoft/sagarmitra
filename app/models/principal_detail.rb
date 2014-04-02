@@ -1,11 +1,19 @@
 class PrincipalDetail < ActiveRecord::Base
-	belongs_to :school
 
-	 has_attached_file :photo,
-                      :styles => {  :small => '100x100>', :display => '240x240>' },
-                      :default_style => :display,
-                      :url => '/principal_details/:id/:style/:basename.:extension',
-                      :path => ':rails_root/public/principal_details/:id/:style/:basename.:extension'
-                      
-validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)                            
+  # Associations
+	belongs_to :school
+  has_one :photo, as: :imageable, dependent: :destroy, class_name: ::Photo
+
+  # Nested attributes
+  accepts_nested_attributes_for :photo, allow_destroy: true
+
+
+  def upload_flickr_photo
+    if self.photo.flickr_photo_id.present?
+      self.photo.replace_flickr_photo
+    else
+      self.photo.upload_flickr_photo
+    end
+  end
+
 end

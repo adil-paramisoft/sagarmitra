@@ -63,6 +63,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use jquery UI
+gem 'jquery-ui-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'event-calendar', :require => 'event_calendar'
@@ -80,6 +83,12 @@ end
 # Use unicorn as the app server
  gem 'unicorn'
  gem "watu_table_builder", :require => "table_builder"
+
+# Wrapper for Flickr API
+ gem 'flickraw'
+
+# For Nested form attributes
+gem "nested_form"
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

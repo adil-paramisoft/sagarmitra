@@ -2,7 +2,6 @@ require 'net/http'
 require 'uri'
 
 class School < ActiveRecord::Base
-  #  include GeoKit::Geocoders
 
   # Associations
   has_one :plastic_collection_source
@@ -11,26 +10,16 @@ class School < ActiveRecord::Base
   belongs_to :program_state
   belongs_to :school_type
   belongs_to :school_medium
-
-  has_many :principal_details
-
-  attr_accessor :image
-
-  has_attached_file :image,
-                      :styles => {  :small => '100x100>', :display => '512x384>' },
-                      :default_style => :display,
-                      :url => '/schools/:id/:style/:basename.:extension',
-                      :path => ':rails_root/public/schools/:id/:style/:basename.:extension'
+  has_one :principal_detail
+  has_one :school_volunteer
+  has_one :photo, as: :imageable, dependent: :destroy, class_name: ::Photo
 
   #validations
   validates :school_medium_id , :program_state_id , :school_type_id , :total_students , :name , :address , 
             :presence => true
-  validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)            
 
-  accepts_nested_attributes_for :principal_details          
-
-  # Geokit
-  # acts_as_mappable
+  # Associations
+  accepts_nested_attributes_for :principal_detail, :photo, allow_destroy: true
 
   before_save :set_location
 
@@ -42,6 +31,18 @@ class School < ActiveRecord::Base
       green_fund = green_fund + event.money_given
     end
     return {:plastic_collected =>  plastic_collected , :green_fund => green_fund }
+  end
+
+  def upload_flickr_photo
+    if self.photo.flickr_photo_id.present?
+      self.photo.replace_flickr_photo
+    else
+      self.photo.upload_flickr_photo
+    end
+  end
+
+  def School.top_five_collections
+    School.select("schools.id, schools.name, SUM(plastic_collection_events.plastic_weight) as plastic_weight, SUM(plastic_collection_events.money_given) as money_given").joins(:plastic_collection_events).group("schools.id, schools.name").order("money_given DESC")
   end
 
   
@@ -60,7 +61,6 @@ class School < ActiveRecord::Base
  #    end
  #    return green_fund
  #end
-
 
   def School.add_last_year_records
     School.where(:name => 'St. Andrews Chinchwad', 

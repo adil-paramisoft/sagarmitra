@@ -5,13 +5,35 @@
   <!-- START THE FEATURETTES -->
 
   <hr class="featurette-divider">
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Students-   <span class="muted"><%= @total_student_count %></span></h3></div>
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Schools-   <span class="muted"><%= @total_school_count %></span></h3></div>
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Plastic collected-   <span class="muted"><%= @plastic_collected_count %>KG</span></h3></div>
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Green fund-   &#8377 <span class="muted"><%= @green_fund_count %></span></h3></div>
+  <!-- <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Students-   <span class="muted">< %= @total_student_count %></span></h3></div>
+  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Schools-   <span class="muted">< %= @total_school_count %></span></h3></div>
+  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Plastic collected-   <span class="muted">< %= @plastic_collected_count %>KG</span></h3></div>
+  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Green fund-   &#8377 <span class="muted">< %= @green_fund_count %></span></h3></div> -->
 
-  <img class="img-circle" data-src="holder.js/140x140" alt="1140" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjcwIiB5PSI3MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE0MHgxNDA8L3RleHQ+PC9zdmc+" style="width: 160px; height: 160px;"> 
-  <%= render_activities(@activities) %>
+      <div id="CDT">
+      <span class="number-wrapper">
+        <div class="caption">SCHOOLS</div>
+        <div class="line"></div>        
+        <span class="number day"><%= @total_school_count %></span>
+      </span>
+      <span class="number-wrapper">
+        <div class="caption">STUDENTS</div>
+        <div class="line"></div>        
+        <span class="number hour"><%= @total_student_count %></span>
+      </span>
+      <span class="number-wrapper">
+        <div class="line"></div>
+        <div class="caption">PLASTIC COLLECTED (In KGs)</div>
+        <span class="number min"><%= @plastic_collected_count %></span>
+      </span>
+      <span class="number-wrapper">
+        <div class="line"></div>
+        <div class="caption">GREEN FUND (In Rupees)</div>
+        <span class="number sec"><%= @green_fund_count %></span>
+      </span>
+    </div>
+
+  <%#= render_activities(@activities) %>
   <hr class="featurette-divider">
 
   <div class="featurette">

@@ -1,4 +1,4 @@
-<%= simple_form_for @school_volunteer ,:html=>{:class=>"form-horizontal", multipart: true} do |f| %>
+<%= simple_form_for @school_volunteer ,:html=>{:class=>"form-horizontal"} do |f| %>
 <fieldset>
 
 
@@ -19,7 +19,7 @@
 <!-- Form Name -->
 
 <div class="inputs">
-	 <%= f.simple_fields_for  :school do |s|%>
+	 <%= f.fields_for  :school do |s|%>
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="School_Name">School Name</label>
@@ -52,13 +52,14 @@
 	<%= s.association :school_type ,label: false %>
    </div>
 </div>
-
+<%= s.fields_for :photo do |photo| %>
 <div class="control-group">
   <label class="control-label" for="selectbasic">School photo</label>
   <div class="controls">
-  <%= s.input :image , as: :file, label: false %>
+  <%= photo.input :image , as: :file, label: false %>
    </div>
 </div>
+<% end %>
 
 <!-- Select Basic -->
 <div class="control-group">
@@ -70,26 +71,27 @@
 <%= s.input :program_state_id , :as => :hidden,  :input_html => { :value => "1" } %>
 
 
- <%= s.simple_fields_for  :principal_details do |p|%>
+ <%= s.fields_for  :principal_detail do |pd|%>
 
  <div class="control-group">
   <label class="control-label" for="School_Name">Principal Name</label>
   <div class="controls">
-   <%= p.input :name , label: false %>
+   <%= pd.input :name , label: false %>
  </div>
 </div>  
-
+<%= pd.fields_for :photo do |photo|  %>
 <div class="control-group">
   <label class="control-label" for="selectbasic">Principal photo</label>
   <div class="controls">
-  <%= p.input :photo , as: :file, label: false %>
+  <%= photo.input :image , as: :file, label: false %>
    </div>
 </div>
+<% end %>
 
 <div class="control-group">
   <label class="control-label" for="selectbasic"> In Office Since</label>
   <div class="controls">
-    <%= p.input :in_office_since , as: :string, label: false, input_html: { class: "datetime-picker" }%>
+    <%= pd.input :in_office_since , as: :string, label: false, input_html: { class: "datetime-picker" }%>
    </div>
 </div>
 
