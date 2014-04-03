@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
             :presence => true
   validates :email,
             uniqueness: true
+  validates :password,  :presence => true, length: {minimum: 8}
+  validates :password_confirmation,  :presence => true, length: {minimum: 8}
   validates_confirmation_of :password
 
   def self.find_for_facebook_oauth(auth, role, signed_in_resource=nil)
