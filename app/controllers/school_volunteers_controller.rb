@@ -27,10 +27,12 @@ class SchoolVolunteersController < ApplicationController
   # POST /school_volunteers.json
   def create
     @school_volunteer = SchoolVolunteer.new(school_volunteer_params)
+    p "sadasdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
     respond_to do |format|
       if @school_volunteer.save
-        @school_volunteer.upload_flickr_photos
+        @school_volunteer.school.upload_flickr_photo if school_volunteer_params[:school_attributes].has_key?(:photo_attributes)
+        @school_volunteer.school.principal_detail.upload_flickr_photo if school_volunteer_params[:school_attributes][:principal_detail_attributes].has_key?(:photo_attributes)
         format.html { redirect_to @school_volunteer, notice: 'School volunteer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @school_volunteer }
       else
@@ -48,7 +50,8 @@ class SchoolVolunteersController < ApplicationController
   def update
     respond_to do |format|
       if @school_volunteer.update(school_volunteer_params)
-        @school_volunteer.upload_flickr_photos
+        @school_volunteer.school.upload_flickr_photo if school_volunteer_params[:school_attributes].has_key?(:photo_attributes)
+        @school_volunteer.school.principal_detail.upload_flickr_photo if school_volunteer_params[:school_attributes][:principal_detail_attributes].has_key?(:photo_attributes)
         format.html { redirect_to @school_volunteer, notice: 'School volunteer was successfully updated.' }
         format.json { head :no_content }
       else
