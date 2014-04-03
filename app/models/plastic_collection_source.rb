@@ -5,11 +5,11 @@ class PlasticCollectionSource < ActiveRecord::Base
             :presence => true
 
   validates :email, presence: true, format: { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness:  true
-  validates :phone_no_1, format: {with: /\d{10}/, message: "bad format"}
-  validates :phone_no_2, format: {with: /\d{10}/, message: "bad format"},
-            allow_blank: true
+  #validates :phone_no_1, format: {with: /\d{10}/, message: "bad format"}
+  #validates :phone_no_2, format: {with: /\d{10}/, message: "bad format"},
+  #          allow_blank: true
   validates :phone_no_1, :phone_no_2,
-            :numericality => {:greater_than_or_equal_to => 0}, allow_blank: true
+            numericality: { only_integer: true }, allow_blank: true, length: {is: 10}
   validates :website, :format => {:with => /(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix}
 
 
