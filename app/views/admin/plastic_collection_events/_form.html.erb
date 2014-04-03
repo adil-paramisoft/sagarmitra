@@ -67,10 +67,7 @@
 
         <div class="controls">
           <div class="input-append">
-            <%= f.input :money_given, label: false do %>
-                <%= f.input_field :money_given %>
-                <span class="add-on">INR</span>
-            <% end %>
+            <%= f.input :money_given, label: false, :required => "required" %>
 
 
           </div>
