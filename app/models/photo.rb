@@ -25,6 +25,7 @@ class Photo < ActiveRecord::Base
     Rails.logger.info img_path.inspect
     Rails.logger.info "upload_flickr_photo===================================="
     if File.exists? img_path
+      Rails.logger.info "in if===================================="
       flickr_response = FlickrGateway.upload img_path, self.title, self.description
       self.update_attribute :flickr_photo_id, flickr_response
       File.delete img_path
