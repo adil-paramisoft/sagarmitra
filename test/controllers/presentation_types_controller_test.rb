@@ -18,7 +18,7 @@ class PresentationTypesControllerTest < ActionController::TestCase
 
   test "should create presentation_type" do
     assert_difference('PresentationType.count') do
-      post :create, presentation_type: { description: @presentation_type.description, name: @presentation_type.name }
+      post :create, presentation_type: {description: @presentation_type.description, name: @presentation_type.name}
     end
 
     assert_redirected_to presentation_type_path(assigns(:presentation_type))
@@ -35,7 +35,7 @@ class PresentationTypesControllerTest < ActionController::TestCase
   end
 
   test "should update presentation_type" do
-    patch :update, id: @presentation_type, presentation_type: { description: @presentation_type.description, name: @presentation_type.name }
+    patch :update, id: @presentation_type, presentation_type: {description: @presentation_type.description, name: @presentation_type.name}
     assert_redirected_to presentation_type_path(assigns(:presentation_type))
   end
 

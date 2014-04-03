@@ -18,7 +18,7 @@ class ProgramStatesControllerTest < ActionController::TestCase
 
   test "should create program_state" do
     assert_difference('ProgramState.count') do
-      post :create, program_state: { description: @program_state.description, name: @program_state.name }
+      post :create, program_state: {description: @program_state.description, name: @program_state.name}
     end
 
     assert_redirected_to program_state_path(assigns(:program_state))
@@ -35,7 +35,7 @@ class ProgramStatesControllerTest < ActionController::TestCase
   end
 
   test "should update program_state" do
-    patch :update, id: @program_state, program_state: { description: @program_state.description, name: @program_state.name }
+    patch :update, id: @program_state, program_state: {description: @program_state.description, name: @program_state.name}
     assert_redirected_to program_state_path(assigns(:program_state))
   end
 

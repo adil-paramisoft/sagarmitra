@@ -1,90 +1,98 @@
-<%= simple_form_for @school, :html=>{:class=>"form-horizontal"}  do |f| %>
-  <% if @school.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+<%= simple_form_for @school, :html => {:class => "form-horizontal"} do |f| %>
+    <% if @school.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
 
-      <ul>
-      <% @school.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @school.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-<fieldset>
+    <fieldset>
 
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="Name">Name</label>
-  <div class="controls">
-    <%= f.input :name,label: false %>
-    
-  </div>
-</div>
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="Name">Name</label>
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="textarea">Address</label>
-  <div class="controls">                     
-     <%= f.input :address, label: false %>
-  </div>
-</div>
+        <div class="controls">
+          <%= f.input :name, label: false %>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="School type">School type</label>
-  <div class="controls">
-    <%= f.association :school_type, label: false %>
-  </div>
-</div>
+        </div>
+      </div>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">Program state</label>
-  <div class="controls">
-     <%= f.association :program_state,label: false %>
-  </div>
-</div>
+      <!-- Textarea -->
+      <div class="control-group">
+        <label class="control-label" for="textarea">Address</label>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic"> School medium</label>
-  <div class="controls">
-   <%= f.association :school_medium,label: false %>
-  </div>
-</div>
+        <div class="controls">
+          <%= f.input :address, label: false %>
+        </div>
+      </div>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput"> Total students</label>
-  <div class="controls">
-   <%= f.input :total_students,label: false %>
-    
-  </div>
-</div>
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="School type">School type</label>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Number of collections</label>
-  <div class="controls">
-     <%= f.input :number_of_collections,label: false %>
-    
-  </div>
-</div>
+        <div class="controls">
+          <%= f.association :school_type, label: false %>
+        </div>
+      </div>
 
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="singlebutton"></label>
-		<div class="btn-group">
-					
-						<%= f.submit "Submit",:class=>"btn btn-primary"%>
-						<%= link_to 'All school Volunteers ', admin_schools_path,:class=>"btn" %>
-						<%= link_to 'Clear', new_admin_school_path,:class=>"btn btn-danger" %>
-	  	</div>
-</div>
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">Program state</label>
 
-</fieldset>
+        <div class="controls">
+          <%= f.association :program_state, label: false %>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic"> School medium</label>
+
+        <div class="controls">
+          <%= f.association :school_medium, label: false %>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput"> Total students</label>
+
+        <div class="controls">
+          <%= f.input :total_students, label: false %>
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Number of collections</label>
+
+        <div class="controls">
+          <%= f.input :number_of_collections, label: false %>
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="control-group">
+        <label class="control-label" for="singlebutton"></label>
+
+        <div class="btn-group">
+
+          <%= f.submit "Submit", :class => "btn btn-primary" %>
+          <%= link_to 'All school Volunteers ', admin_schools_path, :class => "btn" %>
+          <%= link_to 'Clear', new_admin_school_path, :class => "btn btn-danger" %>
+        </div>
+      </div>
+
+    </fieldset>
 
 
 <% end %>

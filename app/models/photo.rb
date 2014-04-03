@@ -2,13 +2,13 @@ require 'flickr_gateway'
 class Photo < ActiveRecord::Base
 
 
-	# Associations	
-	belongs_to :imageable, :polymorphic => true
+  # Associations
+  belongs_to :imageable, :polymorphic => true
 
   # Paperclip settings
   has_attached_file :image, path: ':rails_root/public/:basename.:extension', url: '/:basename.:extension'
 
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  validates_attachment :image, content_type: {content_type: ["image/jpg", "image/jpeg", "image/png"]}
 
   def flickr_url
     FlickrGateway.url_for self.flickr_photo_id

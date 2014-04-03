@@ -64,17 +64,17 @@ class SchoolPlasticCollectionSourcesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_plastic_collection_source
-      @school_plastic_collection_source = SchoolPlasticCollectionSource.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_plastic_collection_source
+    @school_plastic_collection_source = SchoolPlasticCollectionSource.find(params[:id])
+  end
 
-    def load_school_plastic_collection_source
-      @school_plastic_collection_source = SchoolPlasticCollectionSource.new(school_plastic_collection_source_params)
-    end
+  def load_school_plastic_collection_source
+    @school_plastic_collection_source = SchoolPlasticCollectionSource.new(school_plastic_collection_source_params)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_plastic_collection_source_params
-      params.require(:school_plastic_collection_source).permit(:schoold_id, :plastic_collection_source)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_plastic_collection_source_params
+    params.require(:school_plastic_collection_source).permit(:schoold_id, :plastic_collection_source)
+  end
 end

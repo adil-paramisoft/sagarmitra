@@ -1,7 +1,7 @@
 class PrincipalDetail < ActiveRecord::Base
 
   # Associations
-	belongs_to :school
+  belongs_to :school
   has_one :photo, as: :imageable, dependent: :destroy, class_name: ::Photo
 
   # Nested attributes

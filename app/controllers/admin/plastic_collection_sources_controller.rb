@@ -1,9 +1,9 @@
 class Admin::PlasticCollectionSourcesController < ApplicationController
   #before_action :set_plastic_collection_source, only: [:show, :edit, :update, :destroy]
   before_action :load_plastic_collection_source, only: :create
-   load_and_authorize_resource
+  load_and_authorize_resource
   before_filter :verify_admin
-   before_filter :verify_admin
+  before_filter :verify_admin
   # GET /plastic_collection_sources
   # GET /plastic_collection_sources.json
   def index
@@ -45,7 +45,7 @@ class Admin::PlasticCollectionSourcesController < ApplicationController
   def update
     respond_to do |format|
       if @plastic_collection_source.update(plastic_collection_source_params)
-        format.html { redirect_to admin_plastic_collection_source_path(@plastic_collection_source) , notice: 'Plastic collection source was successfully updated.' }
+        format.html { redirect_to admin_plastic_collection_source_path(@plastic_collection_source), notice: 'Plastic collection source was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,18 +65,18 @@ class Admin::PlasticCollectionSourcesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_plastic_collection_source
-      @plastic_collection_source = PlasticCollectionSource.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_plastic_collection_source
+    @plastic_collection_source = PlasticCollectionSource.find(params[:id])
+  end
 
-    def load_plastic_collection_source
-           @plastic_collection_source = PlasticCollectionSource.new(plastic_collection_source_params)
-    end
+  def load_plastic_collection_source
+    @plastic_collection_source = PlasticCollectionSource.new(plastic_collection_source_params)
+  end
 
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def plastic_collection_source_params
-      params.require(:plastic_collection_source).permit(:name, :address, :contact_person, :phone_no_1, :phone_no_2, :website, :email)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def plastic_collection_source_params
+    params.require(:plastic_collection_source).permit(:name, :address, :contact_person, :phone_no_1, :phone_no_2, :website, :email)
+  end
 end

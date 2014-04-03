@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 <div class="row-fluid well">
 
-  <%= link_to request.env["HTTP_REFERER"]  do %>
+  <%= link_to request.env["HTTP_REFERER"] do %>
       <i class=" icon-circle-arrow-left"></i>Back
-  <%end%>
+  <% end %>
 
 
   <div style="float:right">
 
     <% if can? :create, PlasticCollectionEvent %>
-        <%= link_to  edit_admin_program_volunteer_path(@program_volunteer) do %>
+        <%= link_to edit_admin_program_volunteer_path(@program_volunteer) do %>
             <i class="icon-edit"></i>Edit
-        <%end%>
-    <%end%>
+        <% end %>
+    <% end %>
     </br>
 
 
@@ -28,11 +28,10 @@
 
       <thead>
       <tr>
-        <th ><i class="icon-globe"></i> Interest</th>
+        <th><i class="icon-globe"></i> Interest</th>
         <th><i class="icon-leaf"></i> responsibility</th>
-        <th><i class="icon-cog"></i>Email </th>
+        <th><i class="icon-cog"></i>Email</th>
         <th><i class="icon-time"></i>mobile</th>
-
 
 
       </tr>
@@ -48,7 +47,6 @@
 
 
   </div>
-
 
 
 </div>

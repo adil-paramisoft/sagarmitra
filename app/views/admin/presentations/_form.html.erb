@@ -1,134 +1,142 @@
-<%= simple_form_for [:admin,@presentation] ,:html=>{:class=>"form-horizontal"} do |f| %>
+<%= simple_form_for [:admin, @presentation], :html => {:class => "form-horizontal"} do |f| %>
 
-<% if @presentation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@presentation.errors.count, "error") %> prohibited this presentation from being saved:</h2>
+    <% if @presentation.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@presentation.errors.count, "error") %> prohibited this presentation from being saved:</h2>
 
-      <ul>
-      <% @presentation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @presentation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-<fieldset>
-
-
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">School Name</label>
-  <div class="controls">
-	     <%= f.association :school,label: false%>
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">Presentation type</label>
-  <div class="controls">
-	 <%= f.association :presentation_type,label: false,:id=>"selectbasic",:class=>"input-xlarge" %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Presented by</label>
-  <div class="controls">
-      <%= f.input :presented_by, label: false %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Start at</label>
-  <div class="controls">
-    	<%= f.input :start_at,as: :string,label: false,input_html: { id: "datepicker" } %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">End at</label>
-  <div class="controls">
-    <%= f.input :end_at,as: :string,label: false,input_html: { id: "datepicker2" } %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Audience count</label>
-  <div class="controls">
-	<%= f.input :audience_count,label: false %>
-  </div>
-</div>
+    <fieldset>
 
 
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">School Name</label>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Authorities present</label>
-  <div class="controls">
-     <%= f.input :authorities_present,label: false %>
-    
-  </div>
-</div>
+        <div class="controls">
+          <%= f.association :school, label: false %>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">Presentation type</label>
+
+        <div class="controls">
+          <%= f.association :presentation_type, label: false, :id => "selectbasic", :class => "input-xlarge" %>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Presented by</label>
+
+        <div class="controls">
+          <%= f.input :presented_by, label: false %>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Start at</label>
+
+        <div class="controls">
+          <%= f.input :start_at, as: :string, label: false, input_html: {id: "datepicker"} %>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">End at</label>
+
+        <div class="controls">
+          <%= f.input :end_at, as: :string, label: false, input_html: {id: "datepicker2"} %>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Audience count</label>
+
+        <div class="controls">
+          <%= f.input :audience_count, label: false %>
+        </div>
+      </div>
 
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Followup volunteer</label>
-  <div class="controls">
-      <%= f.input :followup_volunteer,label: false %>
-    
-  </div>
-</div>
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Authorities present</label>
 
-<!-- Prepended text-->
-<div class="control-group">
-  <label class="control-label" for="prependedtext">Followup volunteer mno</label>
-  <div class="controls">
-    <div class="input-prepend">
-     
-     <%= f.input :followup_volunteer_mno,label: false do%>
-		 <span class="add-on">+91</span>
-		<%= f.input_field :followup_volunteer_mno %>
-	<%end%>
-    </div>
-    
-  </div>
-</div>
+        <div class="controls">
+          <%= f.input :authorities_present, label: false %>
+
+        </div>
+      </div>
 
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="textarea">Summary</label>
-  <div class="controls">                     
-     <%= f.text_area :summary %>
-  </div>
-</div>
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Followup volunteer</label>
+
+        <div class="controls">
+          <%= f.input :followup_volunteer, label: false %>
+
+        </div>
+      </div>
+
+      <!-- Prepended text-->
+      <div class="control-group">
+        <label class="control-label" for="prependedtext">Followup volunteer mno</label>
+
+        <div class="controls">
+          <div class="input-prepend">
+
+            <%= f.input :followup_volunteer_mno, label: false do %>
+                <span class="add-on">+91</span>
+                <%= f.input_field :followup_volunteer_mno %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
 
 
+      <!-- Textarea -->
+      <div class="control-group">
+        <label class="control-label" for="textarea">Summary</label>
+
+        <div class="controls">
+          <%= f.text_area :summary %>
+        </div>
+      </div>
 
 
-<!-- Button -->
-  <div class="control-group">
-    <label class="control-label" for="singlebutton"></label>
-    <div class="btn-group">
+      <!-- Button -->
+      <div class="control-group">
+        <label class="control-label" for="singlebutton"></label>
 
-      <%= f.submit "Submit",:class=>"btn btn-primary"%>
-      <%= link_to 'All Presentations ', admin_presentations_path,:class=>"btn" %>
-      <%= link_to 'Clear', new_admin_presentation_path,:class=>"btn btn-danger" %>
-    </div>
-  </div>
+        <div class="btn-group">
 
-</fieldset>
+          <%= f.submit "Submit", :class => "btn btn-primary" %>
+          <%= link_to 'All Presentations ', admin_presentations_path, :class => "btn" %>
+          <%= link_to 'Clear', new_admin_presentation_path, :class => "btn btn-danger" %>
+        </div>
+      </div>
+
+    </fieldset>
 
 <% end %>
 
 <script>
-      $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
-$( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
+    $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+    $("#datepicker2").datepicker({ dateFormat: "yy-mm-dd" });
 </script>
 
 

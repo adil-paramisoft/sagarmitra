@@ -1,52 +1,52 @@
 <div style="float:right">
   <% if can? :create, School %>
-      <%= link_to  edit_admin_school_path(@school) do %>
+      <%= link_to edit_admin_school_path(@school) do %>
           <i class="icon-edit"></i>Edit
-      <%end%>
-  <%end%>
+      <% end %>
+  <% end %>
 
 </div>
 
 <% if can? :create, School %>
-      <%= link_to  admin_schools_path(@school) do %>
-          <i class="icon-edit"></i>Back To Dashboard 	</br></br>
-      <%end%>
-<%end%>
+    <%= link_to admin_schools_path(@school) do %>
+        <i class="icon-edit"></i>Back To Dashboard    </br></br>
+    <% end %>
+<% end %>
 
-  	<strong>
-		<i class="icon-user"> </i>Name:
-	</strong>
-  	<%= @school.name %>
+<strong>
+  <i class="icon-user"> </i>Name:
+</strong>
+<%= @school.name %>
 </br>
 </br>
-  	<strong>
-	<i class=" icon-map-marker"></i>Address:
-	</strong>
-  	<%= @school.address %>  
+<strong>
+  <i class=" icon-map-marker"></i>Address:
+</strong>
+<%= @school.address %>
 </br>
 </br>
- 	<strong>
-	 <i class=" icon-info-sign"></i>		School type:
-	</strong>
-  	<%= @school.school_type.name %>
+<strong>
+  <i class=" icon-info-sign"></i> School type:
+</strong>
+<%= @school.school_type.name %>
 </br>
 </br>
-  	<strong>
-		<i class="icon-check"></i>Program state:
-	</strong>
-  	<%= @school.program_state.name %>
+<strong>
+  <i class="icon-check"></i>Program state:
+</strong>
+<%= @school.program_state.name %>
 </br>
 </br>
-  	<strong>
-	<i class=" icon-book"></i>	Total students:
-	</strong>
-  	<%= @school.total_students %>
+<strong>
+  <i class=" icon-book"></i> Total students:
+</strong>
+<%= @school.total_students %>
 </br>
 </br>
- 	<strong>
-		<i class=" icon-font"></i>Medium:
-	</strong>
-  <%= @school.school_medium.name %>
+<strong>
+  <i class=" icon-font"></i>Medium:
+</strong>
+<%= @school.school_medium.name %>
 </br>
 <div>
 

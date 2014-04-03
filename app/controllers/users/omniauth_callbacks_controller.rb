@@ -41,8 +41,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #session[:user_return_to] = request.env['omniauth.origin']
     @user = ::User.find_for_gplus_oauth(request.env["omniauth.auth"])
     if @user.persisted?
-        sign_in_and_redirect @user, :event => :authentication
-        flash[:success] = "You have been successfully logged in!"
+      sign_in_and_redirect @user, :event => :authentication
+      flash[:success] = "You have been successfully logged in!"
     else
       flash[:notice] = "Something wrong! Please check again. May be you are already registered with other account"
       session["devise.user_attributes"] = @user.attributes
@@ -65,7 +65,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
   def set_redirection_url
-   # session[:user_return_to] =  mission_path(Mission.first) #params[:redirect_url]  if params[:redirect_url]
+    # session[:user_return_to] =  mission_path(Mission.first) #params[:redirect_url]  if params[:redirect_url]
   end
 
 

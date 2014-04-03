@@ -4,7 +4,7 @@ require "rvm/capistrano"
 default_run_options[:pty] = true
 
 set :application, "sagarmitra"
-set :repository,  "git@bitbucket.org:paramisoft/sagarmitra.git"
+set :repository, "git@bitbucket.org:paramisoft/sagarmitra.git"
 
 set :use_sudo, false
 set :user, "ec2-user"
@@ -28,9 +28,9 @@ set :branch, ENV['branch'] || ENV['BRANCH'] || default_branch
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, deployment_server                          # Your HTTP server, Apache/etc
-role :app, deployment_server                          # This may be the same as your `Web` server
-role :db,  deployment_server, :primary => true # This is where Rails migrations will run
+role :web, deployment_server # Your HTTP server, Apache/etc
+role :app, deployment_server # This may be the same as your `Web` server
+role :db, deployment_server, :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 # if you want to clean up old releases on each deploy uncomment this:
@@ -49,10 +49,14 @@ end
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  task :start do
+    ;
+  end
+  task :stop do
+    ;
+  end
+  task :restart, :roles => :app, :except => {:no_release => true} do
+    run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
   end
 end
 

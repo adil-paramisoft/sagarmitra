@@ -2,18 +2,18 @@
   <div class="row-fluid">
     <div class="span3">
 
-      <%=render :partial=> 'admin/sidebar'%>
+      <%= render :partial => 'admin/sidebar' %>
 
     </div>
     <div class="span9">
 
       <% if can? :create, OfflineEvent %>
           <div style="float:left">
-            <%= link_to  new_admin_presentation_path do %>
-                <%=image_tag("/assets/netvibes.png", :border => 0) %>New Offline Events
-            <%end%>
+            <%= link_to new_admin_presentation_path do %>
+                <%= image_tag("/assets/netvibes.png", :border => 0) %>New Offline Events
+            <% end %>
           </div>
-      <%end%>
+      <% end %>
 
 
       <table class="table table-striped custab table-bordered ">
@@ -28,7 +28,7 @@
 
           <% if can? :create, OfflineEvent %>
               <th class="text-center">Actions</th>
-          <% end%>
+          <% end %>
 
         </tr>
         </thead>
@@ -37,38 +37,32 @@
 
           <% @offline_events.each do |offline_event| %>
             <tr>
-              <td><%= offline_event.school_name%></td>
-              <td><%= l(  offline_event.start_at ) %></td>
+              <td><%= offline_event.school_name %></td>
+              <td><%= l(offline_event.start_at) %></td>
               <td><%= offline_event.event_name %></td>
               <td><%= offline_event.volunteers_present %></td>
               <% if can? :create, OfflineEvent %>
                   <td>
 
-                    <%= link_to  offline_event_path(offline_event) do %>
+                    <%= link_to offline_event_path(offline_event) do %>
                         <i class="icon-folder-open"></i>Show
-                    <%end%>
+                    <% end %>
                     </br>
-                    <%= link_to  edit_admin_offline_event_path(offline_event) do%>
+                    <%= link_to edit_admin_offline_event_path(offline_event) do %>
                         <i class="icon-edit"></i>Edit
-                    <%end%>
+                    <% end %>
                     </br>
-                    <%= link_to  admin_offline_event_path(offline_event), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <%= link_to admin_offline_event_path(offline_event), method: :delete, data: {confirm: 'Are you sure?'} do %>
                         <i class="icon-trash"></i>Del
-                    <%end%>
+                    <% end %>
                   </td>
                   </tr>
               <% end %>
         <% end %>
 
 
-
-
       </table>
     </div>
-
-
-
-
 
 
   </div>

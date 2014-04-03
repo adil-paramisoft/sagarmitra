@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 <div class="row-fluid well">
 
-  <%= link_to request.env["HTTP_REFERER"]  do %>
+  <%= link_to request.env["HTTP_REFERER"] do %>
       <i class=" icon-circle-arrow-left"></i>Back
-  <%end%>
+  <% end %>
 
 
   <div style="float:right">
 
     <% if can? :create, PlasticCollectionEvent %>
-        <%= link_to  edit_admin_plastic_collection_source_path(@plastic_collection_source) do %>
+        <%= link_to edit_admin_plastic_collection_source_path(@plastic_collection_source) do %>
             <i class="icon-edit"></i>Edit
-        <%end%>
-    <%end%>
+        <% end %>
+    <% end %>
     </br>
 
 
@@ -21,6 +21,7 @@
 
   <h3> <%= @plastic_collection_source.name %> </h3>
   <h5>Our Plastic collection sources</h5>
+
   <div class="span9">
 
 
@@ -28,11 +29,11 @@
 
       <thead>
       <tr>
-        <th ><i class="icon-globe"></i> Contact Person</th>
-        <th><i class="icon-leaf"></i>  Phone No 1</th>
-        <th><i class="icon-cog"></i>Phone No 2 </th>
+        <th><i class="icon-globe"></i> Contact Person</th>
+        <th><i class="icon-leaf"></i> Phone No 1</th>
+        <th><i class="icon-cog"></i>Phone No 2</th>
         <th><i class="icon-time"></i>Web site</th>
-        <th><i class="ui-icon-mail-open" ></i> Email Id</th>
+        <th><i class="ui-icon-mail-open"></i> Email Id</th>
 
 
       </tr>
@@ -50,7 +51,6 @@
 
 
   </div>
-
 
 
 </div>

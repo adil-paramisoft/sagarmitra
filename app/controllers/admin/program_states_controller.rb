@@ -44,7 +44,7 @@ class Admin::ProgramStatesController < ApplicationController
   def update
     respond_to do |format|
       if @program_state.update(program_state_params)
-        format.html { redirect_to admin_program_state_path( @program_state), notice: 'Program state was successfully updated.' }
+        format.html { redirect_to admin_program_state_path(@program_state), notice: 'Program state was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,17 +64,17 @@ class Admin::ProgramStatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_program_state
-      @program_state = ProgramState.find(params[:id])
-    end
-    
-    def load_program_state
-         @program_state = ProgramState.new(program_state_params)
-    end
-    
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def program_state_params
-      params.require(:program_state).permit(:name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_program_state
+    @program_state = ProgramState.find(params[:id])
+  end
+
+  def load_program_state
+    @program_state = ProgramState.new(program_state_params)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def program_state_params
+    params.require(:program_state).permit(:name, :description)
+  end
 end

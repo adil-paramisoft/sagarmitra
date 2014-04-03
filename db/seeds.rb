@@ -13,32 +13,32 @@ puts " -- Creating roles"
 
 Role.create([{name: 'admin', description: 'Super admin of the app'},
              {name: 'school-admin', description: 'Admin for school'},
-             {name: 'school-volunteer',description: 'volunteer for school'},
-             {name: 'program-volunteer',description: 'volunteer for program'}
-             ])
+             {name: 'school-volunteer', description: 'volunteer for school'},
+             {name: 'program-volunteer', description: 'volunteer for program'}
+            ])
 puts " -- Done!"
 puts " -- Creating Program States"
-             
+
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE PROGRAM_STATES RESTART IDENTITY;")
 
-ProgramState.create([     {name: 'Identified', description: 'Identified'},
-                          {name: 'Shot Listed', description: 'Shot Listed'},
-                          {name: 'Contacted', description: 'Contacted'},
-                          {name: 'Engaged', description: 'Engaged'},
-                          {name: 'First Meeting Done', description: 'First Meeting Done'},
-                          {name: 'Approved', description: 'Approved'},
-                          {name: 'Teachers Presentation Done', description: 'Teachers Presentation Done'},
-                          {name: 'Children Presentation Done', description: 'Children Presentation Done'},
-                          {name: 'Collection Started', description: 'Collection Started'},
-                          {name: 'Collection problem', description: 'Collection problem'},
-                          {name: 'Training Problem', description: 'Training Problem'},
-                          {name: 'Need Traing Lecture', description: 'Need Traing Lecture'},
-                          {name: 'Re-Training Done', description: 'Re-Training Done'},
-                          {name: 'Ocean Patch Assigned', description: 'Ocean Patch Assigned'},
-                          {name: 'Ocean Patch Removed', description: 'Ocean Patch Removed'},
-                          {name: 'Collection Stopped', description: 'Collection Stopped'},
-                          {name: 'Need Volunteers', description: 'Need Volunteers'},
-                          {name: 'Need Plastic Collector', description: 'Need Plastic Collector'}])
+ProgramState.create([{name: 'Identified', description: 'Identified'},
+                     {name: 'Shot Listed', description: 'Shot Listed'},
+                     {name: 'Contacted', description: 'Contacted'},
+                     {name: 'Engaged', description: 'Engaged'},
+                     {name: 'First Meeting Done', description: 'First Meeting Done'},
+                     {name: 'Approved', description: 'Approved'},
+                     {name: 'Teachers Presentation Done', description: 'Teachers Presentation Done'},
+                     {name: 'Children Presentation Done', description: 'Children Presentation Done'},
+                     {name: 'Collection Started', description: 'Collection Started'},
+                     {name: 'Collection problem', description: 'Collection problem'},
+                     {name: 'Training Problem', description: 'Training Problem'},
+                     {name: 'Need Traing Lecture', description: 'Need Traing Lecture'},
+                     {name: 'Re-Training Done', description: 'Re-Training Done'},
+                     {name: 'Ocean Patch Assigned', description: 'Ocean Patch Assigned'},
+                     {name: 'Ocean Patch Removed', description: 'Ocean Patch Removed'},
+                     {name: 'Collection Stopped', description: 'Collection Stopped'},
+                     {name: 'Need Volunteers', description: 'Need Volunteers'},
+                     {name: 'Need Plastic Collector', description: 'Need Plastic Collector'}])
 puts " -- Done!"
 
 puts " -- Creating School Types"
@@ -67,9 +67,9 @@ puts " -- Creating School Mediums "
 ActiveRecord::Base.connection.execute("TRUNCATE TABLE SCHOOL_MEDIA RESTART IDENTITY;")
 
 SchoolMedium.create([{name: 'English', description: 'English'},
-                         {name: 'Marathi', description: 'Marathi'},
-                         {name: 'Urdu', description: 'Urdu'},
-                         {name: 'Semi-English', description: 'Semi-English'}])
+                     {name: 'Marathi', description: 'Marathi'},
+                     {name: 'Urdu', description: 'Urdu'},
+                     {name: 'Semi-English', description: 'Semi-English'}])
 puts " -- Done!"
 
 #  Run VACUUM command

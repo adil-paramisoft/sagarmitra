@@ -7,10 +7,8 @@ class OfflineEvent < ActiveRecord::Base
 
 
   #validations
-  validates :school_name  , :school_address, :event_name, :event_description, :start_at,:end_at, :volunteers_present,
+  validates :school_name, :school_address, :event_name, :event_description, :start_at, :end_at, :volunteers_present,
             :presence => true
-
-
 
 
 end

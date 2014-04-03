@@ -1,56 +1,61 @@
-<%= simple_form_for @school_contact,:html=> {:class=>"form-horizontal"} do |f| %>
-  <% if @school_contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@school_contact.errors.count, "error") %> prohibited this school_contact from being saved:</h2>
+<%= simple_form_for @school_contact, :html => {:class => "form-horizontal"} do |f| %>
+    <% if @school_contact.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@school_contact.errors.count, "error") %> prohibited this school_contact from being
+            saved:</h2>
 
-      <ul>
-      <% @school_contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @school_contact.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-<fieldset>
+    <fieldset>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="School">School</label>
-  <div class="controls">
-   <%= f.association :school,label: false %>
-  </div>
-</div>
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="School">School</label>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">User</label>
-  <div class="controls">
-     <%= f.association :user,label: false %>
-  </div>
-</div>
+        <div class="controls">
+          <%= f.association :school, label: false %>
+        </div>
+      </div>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">School role</label>
-  <div class="controls">
-   	<%= f.association :school_role ,
-						label_method: :role,
-						label: false, 
-						:required => true,
-						:label_html => { :class => 'span2' },
-	                    :input_html => { :class => 'span2 offset2'  } %>
-  </div>
-</div>
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">User</label>
 
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for=""></label>
-  <div class="controls">
-	 <%= f.submit 'submit',:class=>"btn btn-primary" %>
-  </div>
-</div>
+        <div class="controls">
+          <%= f.association :user, label: false %>
+        </div>
+      </div>
 
-</fieldset>
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">School role</label>
+
+        <div class="controls">
+          <%= f.association :school_role,
+                            label_method: :role,
+                            label: false,
+                            :required => true,
+                            :label_html => {:class => 'span2'},
+                            :input_html => {:class => 'span2 offset2'} %>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="control-group">
+        <label class="control-label" for=""></label>
+
+        <div class="controls">
+          <%= f.submit 'submit', :class => "btn btn-primary" %>
+        </div>
+      </div>
+
+    </fieldset>
 <% end %>
 
 

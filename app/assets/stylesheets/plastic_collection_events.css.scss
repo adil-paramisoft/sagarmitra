@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 #calendar table {
   border-collapse: collapse;
   width: 100%;
@@ -11,7 +9,7 @@
 
 #calendar td,
 #calendar th {
-  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-family: "Lucida Grande", arial, helvetica, sans-serif;
   font-size: 10px;
   padding: 6px;
   border: 1px solid #999;
@@ -67,29 +65,25 @@
   text-align: center;
 }
 
-
-.plastic_collection_event_school{
-color:Green;
-font-size: 14px;
-
-}
-
-
-.plastic_collection_event_school a:link, 
-.plastic_collection_event_school a:visited,  { 
- color: Green; 
- text-decoration: none;}
-
-.school_presentation{
-color:#DD7700;
-font-size: 14px;
+.plastic_collection_event_school {
+  color: Green;
+  font-size: 14px;
 
 }
 
+.plastic_collection_event_school a:link,
+.plastic_collection_event_school a:visited, {
+  color: Green;
+  text-decoration: none;
+}
 
+.school_presentation {
+  color: #DD7700;
+  font-size: 14px;
 
+}
 
-.symbol_table{
-float:right;
+.symbol_table {
+  float: right;
 
 }

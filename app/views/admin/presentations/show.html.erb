@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 <div class="row-fluid well">
 
-  <%= link_to request.env["HTTP_REFERER"]  do %>
+  <%= link_to request.env["HTTP_REFERER"] do %>
       <i class=" icon-circle-arrow-left"></i>Back
-  <%end%>
+  <% end %>
 
 
   <div style="float:right">
 
     <% if can? :create, PlasticCollectionEvent %>
-        <%= link_to  edit_admin_presentation_path(@presentation) do %>
+        <%= link_to edit_admin_presentation_path(@presentation) do %>
             <i class="icon-edit"></i>Edit
-        <%end%>
-    <%end%>
+        <% end %>
+    <% end %>
     </br>
 
 
@@ -38,16 +38,16 @@
       </thead>
       <tr>
         <td class="text-center">  <%= @presentation.audience_count %></td>
-        <td class="text-center"> <%= l(  @presentation.start_at ) %> to <%= l(@presentation.end_at) %> </td>
-        <td class="text-center"> <%= @presentation.followup_volunteer %>(<%= @presentation.followup_volunteer_mno %>)</td>
+        <td class="text-center"> <%= l(@presentation.start_at) %> to <%= l(@presentation.end_at) %> </td>
+        <td class="text-center"> <%= @presentation.followup_volunteer %>(<%= @presentation.followup_volunteer_mno %>)
+        </td>
       </tr>
     </table>
 
     <i class="icon-check"></i>Authorities Present : </h6> <%= @presentation.authorities_present %></h6></br></br>
     <i class="icon-check"></i>summary: </h6>    <%= @presentation.summary %></h6> </br></br>
-    <%= link_to "Show in schools Profile",school_path(@presentation.school)+"#tabs-2" %>
+    <%= link_to "Show in schools Profile", school_path(@presentation.school)+"#tabs-2" %>
   </div>
-
 
 
 </div>

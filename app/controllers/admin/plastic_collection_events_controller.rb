@@ -1,5 +1,5 @@
 class Admin::PlasticCollectionEventsController < ApplicationController
-  
+
   #before_action :set_plastic_collection_event, only: [:show, :edit, :update, :destroy]
   before_action :load_plastic_collection_event, only: :create
   load_and_authorize_resource
@@ -7,7 +7,7 @@ class Admin::PlasticCollectionEventsController < ApplicationController
   # GET /plastic_collection_events
   # GET /plastic_collection_events.json
   def index
-        @plastic_collection_event = PlasticCollectionEvent.all
+    @plastic_collection_event = PlasticCollectionEvent.all
   end
 
   # GET /plastic_collection_events/1
@@ -32,7 +32,7 @@ class Admin::PlasticCollectionEventsController < ApplicationController
     respond_to do |format|
       if @plastic_collection_event.save
         @plastic_collection_event.upload_flickr_photos
-        format.html { redirect_to admin_plastic_collection_event_path(@plastic_collection_event) , notice: 'Plastic collection event was successfully created.' }
+        format.html { redirect_to admin_plastic_collection_event_path(@plastic_collection_event), notice: 'Plastic collection event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @plastic_collection_event }
       else
         format.html { render action: 'new' }
@@ -67,23 +67,23 @@ class Admin::PlasticCollectionEventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_plastic_collection_event
-      @plastic_collection_event = PlasticCollectionEvent.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_plastic_collection_event
+    @plastic_collection_event = PlasticCollectionEvent.find(params[:id])
+  end
 
-    def load_plastic_collection_event
-         @plastic_collection_event = PlasticCollectionEvent.new(plastic_collection_event_params)
-    end
+  def load_plastic_collection_event
+    @plastic_collection_event = PlasticCollectionEvent.new(plastic_collection_event_params)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def plastic_collection_event_params
-      params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present,
-                                                       :plastic_collection_source_id, :date,:start_at,:end_at,
-                                                       :quality_remark, :feedback, :school_id,
-                                                       photos_attributes: [:title, :description,
-                                                                           :image, :_destroy, :id])
-    end
-  
-  
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def plastic_collection_event_params
+    params.require(:plastic_collection_event).permit(:plastic_weight, :money_given, :volunteers_present,
+                                                     :plastic_collection_source_id, :date, :start_at, :end_at,
+                                                     :quality_remark, :feedback, :school_id,
+                                                     photos_attributes: [:title, :description,
+                                                                         :image, :_destroy, :id])
+  end
+
+
 end

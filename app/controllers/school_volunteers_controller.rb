@@ -5,7 +5,6 @@ class SchoolVolunteersController < ApplicationController
   load_and_authorize_resource
 
 
-
   # GET /school_volunteers/1
   # GET /school_volunteers/1.json
   def show
@@ -81,13 +80,13 @@ class SchoolVolunteersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def school_volunteer_params
-    params.require(:school_volunteer).permit(:volunteer, :mobile , :email , :name , :id,
-                                             school_attributes:[:id , :name, :address, :school_medium_id,
-                                                                :total_students, :school_type_id, :program_state_id,
-                                                                photo_attributes: [:title, :description,
+    params.require(:school_volunteer).permit(:volunteer, :mobile, :email, :name, :id,
+                                             school_attributes: [:id, :name, :address, :school_medium_id,
+                                                                 :total_students, :school_type_id, :program_state_id,
+                                                                 photo_attributes: [:title, :description,
                                                                                     :image, :_destroy, :id],
-                                                                principal_detail_attributes:[:in_office_since, :name,
-                                                                                             photo_attributes: [:title, :description,
-                                                                                                                 :image, :_destroy, :id]]])
+                                                                 principal_detail_attributes: [:in_office_since, :name,
+                                                                                               photo_attributes: [:title, :description,
+                                                                                                                  :image, :_destroy, :id]]])
   end
 end

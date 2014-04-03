@@ -3,16 +3,16 @@
 
   <%= link_to request.env["HTTP_REFERER"] do %>
       <i class=" icon-circle-arrow-left"></i>Back
-  <%end%>
+  <% end %>
 
 
   <div style="float:right">
 
     <% if can? :create, PlasticCollectionEvent %>
-        <%= link_to  edit_admin_presentation_type_path(@presentation_type) do %>
+        <%= link_to edit_admin_presentation_type_path(@presentation_type) do %>
             <i class="icon-edit"></i>Edit
-        <%end%>
-    <%end%>
+        <% end %>
+    <% end %>
     </br>
 
 
@@ -21,8 +21,6 @@
 
   <h3> <%= @presentation_type.name %> Presentation </h3>
   <h5><%= @presentation_type.description %></h5>
-
-
 
 
 </div>

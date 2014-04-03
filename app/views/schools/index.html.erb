@@ -1,6 +1,6 @@
 <h3>Schools in Sagar-Mitra Program</h3>
 <div style="float:right;">
-   <%= link_to 'Start program in your school!', new_school_volunteer_path , :class => 'btn btn-medium btn-primary'%>
+  <%= link_to 'Start program in your school!', new_school_volunteer_path, :class => 'btn btn-medium btn-primary' %>
 </div>
 <div class="clearfix"></div>
 <div class="spacer"></div>
@@ -9,17 +9,21 @@
   <button type="button" class="btn btn-default" data-tab-value="table">Table View</button>
 </div>
 <div class="clearfix"></div>
-<div class="spacer"></div><div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
 
-    <%= render "#{@view_type}_view" %>
+<%= render "#{@view_type}_view" %>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#school_table').dataTable( {
-            "aaSorting": [[ 6, "desc" ],[ 7, "desc" ]]
-        } );
+        $('#school_table').dataTable({
+            "aaSorting": [
+                [ 6, "desc" ],
+                [ 7, "desc" ]
+            ]
+        });
     });
-    $('.view-buttons button').click(function(){
+    $('.view-buttons button').click(function () {
         $(this).parent().find("button").removeClass("active");
         $(this).addClass("active");
         window.location.href = '?type=' + $(this).data('tabValue');

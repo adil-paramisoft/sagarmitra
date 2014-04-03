@@ -64,15 +64,17 @@ class Admin::SchoolTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_type
-      @school_type = SchoolType.find(params[:id])
-    end
-    def load_school_type
-         @school_type = SchoolType.new(school_type_params)
-    end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_type_params
-      params.require(:school_type).permit(:name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_type
+    @school_type = SchoolType.find(params[:id])
+  end
+
+  def load_school_type
+    @school_type = SchoolType.new(school_type_params)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_type_params
+    params.require(:school_type).permit(:name, :description)
+  end
 end

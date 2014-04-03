@@ -1,59 +1,59 @@
 <div class="container">
-    
-    <table class="table table-striped custab table-bordered ">
+
+  <table class="table table-striped custab table-bordered ">
     <thead>
-        <tr>
-          		<th>Presented by</th>
-			    <th>Date</th>
-			    <th>Audience count</th>
-			    <th>Summary</th>
-			    <th>Authorities present</th>
-			    <th>Presentation type</th>
-			    <th>School</th>
-			    <th>Followup volunteer</th>
-			    <th>Followup volunteer mno</th>
-		<% if can? :create, Presentation %>
-		      <th class="text-center">Actions</th>
-		<% end%>
-		      
-        </tr>
+    <tr>
+      <th>Presented by</th>
+      <th>Date</th>
+      <th>Audience count</th>
+      <th>Summary</th>
+      <th>Authorities present</th>
+      <th>Presentation type</th>
+      <th>School</th>
+      <th>Followup volunteer</th>
+      <th>Followup volunteer mno</th>
+      <% if can? :create, Presentation %>
+          <th class="text-center">Actions</th>
+      <% end %>
+
+    </tr>
     </thead>
-            <tr>
-	
-	
-			 <% @presentations.each do |presentation| %>
-			      <tr>
-			        <td><%= presentation.presented_by %></td>
-			        <td><%= l presentation.start_at%></td>
-			        <td><%= presentation.audience_count %></td>
-			        <td><%= presentation.summary %></td>
-			        <td><%= presentation.authorities_present %></td>
-			        <td><%= presentation.presentation_type_id %></td>
-			        <td><%= presentation.school_id %></td>
-			        <td><%= presentation.followup_volunteer %></td>
-			        <td><%= presentation.followup_volunteer_mno %></td>
-					<% if can? :create, PlasticCollectionEvent %>
-						<td>        
-							<%= link_to  admin_presentation_path(presentation) do %>
-									<i class="icon-folder-open"></i>Show
-							<%end%>
-						</br>	
-			            	<%= link_to  edit_admin_presentation_path(presentation) do %>
-									<i class="icon-edit"></i>Edit
-							<%end%>
-							</br>
-			            	<%= link_to  admin_presentation_path(presentation), method: :delete, data: { confirm: 'Are you sure?' } do %>
-								<i class="icon-trash"></i>Del
-							<%end%>
-						</td>
-					<% end%>
+    <tr>
 
-			      </tr>
-			    <% end %>
-    		</table>
-    </div>
 
-       
+      <% @presentations.each do |presentation| %>
+        <tr>
+          <td><%= presentation.presented_by %></td>
+          <td><%= l presentation.start_at %></td>
+          <td><%= presentation.audience_count %></td>
+          <td><%= presentation.summary %></td>
+          <td><%= presentation.authorities_present %></td>
+          <td><%= presentation.presentation_type_id %></td>
+          <td><%= presentation.school_id %></td>
+          <td><%= presentation.followup_volunteer %></td>
+          <td><%= presentation.followup_volunteer_mno %></td>
+          <% if can? :create, PlasticCollectionEvent %>
+              <td>
+                <%= link_to admin_presentation_path(presentation) do %>
+                    <i class="icon-folder-open"></i>Show
+                <% end %>
+                </br>
+                <%= link_to edit_admin_presentation_path(presentation) do %>
+                    <i class="icon-edit"></i>Edit
+                <% end %>
+                </br>
+                <%= link_to admin_presentation_path(presentation), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                    <i class="icon-trash"></i>Del
+                <% end %>
+              </td>
+          <% end %>
+
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+
 
 
 
@@ -67,7 +67,9 @@
 
 
 <script type="text/javascript">
-    $('#plastic_collection_event_table').dataTable( {
-        "aaSorting": [[ 5, "desc" ]]
-    } );
+    $('#plastic_collection_event_table').dataTable({
+        "aaSorting": [
+            [ 5, "desc" ]
+        ]
+    });
 </script>

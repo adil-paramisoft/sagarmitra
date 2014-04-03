@@ -7,9 +7,8 @@ class Admin::SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @schools = School.all
-    
-  end
 
+  end
 
 
   def new
@@ -59,35 +58,34 @@ class Admin::SchoolsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  
+
+
   def presentation
     presentation_type_id = params[:presentation_id]
-    if presentation_type_id.size > 0 
-    @presentations = @school.presentations.where(:presentation_type_id=>presentation_type_id) 
-  else
-    @presentations = @school.presentations 
-  end
-     respond_to do |format|
-       format.html { render :partial=>'presentations_rows'  }
-       format.json { head :no_content }
-     end
+    if presentation_type_id.size > 0
+      @presentations = @school.presentations.where(:presentation_type_id => presentation_type_id)
+    else
+      @presentations = @school.presentations
+    end
+    respond_to do |format|
+      format.html { render :partial => 'presentations_rows' }
+      format.json { head :no_content }
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school
-      @school = School.find(params[:id])
-    end
-    
-    def load_school
-      @school = School.new(school_params)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school
+    @school = School.find(params[:id])
+  end
+
+  def load_school
+    @school = School.new(school_params)
+  end
 
 
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_params
-      params.require(:school).permit(:name, :address, :school_type_id, :program_state_id, :total_students, :school_medium_id, :number_of_collections)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_params
+    params.require(:school).permit(:name, :address, :school_type_id, :program_state_id, :total_students, :school_medium_id, :number_of_collections)
+  end
 end

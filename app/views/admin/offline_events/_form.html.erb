@@ -1,96 +1,105 @@
-<%= simple_form_for [:admin,@offline_event] ,:html=>{:class=>"form-horizontal"} do |f| %>
+<%= simple_form_for [:admin, @offline_event], :html => {:class => "form-horizontal"} do |f| %>
 
-<% if @offline_event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@offline_event.errors.count, "error") %> prohibited this offline_event from being saved:</h2>
+    <% if @offline_event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@offline_event.errors.count, "error") %> prohibited this offline_event from being
+            saved:</h2>
 
-      <ul>
-      <% @offline_event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @offline_event.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-<fieldset>
-
-
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">School Name</label>
-  <div class="controls">
-    <%= f.input :school_name, label: false %>
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="selectbasic">School Address</label>
-  <div class="controls">
-    <%= f.input :school_address, label: false %>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Event Name</label>
-  <div class="controls">
-      <%= f.input :event_name, label: false %>
-  </div>
-</div>
-
-  <div class="control-group">
-    <label class="control-label" for="selectbasic">Event Description</label>
-    <div class="controls">
-      <%= f.input :event_description, label: false %>
-    </div>
-  </div>
+    <fieldset>
 
 
-  <!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Start at</label>
-  <div class="controls">
-    	<%= f.input :start_at,as: :string,label: false,input_html: { id: "datepicker" } %>
-  </div>
-</div>
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">School Name</label>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">End at</label>
-  <div class="controls">
-    <%= f.input :end_at,as: :string,label: false,input_html: { id: "datepicker2" } %>
-  </div>
-</div>
+        <div class="controls">
+          <%= f.input :school_name, label: false %>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">School Address</label>
+
+        <div class="controls">
+          <%= f.input :school_address, label: false %>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Event Name</label>
+
+        <div class="controls">
+          <%= f.input :event_name, label: false %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="selectbasic">Event Description</label>
+
+        <div class="controls">
+          <%= f.input :event_description, label: false %>
+        </div>
+      </div>
 
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">volunteers_present</label>
-  <div class="controls">
-      <%= f.input :volunteers_present,label: false %>
-    
-  </div>
-</div>
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Start at</label>
 
-<!-- Button -->
-  <div class="control-group">
-    <label class="control-label" for="singlebutton"></label>
-    <div class="btn-group">
+        <div class="controls">
+          <%= f.input :start_at, as: :string, label: false, input_html: {id: "datepicker"} %>
+        </div>
+      </div>
 
-      <%= f.submit "Submit",:class=>"btn btn-primary"%>
-      <%= link_to 'All Ofline Events ', admin_offline_events_path,:class=>"btn" %>
-      <%= link_to 'Clear', new_admin_offline_event_path,:class=>"btn btn-danger" %>
-    </div>
-  </div>
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">End at</label>
 
-</fieldset>
+        <div class="controls">
+          <%= f.input :end_at, as: :string, label: false, input_html: {id: "datepicker2"} %>
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">volunteers_present</label>
+
+        <div class="controls">
+          <%= f.input :volunteers_present, label: false %>
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="control-group">
+        <label class="control-label" for="singlebutton"></label>
+
+        <div class="btn-group">
+
+          <%= f.submit "Submit", :class => "btn btn-primary" %>
+          <%= link_to 'All Ofline Events ', admin_offline_events_path, :class => "btn" %>
+          <%= link_to 'Clear', new_admin_offline_event_path, :class => "btn btn-danger" %>
+        </div>
+      </div>
+
+    </fieldset>
 
 <% end %>
 
 <script>
-      $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
-$( "#datepicker2" ).datepicker({ dateFormat: "yy-mm-dd" });
+    $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+    $("#datepicker2").datepicker({ dateFormat: "yy-mm-dd" });
 </script>
 
 

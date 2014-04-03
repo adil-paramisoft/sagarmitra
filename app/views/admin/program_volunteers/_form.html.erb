@@ -1,69 +1,75 @@
-<%= simple_form_for [:admin,@program_volunteer],:html=>{:class=>"form-horizontal"} do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for [:admin, @program_volunteer], :html => {:class => "form-horizontal"} do |f| %>
+    <%= f.error_notification %>
 
-<fieldset>
+    <fieldset>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Name</label>
-  <div class="controls">
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">Name</label>
 
-     <%= f.input :name,label: false %>
-  </div>
-</div>
+        <div class="controls">
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="textarea">Interest</label>
-  <div class="controls">                     
-     <%= f.input :interest,label: false %>
-  </div>
-</div>
+          <%= f.input :name, label: false %>
+        </div>
+      </div>
 
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="textarea">Responsibility</label>
-  <div class="controls">                     
-     <%= f.input :responsibility, label: false %>
-  </div>
-</div>
+      <!-- Textarea -->
+      <div class="control-group">
+        <label class="control-label" for="textarea">Interest</label>
 
-<!-- Prepended text-->
-<div class="control-group">
-  <label class="control-label" for="Email">Prepended Text</label>
-  <div class="controls">
-    <div class="input-prepend">
+        <div class="controls">
+          <%= f.input :interest, label: false %>
+        </div>
+      </div>
 
-    <%= f.input :email,label: false do  %>
-	<span class="add-on">@</span>
-	<%= f.input_field :email  %>
-	<%end%>
-    </div>
-    
-  </div>
-</div>
+      <!-- Textarea -->
+      <div class="control-group">
+        <label class="control-label" for="textarea">Responsibility</label>
 
-<!-- Prepended text-->
-<div class="control-group">
-  <label class="control-label" for="Mobile">Prepended Text</label>
-  <div class="controls">
-    <div class="input-prepend">
-    <%= f.input :mobile,label: false do %>
-		<span class="add-on">+91</span>
-		<%= f.input_field :mobile %>
-	<%end%>
-    </div>
-    
-  </div>
-</div>
+        <div class="controls">
+          <%= f.input :responsibility, label: false %>
+        </div>
+      </div>
 
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="singlebutton"></label>
-  <div class="controls">
-	    <%= f.submit 'Submit',:class=>"btn btn-primary" %>
-  </div>
-</div>
+      <!-- Prepended text-->
+      <div class="control-group">
+        <label class="control-label" for="Email">Prepended Text</label>
 
-</fieldset>
+        <div class="controls">
+          <div class="input-prepend">
+
+            <%= f.input :email, label: false do %>
+                <span class="add-on">@</span>
+                <%= f.input_field :email %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Prepended text-->
+      <div class="control-group">
+        <label class="control-label" for="Mobile">Prepended Text</label>
+
+        <div class="controls">
+          <div class="input-prepend">
+            <%= f.input :mobile, label: false do %>
+                <span class="add-on">+91</span>
+                <%= f.input_field :mobile %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="control-group">
+        <label class="control-label" for="singlebutton"></label>
+
+        <div class="controls">
+          <%= f.submit 'Submit', :class => "btn btn-primary" %>
+        </div>
+      </div>
+
+    </fieldset>
 <% end %>

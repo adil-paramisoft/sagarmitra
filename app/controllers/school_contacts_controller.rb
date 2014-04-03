@@ -56,7 +56,7 @@ class SchoolContactsController < ApplicationController
   # DELETE /school_contacts/1.json
   def destroy
     @school_contact.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to school_contacts_url }
       format.json { head :no_content }
@@ -64,17 +64,17 @@ class SchoolContactsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_contact
-      @school_contact = SchoolContact.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_contact
+    @school_contact = SchoolContact.find(params[:id])
+  end
 
-    def load_school_contact
-         @school_contact = SchoolContact.new(school_contact_params)
-    end
+  def load_school_contact
+    @school_contact = SchoolContact.new(school_contact_params)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_contact_params
-      params.require(:school_contact).permit(:school_id, :user_id, :school_role_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_contact_params
+    params.require(:school_contact).permit(:school_id, :user_id, :school_role_id)
+  end
 end

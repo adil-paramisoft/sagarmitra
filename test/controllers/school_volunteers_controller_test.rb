@@ -18,7 +18,7 @@ class SchoolVolunteersControllerTest < ActionController::TestCase
 
   test "should create school_volunteer" do
     assert_difference('SchoolVolunteer.count') do
-      post :create, school_volunteer: { mobile: @school_volunteer.mobile, no_of_students: @school_volunteer.no_of_students, school_address: @school_volunteer.school_address, school_medium_id: @school_volunteer.school_medium_id, school_name: @school_volunteer.school_name, school_type_id: @school_volunteer.school_type_id, user_id: @school_volunteer.user_id, volunteer: @school_volunteer.volunteer }
+      post :create, school_volunteer: {mobile: @school_volunteer.mobile, no_of_students: @school_volunteer.no_of_students, school_address: @school_volunteer.school_address, school_medium_id: @school_volunteer.school_medium_id, school_name: @school_volunteer.school_name, school_type_id: @school_volunteer.school_type_id, user_id: @school_volunteer.user_id, volunteer: @school_volunteer.volunteer}
     end
 
     assert_redirected_to school_volunteer_path(assigns(:school_volunteer))
@@ -35,7 +35,7 @@ class SchoolVolunteersControllerTest < ActionController::TestCase
   end
 
   test "should update school_volunteer" do
-    patch :update, id: @school_volunteer, school_volunteer: { mobile: @school_volunteer.mobile, no_of_students: @school_volunteer.no_of_students, school_address: @school_volunteer.school_address, school_medium_id: @school_volunteer.school_medium_id, school_name: @school_volunteer.school_name, school_type_id: @school_volunteer.school_type_id, user_id: @school_volunteer.user_id, volunteer: @school_volunteer.volunteer }
+    patch :update, id: @school_volunteer, school_volunteer: {mobile: @school_volunteer.mobile, no_of_students: @school_volunteer.no_of_students, school_address: @school_volunteer.school_address, school_medium_id: @school_volunteer.school_medium_id, school_name: @school_volunteer.school_name, school_type_id: @school_volunteer.school_type_id, user_id: @school_volunteer.user_id, volunteer: @school_volunteer.volunteer}
     assert_redirected_to school_volunteer_path(assigns(:school_volunteer))
   end
 

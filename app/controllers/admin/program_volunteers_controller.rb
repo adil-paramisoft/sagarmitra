@@ -64,17 +64,17 @@ class Admin::ProgramVolunteersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_program_volunteer
-      @program_volunteer = ProgramVolunteer.find(params[:id])
-    end
-    
-    def load_program_volunteer
-         @program_volunteer = ProgramVolunteer.new(program_volunteer_params)
-    end
-    
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def program_volunteer_params
-      params.require(:program_volunteer).permit(:name, :interest, :responsibility, :email, :mobile)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_program_volunteer
+    @program_volunteer = ProgramVolunteer.find(params[:id])
+  end
+
+  def load_program_volunteer
+    @program_volunteer = ProgramVolunteer.new(program_volunteer_params)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def program_volunteer_params
+    params.require(:program_volunteer).permit(:name, :interest, :responsibility, :email, :mobile)
+  end
 end

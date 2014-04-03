@@ -18,7 +18,7 @@ class PlasticCollectionSourcesControllerTest < ActionController::TestCase
 
   test "should create plastic_collection_source" do
     assert_difference('PlasticCollectionSource.count') do
-      post :create, plastic_collection_source: { address: @plastic_collection_source.address, contact_person: @plastic_collection_source.contact_person, eamil: @plastic_collection_source.eamil, name: @plastic_collection_source.name, phone_no_1: @plastic_collection_source.phone_no_1, phone_no_2: @plastic_collection_source.phone_no_2, website: @plastic_collection_source.website }
+      post :create, plastic_collection_source: {address: @plastic_collection_source.address, contact_person: @plastic_collection_source.contact_person, eamil: @plastic_collection_source.eamil, name: @plastic_collection_source.name, phone_no_1: @plastic_collection_source.phone_no_1, phone_no_2: @plastic_collection_source.phone_no_2, website: @plastic_collection_source.website}
     end
 
     assert_redirected_to plastic_collection_source_path(assigns(:plastic_collection_source))
@@ -35,7 +35,7 @@ class PlasticCollectionSourcesControllerTest < ActionController::TestCase
   end
 
   test "should update plastic_collection_source" do
-    patch :update, id: @plastic_collection_source, plastic_collection_source: { address: @plastic_collection_source.address, contact_person: @plastic_collection_source.contact_person, eamil: @plastic_collection_source.eamil, name: @plastic_collection_source.name, phone_no_1: @plastic_collection_source.phone_no_1, phone_no_2: @plastic_collection_source.phone_no_2, website: @plastic_collection_source.website }
+    patch :update, id: @plastic_collection_source, plastic_collection_source: {address: @plastic_collection_source.address, contact_person: @plastic_collection_source.contact_person, eamil: @plastic_collection_source.eamil, name: @plastic_collection_source.name, phone_no_1: @plastic_collection_source.phone_no_1, phone_no_2: @plastic_collection_source.phone_no_2, website: @plastic_collection_source.website}
     assert_redirected_to plastic_collection_source_path(assigns(:plastic_collection_source))
   end
 

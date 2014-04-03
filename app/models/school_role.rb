@@ -1,5 +1,5 @@
 class SchoolRole < ActiveRecord::Base
   #validations
-  validates :role , :description ,  
+  validates :role, :description,
             :presence => true
 end

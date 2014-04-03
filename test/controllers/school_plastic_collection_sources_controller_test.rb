@@ -18,7 +18,7 @@ class SchoolPlasticCollectionSourcesControllerTest < ActionController::TestCase
 
   test "should create school_plastic_collection_source" do
     assert_difference('SchoolPlasticCollectionSource.count') do
-      post :create, school_plastic_collection_source: { plastic_collection_source: @school_plastic_collection_source.plastic_collection_source, schoold_id: @school_plastic_collection_source.schoold_id }
+      post :create, school_plastic_collection_source: {plastic_collection_source: @school_plastic_collection_source.plastic_collection_source, schoold_id: @school_plastic_collection_source.schoold_id}
     end
 
     assert_redirected_to school_plastic_collection_source_path(assigns(:school_plastic_collection_source))
@@ -35,7 +35,7 @@ class SchoolPlasticCollectionSourcesControllerTest < ActionController::TestCase
   end
 
   test "should update school_plastic_collection_source" do
-    patch :update, id: @school_plastic_collection_source, school_plastic_collection_source: { plastic_collection_source: @school_plastic_collection_source.plastic_collection_source, schoold_id: @school_plastic_collection_source.schoold_id }
+    patch :update, id: @school_plastic_collection_source, school_plastic_collection_source: {plastic_collection_source: @school_plastic_collection_source.plastic_collection_source, schoold_id: @school_plastic_collection_source.schoold_id}
     assert_redirected_to school_plastic_collection_source_path(assigns(:school_plastic_collection_source))
   end
 

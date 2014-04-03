@@ -18,7 +18,7 @@ class PresentationsControllerTest < ActionController::TestCase
 
   test "should create presentation" do
     assert_difference('Presentation.count') do
-      post :create, presentation: { audience_count: @presentation.audience_count, authorities_present: @presentation.authorities_present, date: @presentation.date, followup_volunteer: @presentation.followup_volunteer, followup_volunteer_mno: @presentation.followup_volunteer_mno, presentation_type_id: @presentation.presentation_type_id, presented_by: @presentation.presented_by, school_id: @presentation.school_id, summary: @presentation.summary }
+      post :create, presentation: {audience_count: @presentation.audience_count, authorities_present: @presentation.authorities_present, date: @presentation.date, followup_volunteer: @presentation.followup_volunteer, followup_volunteer_mno: @presentation.followup_volunteer_mno, presentation_type_id: @presentation.presentation_type_id, presented_by: @presentation.presented_by, school_id: @presentation.school_id, summary: @presentation.summary}
     end
 
     assert_redirected_to presentation_path(assigns(:presentation))
@@ -35,7 +35,7 @@ class PresentationsControllerTest < ActionController::TestCase
   end
 
   test "should update presentation" do
-    patch :update, id: @presentation, presentation: { audience_count: @presentation.audience_count, authorities_present: @presentation.authorities_present, date: @presentation.date, followup_volunteer: @presentation.followup_volunteer, followup_volunteer_mno: @presentation.followup_volunteer_mno, presentation_type_id: @presentation.presentation_type_id, presented_by: @presentation.presented_by, school_id: @presentation.school_id, summary: @presentation.summary }
+    patch :update, id: @presentation, presentation: {audience_count: @presentation.audience_count, authorities_present: @presentation.authorities_present, date: @presentation.date, followup_volunteer: @presentation.followup_volunteer, followup_volunteer_mno: @presentation.followup_volunteer_mno, presentation_type_id: @presentation.presentation_type_id, presented_by: @presentation.presented_by, school_id: @presentation.school_id, summary: @presentation.summary}
     assert_redirected_to presentation_path(assigns(:presentation))
   end
 

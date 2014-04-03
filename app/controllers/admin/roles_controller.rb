@@ -64,18 +64,18 @@ class Admin::RolesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_role
-      @role = Role.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_role
+    @role = Role.find(params[:id])
+  end
 
-    def load_role
-      @role = Role.new(role_params)
-    end
+  def load_role
+    @role = Role.new(role_params)
+  end
 
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def role_params
-      params.require(:role).permit(:name, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def role_params
+    params.require(:role).permit(:name, :description)
+  end
 end

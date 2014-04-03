@@ -64,18 +64,18 @@ class Admin::SchoolMediaController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_medium
-      @school_medium = SchoolMedium.find(params[:id])
-    end
-    
-    
-    def load_school_medium
-         @school_medium = SchoolMedium.new(school_medium_params)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_medium
+    @school_medium = SchoolMedium.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_medium_params
-      params.require(:school_medium).permit(:name, :description)
-    end
+
+  def load_school_medium
+    @school_medium = SchoolMedium.new(school_medium_params)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_medium_params
+    params.require(:school_medium).permit(:name, :description)
+  end
 end

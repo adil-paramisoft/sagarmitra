@@ -64,17 +64,17 @@ class Admin::SchoolRolesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_role
-      @school_role = SchoolRole.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_role
+    @school_role = SchoolRole.find(params[:id])
+  end
 
-    def load_school_role
-      @school_role = SchoolRole.new(school_role_params)
-    end
+  def load_school_role
+    @school_role = SchoolRole.new(school_role_params)
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_role_params
-      params.require(:school_role).permit(:role, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_role_params
+    params.require(:school_role).permit(:role, :description)
+  end
 end

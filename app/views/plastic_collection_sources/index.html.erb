@@ -1,66 +1,64 @@
 <% if can? :create, PlasticCollectionEvent %>
-	<div style="float:right">
-		<%= link_to  new_admin_plastic_collection_source_path do %>
-				<%=image_tag("/assets/netvibes.png", :border => 0) %>New Plastic collection source
-		<%end%>
-	</div>
-<%end%>
-<div class="container">
-    
-    <table class="table table-striped custab table-bordered ">
-    <thead>
-        <tr>
-          	
-		      <th>Name</th>
-		      <th>Address</th>
-		      <th>Contact person</th>
-		      <th>Phone no 1</th>
-		      <th>Phone no 2</th>
-		      <th>Website</th>
-		      <th>Email</th>
-		     
-		 
-	<% if can? :create, PlasticCollectionEvent %>
-		      <th class="text-center">Actions</th>
-		<% end%>
-		      
-        </tr>
-    </thead>
-            <tr>
-	
-	
-			 <% @plastic_collection_sources.each do |plastic_collection_source| %>
-			      <tr>
-			        <td><%= plastic_collection_source.name %></td>
-			        <td><%= plastic_collection_source.address %></td>
-			        <td><%= plastic_collection_source.contact_person %></td>
-			        <td><%= plastic_collection_source.phone_no_1 %></td>
-			        <td><%= plastic_collection_source.phone_no_2 %></td>
-			        <td><%= plastic_collection_source.website %></td>
-			        <td><%= plastic_collection_source.email %></td>
-					<% if can? :create, PlasticCollectionEvent %>	
-				       <td>
-						
-					<%= link_to  admin_plastic_collection_source_path( plastic_collection_source) do %>
-							<i class="icon-folder-open"></i>Show
-					<%end%> 
-					</br>
-			        <%= link_to  edit_admin_plastic_collection_source_path(plastic_collection_source) do%>
-						<i class="icon-edit"></i>Edit
-			 		<%end%>
-					</br>
-			        <%= link_to  admin_plastic_collection_source_path( plastic_collection_source), method: :delete, data: { confirm: 'Are you sure?' } do %>
-						<i class="icon-trash"></i>Del
-					<%end%>
-						</td>
-			      </tr>
-				<% end %>
-			    <% end %>
-			
-			
-			
-					
-    		</table>
+    <div style="float:right">
+      <%= link_to new_admin_plastic_collection_source_path do %>
+          <%= image_tag("/assets/netvibes.png", :border => 0) %>New Plastic collection source
+      <% end %>
     </div>
+<% end %>
+<div class="container">
+
+  <table class="table table-striped custab table-bordered ">
+    <thead>
+    <tr>
+
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact person</th>
+      <th>Phone no 1</th>
+      <th>Phone no 2</th>
+      <th>Website</th>
+      <th>Email</th>
+
+
+      <% if can? :create, PlasticCollectionEvent %>
+          <th class="text-center">Actions</th>
+      <% end %>
+
+    </tr>
+    </thead>
+    <tr>
+
+
+      <% @plastic_collection_sources.each do |plastic_collection_source| %>
+        <tr>
+          <td><%= plastic_collection_source.name %></td>
+          <td><%= plastic_collection_source.address %></td>
+          <td><%= plastic_collection_source.contact_person %></td>
+          <td><%= plastic_collection_source.phone_no_1 %></td>
+          <td><%= plastic_collection_source.phone_no_2 %></td>
+          <td><%= plastic_collection_source.website %></td>
+          <td><%= plastic_collection_source.email %></td>
+          <% if can? :create, PlasticCollectionEvent %>
+              <td>
+
+                <%= link_to admin_plastic_collection_source_path(plastic_collection_source) do %>
+                    <i class="icon-folder-open"></i>Show
+                <% end %>
+                </br>
+                <%= link_to edit_admin_plastic_collection_source_path(plastic_collection_source) do %>
+                    <i class="icon-edit"></i>Edit
+                <% end %>
+                </br>
+                <%= link_to admin_plastic_collection_source_path(plastic_collection_source), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                    <i class="icon-trash"></i>Del
+                <% end %>
+              </td>
+              </tr>
+          <% end %>
+    <% end %>
+
+
+  </table>
+</div>
 
 

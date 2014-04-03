@@ -18,7 +18,7 @@ class SchoolMediaControllerTest < ActionController::TestCase
 
   test "should create school_medium" do
     assert_difference('SchoolMedium.count') do
-      post :create, school_medium: { description: @school_medium.description, name: @school_medium.name }
+      post :create, school_medium: {description: @school_medium.description, name: @school_medium.name}
     end
 
     assert_redirected_to school_medium_path(assigns(:school_medium))
@@ -35,7 +35,7 @@ class SchoolMediaControllerTest < ActionController::TestCase
   end
 
   test "should update school_medium" do
-    patch :update, id: @school_medium, school_medium: { description: @school_medium.description, name: @school_medium.name }
+    patch :update, id: @school_medium, school_medium: {description: @school_medium.description, name: @school_medium.name}
     assert_redirected_to school_medium_path(assigns(:school_medium))
   end
 

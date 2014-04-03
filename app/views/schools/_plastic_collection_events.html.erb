@@ -1,75 +1,79 @@
 <% if can? :create, PlasticCollectionEvent %>
-	<div style="float:right">
-	<%= link_to  new_admin_plastic_collection_event_path do %>
-		<%= image_tag("/assets/netvibes.png", :border => 0)%> New Plastic Collection Event
-	<%end%>
-	</div>
-<% end%>
+    <div style="float:right">
+      <%= link_to new_admin_plastic_collection_event_path do %>
+          <%= image_tag("/assets/netvibes.png", :border => 0) %> New Plastic Collection Event
+      <% end %>
+    </div>
+<% end %>
 </br>
 
 <div class="container">
-    
-    <table class="table table-striped custab table-bordered ">
+
+  <table class="table table-striped custab table-bordered ">
     <thead>
-        <tr>
-          	 <th>School</th>
-		      <th>Plastic weight</th>
-		      <th>Money given</th>
-		      <th>Volunteers present</th>
-		      <th>Plastic collection Source</th>
-		      <th>Date</th>
-		      <th>Quality remark</th>
-		      <th>Feedback</th>    
-		<% if can? :create, PlasticCollectionEvent %>
-		      <th class="text-center">Actions</th>
-		<% end%>
-		      
-        </tr>
+    <tr>
+      <th>School</th>
+      <th>Plastic weight</th>
+      <th>Money given</th>
+      <th>Volunteers present</th>
+      <th>Plastic collection Source</th>
+      <th>Date</th>
+      <th>Quality remark</th>
+      <th>Feedback</th>
+      <% if can? :create, PlasticCollectionEvent %>
+          <th class="text-center">Actions</th>
+      <% end %>
+
+    </tr>
     </thead>
-            <tr>
-				<% @plastic_collection_events.each do |plastic_collection_event| %>
-			      <tr>
-			        <td><%= plastic_collection_event.school.name  %></td>
-			        <td><%= plastic_collection_event.plastic_weight %></td>
-			        <td><%= plastic_collection_event.money_given %></td>
-			        <td><%= plastic_collection_event.volunteers_present %></td>
-			        <td><%= plastic_collection_event.plastic_collection_source.name if plastic_collection_event.plastic_collection_source.present? %></td>
-			        <td><%= l plastic_collection_event.start_at %></td>
-			        <td><%= plastic_collection_event.quality_remark %></td>
-			        <td><%= plastic_collection_event.feedback %></td>
+    <tr>
+      <% @plastic_collection_events.each do |plastic_collection_event| %>
+        <tr>
+          <td><%= plastic_collection_event.school.name %></td>
+          <td><%= plastic_collection_event.plastic_weight %></td>
+          <td><%= plastic_collection_event.money_given %></td>
+          <td><%= plastic_collection_event.volunteers_present %></td>
+          <td><%= plastic_collection_event.plastic_collection_source.name if plastic_collection_event.plastic_collection_source.present? %></td>
+          <td><%= l plastic_collection_event.start_at %></td>
+          <td><%= plastic_collection_event.quality_remark %></td>
+          <td><%= plastic_collection_event.feedback %></td>
 
-					<% if can? :create, PlasticCollectionEvent %>
-						<td>
-                          <%= link_to  admin_plastic_collection_event_path(plastic_collection_event) do %>
-                              <i class="icon-folder-open"></i>Show
-                          <%end%>
-                          </br>
-                          <%= link_to   edit_admin_plastic_collection_event_path(plastic_collection_event) do%>
-                              <i class="icon-edit"></i>Edit
-                          <%end%>
-                          </br>
-                          <%= link_to  admin_plastic_collection_event_path(plastic_collection_event), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                              <i class="icon-trash"></i>Del
-                          <%end%>
-							</br>
-						</td>
-					<% end%>
+          <% if can? :create, PlasticCollectionEvent %>
+              <td>
+                <%= link_to admin_plastic_collection_event_path(plastic_collection_event) do %>
+                    <i class="icon-folder-open"></i>Show
+                <% end %>
+                </br>
+                <%= link_to edit_admin_plastic_collection_event_path(plastic_collection_event) do %>
+                    <i class="icon-edit"></i>Edit
+                <% end %>
+                </br>
+                <%= link_to admin_plastic_collection_event_path(plastic_collection_event), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                    <i class="icon-trash"></i>Del
+                <% end %>
+                </br>
+              </td>
+          <% end %>
 
-			      </tr>
-			    <% end %>
-			 
-    		</table>
-    </div>
+        </tr>
+    <% end %>
 
-  
+  </table>
+</div>
+
+
 <script type="text/javascript">
-    $('#plastic_collection_event_table').dataTable( {
-        "aaSorting": [[ 5, "desc" ]]
-    } );
+    $('#plastic_collection_event_table').dataTable({
+        "aaSorting": [
+            [ 5, "desc" ]
+        ]
+    });
 </script>
 
 <script type="text/javascript">
-    $('#plastic_collection_event_table').dataTable( {
-        "aaSorting": [[ 5, "desc" ]]
-    } );
+    $('#plastic_collection_event_table').dataTable({
+        "aaSorting": [
+            [ 5, "desc" ]
+        ]
+    });
 </script>

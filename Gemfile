@@ -47,7 +47,7 @@ gem 'simple_form'
 
 # Acts os State machine for managing work flow of School through SagarMitra Program
 gem 'aasm'
- 
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -81,11 +81,11 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
- gem 'unicorn'
- gem "watu_table_builder", :require => "table_builder"
+gem 'unicorn'
+gem "watu_table_builder", :require => "table_builder"
 
 # Wrapper for Flickr API
- gem 'flickraw'
+gem 'flickraw'
 
 # For Nested form attributes
 gem "nested_form"
@@ -94,6 +94,6 @@ gem "nested_form"
 # gem 'capistrano', group: :development
 
 # Use debugger
- gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 ruby "2.0.0"

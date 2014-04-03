@@ -1,23 +1,24 @@
-<%= simple_form_for [:admin,@school_type] ,:html=>{:class=>"form-horizontal"} do |f| %>
-      <% if @school_type.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@school_type.errors.count, "error") %> prohibited this school_type from being saved:</h2>
+<%= simple_form_for [:admin, @school_type], :html => {:class => "form-horizontal"} do |f| %>
+    <% if @school_type.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@school_type.errors.count, "error") %> prohibited this school_type from being saved:</h2>
 
-            <ul>
-              <% @school_type.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
+          <ul>
+            <% @school_type.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <fieldset>
 
       <!-- Text input-->
       <div class="control-group">
         <label class="control-label" for="textinput">Name</label>
+
         <div class="controls">
-          <%= f.input :name,label: false %>
+          <%= f.input :name, label: false %>
 
         </div>
       </div>
@@ -25,19 +26,21 @@
       <!-- Textarea -->
       <div class="control-group">
         <label class="control-label" for="textarea">Description</label>
+
         <div class="controls">
-          <%= f.input :description,label: false %>
+          <%= f.input :description, label: false %>
         </div>
       </div>
 
       <!-- Button -->
       <div class="control-group">
         <label class="control-label" for="singlebutton"></label>
+
         <div class="controls">
           <div class="btn-group">
-            <%= f.submit "Submit",:class=>"btn btn-primary" %>
-            <%= link_to 'All School Type ',admin_school_types_path,:class=>"btn" %>
-            <%= link_to 'Cancel', new_admin_school_type_path,:class=>"btn btn-danger" %>
+            <%= f.submit "Submit", :class => "btn btn-primary" %>
+            <%= link_to 'All School Type ', admin_school_types_path, :class => "btn" %>
+            <%= link_to 'Cancel', new_admin_school_type_path, :class => "btn btn-danger" %>
           </div>
         </div>
       </div>

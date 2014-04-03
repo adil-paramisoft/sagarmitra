@@ -16,7 +16,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   require "omniauth-facebook"
 
-  
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -37,12 +37,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -200,7 +200,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-   config.scoped_views = true
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -232,7 +232,7 @@ Devise.setup do |config|
   config.secret_key = 'be34b16406afac11e631976a46fcdc39592eef18f1a4a17459bafdb81591d151790c47a480a7e39d2336fc84de2a5d6cfce529f85352196b69e5525d855a808f'
   config.omniauth :facebook, "414737248638545", "e4a9f78914c1d37d7047ef092b81c7be"
   #OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
-  
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

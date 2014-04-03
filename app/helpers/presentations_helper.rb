@@ -1,5 +1,4 @@
 module PresentationsHelper
-  
-  
-  
+
+
 end

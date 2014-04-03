@@ -1,26 +1,26 @@
-<%= select_tag :filter, options_from_collection_for_select(@presentation_type, "id", "name"),:prompt => "All",:id=>'presentation'  %>
-	<% if can? :create, Presentation %>
-		<div style="float:right">
-			<%= link_to  new_admin_presentation_path do %>
-				<%=image_tag("/assets/netvibes.png", :border => 0) %> New Presentation
-			<%end%>
-		</div>
-	<% end%>
+<%= select_tag :filter, options_from_collection_for_select(@presentation_type, "id", "name"), :prompt => "All", :id => 'presentation' %>
+<% if can? :create, Presentation %>
+    <div style="float:right">
+      <%= link_to new_admin_presentation_path do %>
+          <%= image_tag("/assets/netvibes.png", :border => 0) %> New Presentation
+      <% end %>
+    </div>
+<% end %>
 
 <div id='list'>
-	<%= render :partial => 'presentations_rows' %>
+  <%= render :partial => 'presentations_rows' %>
 </div>
 
 
 <script>
-    $( "#presentation" ).change(function() {
-		$.ajax({
-			url: "<%= presentation_school_path(@school) %>",
-			data: { presentation_id: $( this ).val() },
-			success:function(result){
-		    $("#list").html(result);
-		  }});
-      	
+    $("#presentation").change(function () {
+        $.ajax({
+            url: "<%= presentation_school_path(@school) %>",
+            data: { presentation_id: $(this).val() },
+            success: function (result) {
+                $("#list").html(result);
+            }});
+
     });
 
-  </script>
+</script>

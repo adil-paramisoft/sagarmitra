@@ -8,7 +8,7 @@ class Admin::OfflineEventsController < ApplicationController
     @offline_events= OfflineEvent.all
   end
 
-  
+
   def show
     @offline_event = OfflineEvent.find(params[:id])
   end
@@ -30,7 +30,7 @@ class Admin::OfflineEventsController < ApplicationController
     respond_to do |format|
       if @offline_event.save
 
-        format.html { redirect_to admin_offline_event_path(@offline_event) , notice: 'Offline event was successfully created.' }
+        format.html { redirect_to admin_offline_event_path(@offline_event), notice: 'Offline event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @offline_event }
       else
         format.html { render action: 'new' }
