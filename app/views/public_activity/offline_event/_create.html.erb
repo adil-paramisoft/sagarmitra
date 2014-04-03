@@ -1,5 +1,5 @@
 <% unless activity.trackable.nil? %>
-    <div class="hero-unit">
+    <div class="hero-unit" style="padding: 20px; margin-bottom: 20px;width: 200px; line-height: 20px; font-size: 14px;" >
       A <%= link_to activity.trackable.event_name, offline_event_path(activity.trackable_id)  %> Event was added to <%= activity.trackable.school_name %>
 
       <div class="clearfix"></div>
