@@ -126,10 +126,7 @@
           <div class="controls">
             <div class="input-prepend">
 
-              <%= f.input :email, label: false do %>
-                  <span class="add-on">@</span>
-                  <%= f.input_field :email %>
-              <% end %>
+              <%= f.input :email,as: :email,label: false%>
             </div>
 
           </div>
@@ -143,10 +140,10 @@
           <div class="controls">
             <div class="input-prepend">
 
-              <%= f.input :mobile, :render_options => {:wrapper => 'inline'}, label: false do %>
-                  <span class="add-on">+91</span>
-                  <%= f.input_field :mobile %>
-              <% end %>
+              <%= f.input :mobile, :render_options => {:wrapper => 'inline'}, label: false  %>
+
+
+
             </div>
 
           </div>
