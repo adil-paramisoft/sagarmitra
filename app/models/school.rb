@@ -2,7 +2,8 @@ require 'net/http'
 require 'uri'
 
 class School < ActiveRecord::Base
-
+  include PublicActivity::Model
+  tracked
   # Associations
   has_one :plastic_collection_source
   has_many :presentations

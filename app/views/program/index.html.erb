@@ -1,16 +1,8 @@
 <%= render 'carousel'%>
   <!-- Three columns of text below the carousel -->
 
-
-  <!-- START THE FEATURETTES -->
-
-  <hr class="featurette-divider">
-  <!-- <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Students-   <span class="muted">< %= @total_student_count %></span></h3></div>
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Schools-   <span class="muted">< %= @total_school_count %></span></h3></div>
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Plastic collected-   <span class="muted">< %= @plastic_collected_count %>KG</span></h3></div>
-  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Green fund-   &#8377 <span class="muted">< %= @green_fund_count %></span></h3></div> -->
-
-      <div id="CDT">
+<hr class="featurette-divider">
+<div id="CDT">
       <span class="number-wrapper">
         <div class="caption">SCHOOLS</div>
         <div class="line"></div>
@@ -31,32 +23,43 @@
         <div class="caption">GREEN FUND (In Rupees)</div>
         <span class="number sec"><%= @green_fund_count %></span>
       </span>
-    </div>
+</div>
+<hr class="featurette-divider">
+  <!-- START THE FEATURETTES -->
+<div style="display:flex">
+<div style="float: left; width: 70%">
 
-  <%#= render_activities(@activities) %>
-  <hr class="featurette-divider">
+  <!-- <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Students-   <span class="muted">< %= @total_student_count %></span></h3></div>
+  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Schools-   <span class="muted">< %= @total_school_count %></span></h3></div>
+  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Plastic collected-   <span class="muted">< %= @plastic_collected_count %>KG</span></h3></div>
+  <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Green fund-   &#8377 <span class="muted">< %= @green_fund_count %></span></h3></div> -->
 
   <div class="featurette">
-	<%= image_tag '/assets/schools/st_andrew.jpg', :class => "featurette-image pull-right"%>
-    <h2 class="featurette-heading">1599 KGs!   <span class="muted">St. Andrew's- Chinchwad</span></h2>
-    <p class="lead">Rs.12792 for Green Fund!</p>
+    <%= image_tag '/assets/schools/st_andrew.jpg', :class => "featurette-image pull-right"  %>
+    <h2 class="featurette-heading" style="font-size: 22px;" >1599 KGs! <br><br>  <span class="muted">St. Andrew's- Chinchwad</span></h2>
+    <p class="lead" style="font-size: 20px">Rs.12792 for Green Fund!</p>
   </div>
 
   <hr class="featurette-divider">
 
   <div class="featurette">
-  	<%= image_tag '/assets/schools/st_ursalas.jpg', :class => "featurette-image pull-right"%>
-    <h2 class="featurette-heading">800 KGs!   <span class="muted">St. Ursulas Nigadi</span></h2>
-    <p class="lead">Rs.8121 for Green Fund!</p>
+    <%= image_tag '/assets/schools/st_ursalas.jpg', :class => "featurette-image pull-right"%>
+    <h2 class="featurette-heading" style="font-size: 22px;">800 KGs! <br><br>  <span class="muted">St. Ursulas Nigadi</span></h2>
+    <p class="lead" style="font-size: 20px">Rs.8121 for Green Fund!</p>
   </div>
 
   <hr class="featurette-divider">
 
   <div class="featurette">
-	<%= image_tag '/assets/schools/modern_school.jpg', :class => "featurette-image pull-right"%>
-    <h2 class="featurette-heading">125 KGs!  <span class="muted">Modern High School</span></h2>
-    <p class="lead">Rs.1000 for Green Fund!</p>
+    <%= image_tag '/assets/schools/modern_school.jpg', :class => "featurette-image pull-right"%>
+    <h2 class="featurette-heading" style="font-size: 22px;">125 KGs! <br><br> <span class="muted">Modern High School</span></h2>
+    <p class="lead" style="font-size: 20px">Rs.1000 for Green Fund!</p>
   </div>
+</div>
+<div style="margin-left: 25px; overflow: auto; height: 800px;"><%= render_activities(@activities) %></div>
+
+
+</div>
 
 <script>
   !function ($) {
