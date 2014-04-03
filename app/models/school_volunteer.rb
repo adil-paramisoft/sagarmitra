@@ -14,7 +14,7 @@ class SchoolVolunteer < ActiveRecord::Base
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/,
                               message: "only allows letters" }
 
-  validates :mobile, format: { with: /((\+*)((0[ -]+)*|(91 )*)(\d{12}+|\d{10}+))|\d{5}([- ]*)\d{6}/ }
+  validates :mobile, format: { with:/^9\d{9}$/ }
 
   accepts_nested_attributes_for :school
 
