@@ -78,6 +78,6 @@ puts " -- Done!"
 
 #ActiveRecord::Base.connection.execute("VACUUM")
 admin_role = Role.find_or_create_by_name 'admin'
-user = User.new(:email => 'chetan@paramisoft.com', :name => 'Chetan Jadhav', :password => 'welcome123')
+user = User.new(:email => 'chetan@paramisoft.com', :name => 'Chetan Jadhav', :password => 'welcome123',:password_confirmation=>"welcome123")
 user.roles << admin_role
 user.save
