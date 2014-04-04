@@ -5,8 +5,13 @@ class Photo < ActiveRecord::Base
   # Associations
   belongs_to :imageable, :polymorphic => true
 
+
+  Paperclip.interpolates :attached_to do |attachment, style|
+    attachment.instance.imageable.class.to_s.downcase
+  end
+
   # Paperclip settings
-  has_attached_file :image, path: ':rails_root/public/:basename.:extension', url: '/:basename.:extension'
+  has_attached_file :image, path: ':rails_root/public/:attached_to/:basename.:extension', url: '/:attached_to/:basename.:extension'
 
   validates_attachment :image, content_type: {content_type: ["image/jpg", "image/jpeg", "image/png"]}
 
