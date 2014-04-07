@@ -1,5 +1,9 @@
 Sagarmitra::Application.routes.draw do
 
+  get "mvaayoo_messages/receive"
+  resources :program_volunteers
+
+
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations"}
 
@@ -24,7 +28,7 @@ Sagarmitra::Application.routes.draw do
   root 'program#index'
 
   get '/calender' => 'program#calender'
-
+  get '/collection' => 'program#collection'
 
   match 'initiative', to: 'initiative#concept', via: [:get]
   match 'initiative/concept', to: 'initiative#concept', via: [:get]
