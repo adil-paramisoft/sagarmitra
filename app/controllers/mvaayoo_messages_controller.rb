@@ -6,10 +6,9 @@ class MvaayooMessagesController < ApplicationController
     @operator_name=params[:opnm]
     @datetime=params[:datetime]
 
-
-    params.each do |param|
-      logger.debug "#{param}"
-    end
+    logger.info("mvaayoo check----------------")
+    logger.info(params.inspect)
+    logger.info("mvaayoo check----------------")
 
 
   end
