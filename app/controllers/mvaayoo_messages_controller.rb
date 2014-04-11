@@ -15,6 +15,19 @@ class MvaayooMessagesController < ApplicationController
     operator_name=params[:opnm]
     datetime=params[:datetime]
 
+
+
+
+
+        school_name=msg[0]
+    address=msg[1]
+    total_students=msg[2]
+    school_type_id=SchoolType.find_by_name(msg[3]).id
+    school_medium_id=SchoolMedium.find_by_name(msg[4]).id
+    contact_person=msg[5]
+    email=msg[6]
+    mobile_number=msg[7]
+
     logger.info("mvaayoo check----------------")
     logger.info(params.inspect)
     msg.each_with_index do |msg,index|
@@ -23,23 +36,18 @@ class MvaayooMessagesController < ApplicationController
     logger.info(SchoolType.find_by_name(msg[3]))
     logger.info(SchoolType.find_by_name(msg[3]).id)
     logger.info(msg[4])
+    logger.info("Name="+school_name)
+    logger.info("total_students="+total_students)
+    logger.info("school_type_id="+school_type_id.to_s)
+    logger.info("school_medium_id="+school_medium_id.to_s)
+    logger.info("contact_person="+email)
+    logger.info("mobile_number="+mobile_number)
 
     logger.info("mvaayoo check----------------")
 
 
+    school = School.create(:address=>address,:school_type_id=>school_type_id,:program_state_id=>1,:total_students=>total_students,:school_medium_id=>school_medium_id,:name=> school_name)
 
-
-        name=msg[1]
-    address=msg[2]
-    total_students=msg[3]
-    school_type_id=SchoolType.find_by_name(msg[3]).id
-    school_medium_id=SchoolMedium.find_by_name(msg[4]).id
-    contact_person=msg[5]
-    email=msg[6]
-    mobile_number=msg[7]
-
-    school = School.new(:program_state_id=>1,:name=> name,:address=>address,:total_students=>total_students,:school_type_id=>school_type_id,:school_medium_id=>school_medium_id)
-    school.save
 
     logger.info(school.id)
 
