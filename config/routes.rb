@@ -1,5 +1,7 @@
 Sagarmitra::Application.routes.draw do
 
+  resources :program_updates
+
   get "mvaayoo_messages/receive"
   resources :program_volunteers
 
