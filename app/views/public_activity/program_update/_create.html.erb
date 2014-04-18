@@ -1,6 +1,8 @@
 <% unless activity.trackable.nil? %>
     <div class="hero-unit" style="padding: 20px; margin-bottom: 20px;width: 200px; line-height: 20px;font-size: 14px;">
+      <%= logger.info "---------------in program update partial"%>
       Program Update: <%= activity.trackable.update_text  %>
+      <%= logger.info "---------------in program update partial"%>
       <div class="clearfix"></div>
       <i class="icon-time" style="margin-top: 03px;"></i>
       <small><%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
