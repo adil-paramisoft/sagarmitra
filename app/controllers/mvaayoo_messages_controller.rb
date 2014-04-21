@@ -8,7 +8,7 @@ class MvaayooMessagesController < ApplicationController
     msg = params[:sms].split("ADSCH ").last.to_s
     msg = msg.split("|")
     msg.each do |value|
-      value.capitalize!
+      value.strip.capitalize
     end
     circle = params[:circle]
     operator_name = params[:opnm]
