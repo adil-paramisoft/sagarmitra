@@ -1,6 +1,6 @@
 <% unless activity.trackable.nil? %>
     <div class="hero-unit" style="padding: 20px; margin-bottom: 20px;width: 200px; line-height: 20px;font-size: 14px;">
-      A new School ,<%= link_to activity.trackable.name, school_path(activity.trackable_id) %> has been added to schools
+      A new School, <%= link_to activity.trackable.name, school_path(activity.trackable_id) %> has been added to schools
       <div class="clearfix"></div>
       <i class="icon-time" style="margin-top: 03px;"></i>
       <small><%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
