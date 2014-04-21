@@ -7,17 +7,15 @@ class MvaayooMessagesController < ApplicationController
 
     msg = params[:sms].split("ADSCH ").last.to_s
     msg = msg.split("|")
-    msg.each do |value|
-      value.strip.capitalize
-    end
+    msg.each(&:strip!)
     circle = params[:circle]
     operator_name = params[:opnm]
     datetime = params[:datetime]
     school_name = msg[0]
     address = msg[1]
     total_students = msg[2]
-    school_type_id = SchoolType.find_by_name(msg[3]).id
-    school_medium_id = SchoolMedium.find_by_name(msg[4]).id
+    school_type_id = SchoolType.find_by_name(msg[3].capitalize).id
+    school_medium_id = SchoolMedium.find_by_name(msg[4].capitalize).id
     contact_person = msg[5]
     email=msg[6]
     mobile_number = msg[7]
