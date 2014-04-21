@@ -6,8 +6,8 @@ class School < ActiveRecord::Base
   tracked
   # Associations
   has_one :plastic_collection_source
-  has_many :presentations
-  has_many :plastic_collection_events
+  has_many :presentations,dependent: :destroy
+  has_many :plastic_collection_events,dependent: :destroy
   belongs_to :program_state
   belongs_to :school_type
   belongs_to :school_medium
