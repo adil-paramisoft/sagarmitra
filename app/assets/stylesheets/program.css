@@ -201,7 +201,7 @@ a.logo img {
 }
 
 #CDT {
-    font-size: 60px;
+    font-size: 32px;
     color: #eee;
     margin: 20px 0 20px;
     font-weight: bold;
@@ -271,7 +271,7 @@ a.logo img {
 .caption {
     font-size: 14px;
     position: absolute;
-    top: -44px;
+    top: -70px;
     left: 0;
     text-align: center;
     width: 100%;
@@ -367,4 +367,16 @@ a.logo img {
         line-height: 1.5;
     }
 
+}
+
+.hero-unit {
+    margin: auto;
+    background-color: #ffffff;
+}
+.rcnt-actvt {
+    position: relative;
+    top: -5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
 }
