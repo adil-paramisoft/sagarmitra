@@ -1,0 +1,29 @@
+<h1>Listing program_updates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Update text</th>
+      <th>From</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @program_updates.each do |program_update| %>
+      <tr>
+        <td><%= program_update.update_text %></td>
+        <td><%= program_update.from %></td>
+        <td><%= link_to 'Show', program_update %></td>
+        <td><%= link_to 'Edit', edit_program_update_path(program_update) %></td>
+        <td><%= link_to 'Destroy', program_update, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program update', new_program_update_path %>

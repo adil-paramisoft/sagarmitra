@@ -1,0 +1,10 @@
+<% unless activity.trackable.nil? %>
+    <div class="hero-unit" style="padding: 20px; margin-bottom: 20px;width: 200px; line-height: 20px;font-size: 14px;">
+
+      Program Update: <%= activity.trackable.update_text  %>
+
+      <div class="clearfix"></div>
+      <i class="icon-time" style="margin-top: 03px;"></i>
+      <small><%= time_ago_in_words(activity.trackable.created_at) %> ago</small>
+    </div>
+<% end %>

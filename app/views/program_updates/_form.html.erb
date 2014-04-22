@@ -1,0 +1,12 @@
+<%= simple_form_for(@program_update) do |f| %>
+<%= f.error_notification %>
+
+<div class="inputs">
+      <%= f.input :update_text %>
+      <%= f.input :from %>
+</div>
+
+<div class="actions">
+  <%= f.button :submit %>
+</div>
+<% end %>

@@ -1,5 +1,7 @@
 Sagarmitra::Application.routes.draw do
 
+  resources :program_updates
+
   get "mvaayoo_messages/receive"
   resources :program_volunteers
 
@@ -29,7 +31,6 @@ Sagarmitra::Application.routes.draw do
 
   get '/calender' => 'program#calender'
   get '/collection' => 'program#collection'
-
   match 'initiative', to: 'initiative#concept', via: [:get]
   match 'initiative/concept', to: 'initiative#concept', via: [:get]
   match 'initiative/team', to: 'initiative#team', via: [:get]

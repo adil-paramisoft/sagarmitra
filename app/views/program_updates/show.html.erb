@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Update text:</strong>
+  <%= @program_update.update_text %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @program_update.from %>
+</p>
+
+<%= link_to 'Edit', edit_program_update_path(@program_update) %> |
+<%= link_to 'Back', program_updates_path %>
