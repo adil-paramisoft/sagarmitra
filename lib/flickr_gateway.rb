@@ -22,19 +22,28 @@ module FlickrGateway
   def self.replace image_path, flickr_photo_id
     login
 
-    Rails.logger.info "-----------------------------------"
-    Rails.logger.info image_path
-    Rails.logger.info flickr_photo_id
-    Rails.logger.info "-----------------------------------"
-
-    return flickr.replace_photo image_path, photo_id: flickr_photo_id
+    new_flickr_photo_id = nil
+    begin
+      new_flickr_photo_id = flickr.replace_photo image_path, photo_id: flickr_photo_id
+    rescue FlickRaw::FailedResponse => e
+      Rails.logger.info e
+      Rails.logger.info "Old image not found. Uploading new image."
+      new_flickr_photo_id = flickr.upload_photo image_path, title: "", description: ""
+    end
+    return new_flickr_photo_id
   end
 
   def self.url_for flickr_photo_id
     login
 
-    photo_info = flickr.photos.getInfo(:photo_id => flickr_photo_id)
-    return FlickRaw.url_b(photo_info)
+    photo_url = nil
+    begin
+      photo_info = flickr.photos.getInfo(:photo_id => flickr_photo_id)
+      photo_url = FlickRaw.url_b(photo_info)
+    rescue FlickRaw::FailedResponse => e
+      photo_url = "/missing.png"
+    end
+    rescue photo_url
   end
 
   def self.download flickr_photo_id, file_name
