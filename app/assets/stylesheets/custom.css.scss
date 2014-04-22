@@ -2,6 +2,10 @@
 
 /* @import "bootstrap-responsive"; */
 
+a { color: #0088cc }
+a:visited { color: #0079BA }
+a:hover { color: #0088cc; text-decoration: underline; }
+
 .custab {
   border-left: 1px solid #ccc;
   margin: 5% 0;

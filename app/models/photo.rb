@@ -26,11 +26,7 @@ class Photo < ActiveRecord::Base
   def upload_flickr_photo
     img_path = Rails.root.to_s + '/public' + self.image.url
 
-    Rails.logger.info "upload_flickr_photo===================================="
-    Rails.logger.info img_path.inspect
-    Rails.logger.info "upload_flickr_photo===================================="
     if File.exists? img_path
-      Rails.logger.info "in if===================================="
       flickr_response = FlickrGateway.upload img_path, self.title, self.description
       self.update_attribute :flickr_photo_id, flickr_response
       File.delete img_path
@@ -39,15 +35,10 @@ class Photo < ActiveRecord::Base
 
   def replace_flickr_photo
     img_path = Rails.root.to_s + '/public' + self.image.url
-    Rails.logger.info "replace_flickr_photo===================================="
-    Rails.logger.info img_path.inspect
-    Rails.logger.info "replace_flickr_photo===================================="
+
     if File.exists? img_path
       flickr_response = FlickrGateway.replace img_path, self.flickr_photo_id
-      Rails.logger.info "-------------------------------------------"
-      Rails.logger.info flickr_response.inspect
-      Rails.logger.info "-------------------------------------------"
-      #self.update_attribute :flickr_photo_id, flickr_response
+      self.update_attribute :flickr_photo_id, flickr_response unless self.flickr_photo_id.eql? flickr_response
       File.delete img_path
     end
   end

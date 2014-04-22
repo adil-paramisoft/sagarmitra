@@ -59,6 +59,8 @@ class SchoolsController < ApplicationController
   def update
     respond_to do |format|
       if @school.update(school_params)
+        @school.upload_flickr_photo
+        @school.reload
         format.html { redirect_to @school, notice: 'School was successfully updated.' }
         format.json { head :no_content }
       else
@@ -105,6 +107,7 @@ class SchoolsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def school_params
-    params.require(:school).permit(:name, :address, :school_type_id, :program_state_id, :total_students, :school_medium_id, :number_of_collections)
+    params.require(:school).permit(:name, :address, :school_type_id, :program_state_id, :total_students,
+                                   :school_medium_id, :number_of_collections, photo_attributes: [:image, :id])
   end
 end
