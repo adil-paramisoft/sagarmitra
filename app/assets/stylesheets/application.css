@@ -18,7 +18,7 @@
 
 .cycle2_image
 {
-    height: inherit;
+    height:100%
 
 }
 /* set border-box so that percents can be used for width, padding, etc (personal preference) */
