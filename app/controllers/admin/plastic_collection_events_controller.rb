@@ -13,6 +13,7 @@ class Admin::PlasticCollectionEventsController < ApplicationController
   # GET /plastic_collection_events/1
   # GET /plastic_collection_events/1.json
   def show
+    @photos=Photo.where("imageable_id = ?", params[:id])
   end
 
   # GET /plastic_collection_events/new

@@ -1,3 +1,5 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
 <p id="notice"><%= notice %></p>
 <div class="row-fluid well">
 
@@ -54,6 +56,17 @@
   </div>
 
 
+</div>
+
+
+<div class="row-fluid well" style="overflow: auto">
+  <h3>Photos</h3>
+  <div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=2000>
+    <div class="cycle-overlay"></div>
+    <%@photos.each do |photo|%>
+        <%= image_tag photo.flickr_url,:class => "cycle2_image",data:{ cycle_title: photo.title ,cycle_desc: photo.description }  %>
+    <%end%>
+  </div>
 </div>
 
 
