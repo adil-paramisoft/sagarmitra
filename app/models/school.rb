@@ -34,6 +34,11 @@ class School < ActiveRecord::Base
     return {:plastic_collected => plastic_collected, :green_fund => green_fund}
   end
 
+  def School.top_three_plastic_collectors
+    School.select("id").order(plastic_collected: :desc).limit(3)
+  end
+
+
   def upload_flickr_photo
     if self.photo.flickr_photo_id.present?
       self.photo.replace_flickr_photo
@@ -42,8 +47,27 @@ class School < ActiveRecord::Base
     end
   end
 
-  def School.top_five_collections
-    School.select("schools.id, schools.name, SUM(plastic_collection_events.plastic_weight) as plastic_weight, SUM(plastic_collection_events.money_given) as money_given").joins(:plastic_collection_events).group("schools.id, schools.name").order("money_given DESC")
+  def self.top_three_collections
+    #getting top three schools with maximum plastic collected
+  top_schools = self.select("schools.id,schools.name,SUM(plastic_collection_events.plastic_weight) as plastic_weight, SUM(plastic_collection_events.money_given) as money_given").joins(:plastic_collection_events).group("schools.id,schools.name").order("plastic_weight DESC").limit(3)
+  top_schools_with_photos = []
+  photo_array = []
+   #getting all events of each of the top schools
+   top_schools.each do |sch|
+     sch_hash = {}
+     sch_hash[:id]=sch.id
+     sch_hash[:name] = sch.name
+     sch_hash[:plastic_collected] = sch.plastic_weight
+     sch_hash[:green_fund] = sch.money_given
+      #all events of a school
+     school_events = PlasticCollectionEvent.where("school_id=?",sch.id)
+     sch_hash[:photos] = Photo.where("photos.imageable_id=?",school_events.last.id)
+     top_schools_with_photos << sch_hash
+   end
+  logger.info("-----------top_schools-with_photos-------")
+  logger.info(top_schools_with_photos)
+  logger.info("-----------top_schools-with_photos-------")
+  return top_schools_with_photos
   end
 
 

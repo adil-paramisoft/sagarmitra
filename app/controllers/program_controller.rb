@@ -9,10 +9,11 @@ class ProgramController < ApplicationController
     @total_teachers_involved_count = Presentation.where("presentation_types.name = ?", "Teachers").includes(:presentation_type).sum(:audience_count)
     @activities = PublicActivity::Activity.order("created_at desc").all
 
-    @schools = School.top_five_collections
-    logger.info "-------------------------------------------"
-    @schools.each { |school| logger.info "#{school.name} - Weight: #{school.plastic_weight} #{school.money_given}" }
-    logger.info "-------------------------------------------"
+    @top_three_schools = School.top_three_collections
+    @top_three_schools_with_photos = School.top_three_collections
+    School.top_three_plastic_collectors.each do |id|
+       @photos=Photo.where(:imageable_id => id,:imageable_type => "School")
+      end
   end
 
   def calender

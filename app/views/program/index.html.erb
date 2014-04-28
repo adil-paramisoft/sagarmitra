@@ -1,3 +1,5 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.cycle2.js"></script>
 <%= render 'carousel' %>
 <!-- Three columns of text below the carousel -->
 
@@ -34,38 +36,27 @@
 <hr class="featurette-divider" style="margin-top: 10px;">
 <!-- START THE FEATURETTES -->
 
-    <!-- <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Students-   <span class="muted">< %= @total_student_count %></span></h3></div>
-    <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Schools-   <span class="muted">< %= @total_school_count %></span></h3></div>
-    <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Plastic collected-   <span class="muted">< %= @plastic_collected_count %>KG</span></h3></div>
-    <div style="padding-left: 250px;"><h3 class="featurette-heading">Total Green fund-   &#8377 <span class="muted">< %= @green_fund_count %></span></h3></div> -->
 
+<%@top_three_schools_with_photos.each do |school_hash_with_photos|%>
     <div class="featurette">
-      <%= image_tag '/assets/schools/st_andrew.jpg', :class => "featurette-image pull-right" %>
-      <h2 class="featurette-heading">1599 KGs!
-        <span class="muted">St. Andrew's- Chinchwad</span></h2>
+      <div class="featurette-image pull-right">
+        <div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=2000>
+          <div class="cycle-overlay"></div>
+          <%school_hash_with_photos[:photos].each do |photo|%>
 
-      <p class="lead">Rs.12792 for Green Fund!</p>
+              <%=image_tag photo.flickr_url,:class => "cycle2_image",:style=>"height:300px;width:500px",:alt => "Nothing to display"%>
+          <%end%>
+        </div>
+      </div>
+      <%#= image_tag '/assets/schools/st_andrew.jpg', :class => "featurette-image pull-right" %>
+      <div class="span4">
+        <h2 class="featurette-heading"><%=school_hash_with_photos[:plastic_collected]%> KGs!
+          <span class="muted"><%=school_hash_with_photos[:name]%> </span></h2>
+        <p class="lead">Rs.<%=school_hash_with_photos[:green_fund]%> for Green Fund!</p>
+      </div>
     </div>
-
     <hr class="featurette-divider">
-
-    <div class="featurette">
-      <%= image_tag '/assets/schools/st_ursalas.jpg', :class => "featurette-image pull-right" %>
-      <h2 class="featurette-heading">800 KGs!
-        <span class="muted">St. Ursulas Nigadi</span></h2>
-
-      <p class="lead">Rs.8121 for Green Fund!</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-      <%= image_tag '/assets/schools/modern_school.jpg', :class => "featurette-image pull-right" %>
-      <h2 class="featurette-heading">125 KGs!
-        <span class="muted">Modern High School</span></h2>
-
-      <p class="lead">Rs.1000 for Green Fund!</p>
-    </div>
+<%end%>
 
 <script>
     !function ($) {

@@ -18,7 +18,7 @@
 
 .cycle2_image
 {
-    height:100%
+   height:300px;width:500px
 
 }
 /* set border-box so that percents can be used for width, padding, etc (personal preference) */
