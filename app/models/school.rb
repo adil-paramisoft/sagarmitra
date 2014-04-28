@@ -61,7 +61,19 @@ class School < ActiveRecord::Base
      sch_hash[:green_fund] = sch.money_given
       #all events of a school
      school_events = PlasticCollectionEvent.where("school_id=?",sch.id)
-     sch_hash[:photos] = Photo.where("photos.imageable_id=?",school_events.last.id)
+
+      school_events_photos = Photo.includes(:imageable).where("photos.imageable_type = ? AND photos.imageable_id IN(?)  ", 'PlasticCollectionEvent', School.find(sch.id).plastic_collection_events.collect(&:id))
+     url_and_title = []
+     school_events_photos.each do |school_event|
+
+           url_and_title <<[ school_event.title,school_event.flickr_url]
+     end
+     sch_hash[:photo_urls] = url_and_title
+     logger.info("---school event ---")
+          logger.info(sch_hash[:photo_urls])
+     logger.info("---school event ---")
+     #sch_hash[:photos] = Photo.where("photos.imageable_id=?",school_events.last.id)
+
      top_schools_with_photos << sch_hash
    end
   logger.info("-----------top_schools-with_photos-------")
