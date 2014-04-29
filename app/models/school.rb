@@ -12,7 +12,7 @@ class School < ActiveRecord::Base
   belongs_to :school_type
   belongs_to :school_medium
   has_one :principal_detail
-  has_one :school_volunteer
+  has_one :school_volunteer,dependent: :destroy
   has_one :photo, as: :imageable, dependent: :destroy, class_name: ::Photo
 
   #validations
