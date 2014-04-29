@@ -7,6 +7,8 @@ class Admin::SchoolVolunteersController < ApplicationController
   # GET /school_volunteers.json
   def index
     @school_volunteers = SchoolVolunteer.all
+
+
   end
 
   # GET /school_volunteers/1
