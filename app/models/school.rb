@@ -60,9 +60,9 @@ class School < ActiveRecord::Base
      sch_hash[:plastic_collected] = sch.plastic_weight
      sch_hash[:green_fund] = sch.money_given
       #all events of a school
-     school_events = PlasticCollectionEvent.where("school_id=?",sch.id)
-
-      school_events_photos = Photo.includes(:imageable).where("photos.imageable_type = ? AND photos.imageable_id IN(?)  ", 'PlasticCollectionEvent', School.find(sch.id).plastic_collection_events.collect(&:id))
+     school_events = PlasticCollectionEvent.select("Distinct plastic_collection_events.id").joins(:photos).where("plastic_collection_events.school_id = ? ",sch.id)
+     #School.find(sch.id).plastic_collection_events.collect(&:id)
+      school_events_photos = Photo.includes(:imageable).where("photos.imageable_type = ? AND photos.imageable_id IN(?)  ", 'PlasticCollectionEvent',school_events )
      url_and_title = []
      school_events_photos.each do |school_event|
 

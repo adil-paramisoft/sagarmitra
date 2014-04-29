@@ -1,5 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+
 <%= render 'carousel' %>
 <!-- Three columns of text below the carousel -->
 
@@ -40,9 +39,10 @@
 <%@top_three_schools_with_photos.each do |school_hash_with_photos|%>
     <div class="featurette">
       <div class="featurette-image pull-right">
-        <div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=2000>
+        <div class="cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=0>
           <div class="cycle-overlay"></div>
-
+          <div class="cycle-prev"></div>
+          <div class="cycle-next"></div>
           <%school_hash_with_photos[:photo_urls].each do |photos_url|%>
               <%if photos_url.last.nil?%>
                   <%=image_tag "Nothing-to-Display.png",:class=>"cycle2_image",:style=>"height:300px;width:500px",data: { cycle_title:photos_url.first,cycle_desc:""} %>
