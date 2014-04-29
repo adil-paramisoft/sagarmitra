@@ -135,3 +135,13 @@
     opacity: .5;
     filter: alpha(opacity=50);
 }
+
+.carousel-control.left {
+    left: -50px;
+}
+.carousel-control.right {
+    right: -50px !important;
+}
+a.carousel-control.right, a.carousel-control.left {
+    color: white;
+}
