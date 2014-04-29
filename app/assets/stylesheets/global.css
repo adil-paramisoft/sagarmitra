@@ -1,0 +1,21 @@
+/*
+    media queries
+    some style overrides to make things more pleasant on mobile devices
+*/
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+    .cycle-slideshow { width: 200px;}
+    .cycle-overlay { padding: 4px }
+    .cycle-caption { bottom: 4px; right: 4px }
+}
+
+
+.spacer {
+    width: 100%;
+    display: block;
+    height: 10px;
+}
+
+.dialogIsOpen .container {
+    /*Blur and de-color*/
+    -webkit-filter: blur(4px) grayscale(50%);
+}
