@@ -38,7 +38,9 @@
         </thead>
         <tr>
 
-
+          <%logger.info("----school volunteers index view--------")%>
+          <%logger.info(@school_volunteers)%>
+          <%logger.info("----school volunteers index vieww--------")%>
           <% @school_volunteers.each do |school_volunteer| %>
             <tr>
               <td><%= school_volunteer.school.name %></td>

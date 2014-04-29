@@ -7,8 +7,10 @@ class Admin::SchoolVolunteersController < ApplicationController
   # GET /school_volunteers.json
   def index
     @school_volunteers = SchoolVolunteer.all
+    logger.info("school volunteers controller index action")
 
-
+    logger.info(@school_volunteers)
+    logger.info("school volunteers controller index action")
   end
 
   # GET /school_volunteers/1
