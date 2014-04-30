@@ -78,6 +78,9 @@ class SchoolVolunteersController < ApplicationController
   end
 
   def load_school_volunteer
+    logger.info("++++++++++++++++++")
+    logger.info(school_volunteer_params)
+    logger.info("++++++++++++++++++")
     @school_volunteer = SchoolVolunteer.new(school_volunteer_params)
   end
 
