@@ -83,6 +83,7 @@ class SchoolVolunteersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def school_volunteer_params
+
     params.require(:school_volunteer).permit(:volunteer, :mobile, :email, :name, :id,
                                              school_attributes: [:id, :name, :address, :school_medium_id,
                                                                  :total_students, :school_type_id, :program_state_id,
