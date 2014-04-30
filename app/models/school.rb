@@ -49,36 +49,29 @@ class School < ActiveRecord::Base
 
   def self.top_three_collections
     #getting top three schools with maximum plastic collected
-  top_schools = self.select("schools.id,schools.name,SUM(plastic_collection_events.plastic_weight) as plastic_weight, SUM(plastic_collection_events.money_given) as money_given").joins(:plastic_collection_events).group("schools.id,schools.name").order("plastic_weight DESC").limit(3)
-  top_schools_with_photos = []
-  photo_array = []
+    top_schools = self.select("schools.id,schools.name,SUM(plastic_collection_events.plastic_weight) as plastic_weight, SUM(plastic_collection_events.money_given) as money_given").joins(:plastic_collection_events).group("schools.id,schools.name").order("plastic_weight DESC").limit(3)
+    top_schools_with_photos = []
+
+
    #getting all events of each of the top schools
    top_schools.each do |sch|
-     sch_hash = {}
-     sch_hash[:id]=sch.id
-     sch_hash[:name] = sch.name
-     sch_hash[:plastic_collected] = sch.plastic_weight
-     sch_hash[:green_fund] = sch.money_given
-      #all events of a school
-     school_events = PlasticCollectionEvent.select("Distinct plastic_collection_events.id").joins(:photos).where("plastic_collection_events.school_id = ? ",sch.id)
-     #School.find(sch.id).plastic_collection_events.collect(&:id)
-      school_events_photos = Photo.includes(:imageable).where("photos.imageable_type = ? AND photos.imageable_id IN(?)  ", 'PlasticCollectionEvent',school_events )
-     url_and_title = []
-     school_events_photos.each do |school_event|
-
-           url_and_title <<[ school_event.title,school_event.flickr_url]
+      sch_hash = {}
+      sch_hash[:id]=sch.id
+      sch_hash[:name] = sch.name
+      sch_hash[:plastic_collected] = sch.plastic_weight
+      sch_hash[:green_fund] = sch.money_given
+    #all events of a school
+    school_events = PlasticCollectionEvent.select("Distinct plastic_collection_events.id").joins(:photos).where("plastic_collection_events.school_id = ? ",sch.id)
+    #School.find(sch.id).plastic_collection_events.collect(&:id)
+    school_events_photos = Photo.includes(:imageable).where("photos.imageable_type = ? AND photos.imageable_id IN(?)  ", 'PlasticCollectionEvent',school_events )
+    url_and_title = []
+    school_events_photos.each do |school_event|
+      url_and_title <<[ school_event.title,school_event.flickr_url]
      end
      sch_hash[:photo_urls] = url_and_title
-     logger.info("---school event ---")
-          logger.info(sch_hash[:photo_urls])
-     logger.info("---school event ---")
-     #sch_hash[:photos] = Photo.where("photos.imageable_id=?",school_events.last.id)
-
      top_schools_with_photos << sch_hash
    end
-  logger.info("-----------top_schools-with_photos-------")
-  logger.info(top_schools_with_photos)
-  logger.info("-----------top_schools-with_photos-------")
+
   return top_schools_with_photos
   end
 

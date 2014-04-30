@@ -20,6 +20,9 @@ class SchoolVolunteer < ActiveRecord::Base
   accepts_nested_attributes_for :school
 
 
+
+
+
   def upload_flickr_photos
     self.school.upload_flickr_photo
     self.school.principal_detail.upload_flickr_photo

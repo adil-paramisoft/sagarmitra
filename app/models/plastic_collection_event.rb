@@ -29,6 +29,18 @@ class PlasticCollectionEvent < ActiveRecord::Base
     'Green'
   end
 
+
+  def self.metadata
+   plastic_collection_metadata= PlasticCollectionEvent.select("SUM(money_given) as green_fund, SUM(plastic_weight) as total_plastic").group("id")
+logger.info("++++++++")
+logger.info(plastic_collection_metadata.first.inspect)
+logger.info("++++++++")
+
+
+return plastic_collection_metadata
+  end
+
+
   def upload_flickr_photos
     self.photos.each do |photo|
       if photo.flickr_photo_id.present?
