@@ -10,5 +10,10 @@
  *
  *= require_self
  *= require jquery-ui-1.10.3.custom.min
+ *= require jquery.cycle2
  *= require_tree .
  */
+
+
+
+

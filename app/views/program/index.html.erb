@@ -45,20 +45,18 @@
           <div class="cycle-next"></div>
           <%school_hash_with_photos[:photo_urls].each do |photos_url|%>
               <%if photos_url.last.nil?%>
-                  <%=image_tag "Nothing-to-Display.png",:class=>"cycle2_image",:style=>"height:300px;width:500px",data: { cycle_title:photos_url.first,cycle_desc:""} %>
+                  <%=image_tag "Nothing-to-Display.png",:class=>"cycle2_image",data: { cycle_title:photos_url.first,cycle_desc:""} %>
                   <%end%>
 
-              <%=image_tag photos_url.last,:class => "cycle2_image",:style=>"height:300px;width:500px",data: { cycle_title:photos_url.first,cycle_desc:""} %>
+              <%=image_tag photos_url.last,:class => "cycle2_image",:style=>"height:384px;width:512px",data: { cycle_title:photos_url.first,cycle_desc:""} %>
           <%end%>
         </div>
       </div>
       <%#= image_tag '/assets/schools/st_andrew.jpg', :class => "featurette-image pull-right" %>
-      <div class="span4">
-        <h2 class="featurette-heading"><%=school_hash_with_photos[:plastic_collected]%> KGs!
+        <h2 class="featurette-heading"><%=school_hash_with_photos[:plastic_collected].to_i %> KGs!
           <span class="muted"><%=school_hash_with_photos[:name]%> </span></h2>
-        <p class="lead">Rs.<%=school_hash_with_photos[:green_fund]%> for Green Fund!</p>
+        <p class="lead">Rs.<%=school_hash_with_photos[:green_fund].to_i %> for Green Fund!</p>
       </div>
-    </div>
     <hr class="featurette-divider">
 <%end%>
 
