@@ -87,15 +87,15 @@
                     <%= pd.input :name, label: false %>
                   </div>
                 </div>
-                <%#= pd.fields_for :photo do |photo| %>
-                    <!--<div class="control-group">
+                <%= pd.fields_for :photo do |photo| %>
+                    <div class="control-group">
                       <label class="control-label" for="selectbasic">Principal photo</label>
 
                       <div class="controls">
-                        <%#= photo.input :image, as: :file, label: false %>
+                        <%= photo.input :image, as: :file, label: false %>
                       </div>
-                    </div>-->
-                <%# end %>
+                    </div>
+                <% end %>
 
                 <div class="control-group">
                   <label class="control-label" for="selectbasic"> In Office Since</label>
